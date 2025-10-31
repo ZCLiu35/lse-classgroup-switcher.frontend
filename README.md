@@ -1,0 +1,1 @@
+# lse-classgroup-switcher.frontend
