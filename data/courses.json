@@ -1,0 +1,20 @@
+[
+  {
+    "CourseID": "C100",
+    "CourseCode": "LSE100",
+    "CourseName": "Intro to Economics",
+    "Term": "AT,WT"
+  },
+  {
+    "CourseID": "C200",
+    "CourseCode": "LSE200",
+    "CourseName": "Quantitative Methods",
+    "Term": "AT,WT"
+  },
+  {
+    "CourseID": "C300",
+    "CourseCode": "LSE300",
+    "CourseName": "Public Policy",
+    "Term": "AT,ST"
+  }
+]

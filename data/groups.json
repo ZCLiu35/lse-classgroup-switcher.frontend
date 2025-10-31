@@ -1,0 +1,13 @@
+[
+  { "GroupID": "G100L", "CourseID": "C100", "Type": "Lecture", "GroupNumber": 1, "Instructor": "Dr Alice" },
+  { "GroupID": "G100T1", "CourseID": "C100", "Type": "Tutorial", "GroupNumber": 1, "Instructor": "Ms Bell" },
+  { "GroupID": "G100T2", "CourseID": "C100", "Type": "Tutorial", "GroupNumber": 2, "Instructor": "Mr Clark" },
+
+  { "GroupID": "G200L", "CourseID": "C200", "Type": "Lecture", "GroupNumber": 1, "Instructor": "Dr Davis" },
+  { "GroupID": "G200T1", "CourseID": "C200", "Type": "Tutorial", "GroupNumber": 1, "Instructor": "Ms Evans" },
+  { "GroupID": "G200T2", "CourseID": "C200", "Type": "Tutorial", "GroupNumber": 2, "Instructor": "Mr Ford" },
+
+  { "GroupID": "G300L", "CourseID": "C300", "Type": "Lecture", "GroupNumber": 1, "Instructor": "Dr Green" },
+  { "GroupID": "G300T1", "CourseID": "C300", "Type": "Tutorial", "GroupNumber": 1, "Instructor": "Ms Hale" },
+  { "GroupID": "G300T2", "CourseID": "C300", "Type": "Tutorial", "GroupNumber": 2, "Instructor": "Mr Ivy" }
+]

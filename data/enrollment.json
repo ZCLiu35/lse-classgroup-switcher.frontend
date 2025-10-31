@@ -1,0 +1,5 @@
+[
+  { "CourseID": "C100", "TutorialGroupID": "G100T1" },
+  { "CourseID": "C200", "TutorialGroupID": "G200T1" },
+  { "CourseID": "C300", "TutorialGroupID": "G300T1" }
+]
