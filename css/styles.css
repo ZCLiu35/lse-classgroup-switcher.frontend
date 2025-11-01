@@ -31,11 +31,12 @@
     font-size: 0.75rem;
     cursor: pointer;
     transition: all 0.2s ease;
+    box-sizing: border-box; /* Ensure consistent box model */
+    position: relative; /* Establish positioning context */
 }
 
 .fc-event:hover {
     filter: brightness(0.95);
-    transform: translateY(-1px);
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
@@ -67,20 +68,30 @@
     display: flex;
     flex-direction: column;
     gap: 2px;
+    height: 100%; /* Ensure content fills the event container */
+    box-sizing: border-box;
 }
 
 .event-course {
     font-weight: 700;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    line-height: 1.2;
 }
 
+.event-type-location {
+    font-size: 0.85rem;
+    opacity: 0.95;
+    line-height: 1.2;
+}
+
+/* Legacy styles (kept for backwards compatibility) */
 .event-type {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     opacity: 0.95;
 }
 
 .event-location {
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     opacity: 0.85;
     margin-top: 2px;
 }
@@ -111,8 +122,8 @@
 }
 
 .course-color-5 {
-    background-color: #ef4444; /* Red */
-    border-color: #dc2626;
+    background-color: #a855f7; /* Purple (lighter shade) */
+    border-color: #9333ea;
     color: white;
 }
 
@@ -303,6 +314,7 @@
     opacity: 1;
     border-width: 2px;
     cursor: help;  /* Shows info is available on click */
+    box-sizing: border-box;
 }
 
 /* Selected for switch (staged change) */
@@ -310,14 +322,20 @@
     background-color: #6b7280 !important;
     border-color: #4b5563 !important;
     color: white !important;
-    box-shadow: 0 0 0 2px white, 0 0 0 4px #4b5563;
+    border-width: 2px;
+    border-style: solid;
+    outline: 2px solid #4b5563;
+    outline-offset: 2px;
     cursor: pointer;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10; /* Ensure selected events appear above others */
 }
 
 .fc-event.event-selected:hover {
     background-color: #4b5563 !important;
-    transform: translateY(-1px);
-    box-shadow: 0 0 0 2px white, 0 0 0 4px #374151, 0 4px 6px rgba(0,0,0,0.1);
+    outline-color: #374151;
+    filter: brightness(0.95);
 }
 
 /* Alternative tutorials (not enrolled, not selected) */
@@ -326,11 +344,11 @@
     border-style: dashed;
     border-width: 2px;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 .fc-event.event-alternative:hover {
     opacity: 0.75;
-    transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 

@@ -136,8 +136,8 @@ class ClassSwitcherApp {
             firstDay: CONFIG.CALENDAR.weekStart,
             
             // Enable side-by-side display for overlapping events
-            slotEventOverlap: true,  // Allow events to be placed side-by-side
-            eventOverlap: true,      // Events can overlap in the layout
+            slotEventOverlap: false,  // Force events to display side-by-side without overlap
+            eventOverlap: true,       // Events can still be scheduled at the same time
             
             // Event handlers
             eventClick: this.handleEventClick.bind(this),
@@ -154,15 +154,14 @@ class ClassSwitcherApp {
      * Render custom event content
      */
     renderEventContent(arg) {
-        const { courseCode, groupType, groupNumber, location } = arg.event.extendedProps;
+        const { courseCode, courseName, groupType, groupNumber, location } = arg.event.extendedProps;
         const groupDisplay = groupType === 'LEC' ? 'LEC' : `Tut-G${groupNumber}`;
         
         return {
             html: `
                 <div class="event-content">
-                    <div class="event-course">${courseCode}</div>
-                    <div class="event-type">${groupDisplay}</div>
-                    <div class="event-location">${location}</div>
+                    <div class="event-course">${courseCode}  ${courseName}</div>
+                    <div class="event-type-location">${groupDisplay} • ${location}</div>
                 </div>
             `
         };
