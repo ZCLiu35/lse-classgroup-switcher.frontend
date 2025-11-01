@@ -47,12 +47,16 @@
                         Today
                     </button>
                     
-                    <!-- Planning Mode Toggle (disabled for Phase 1) -->
-                    <div class="flex items-center gap-2 opacity-50 cursor-not-allowed" title="Available in Phase 2">
-                        <span class="text-sm text-gray-600">Planning Mode</span>
-                        <div class="w-12 h-6 bg-gray-300 rounded-full relative">
-                            <div class="w-5 h-5 bg-white rounded-full absolute top-0.5 left-0.5"></div>
-                        </div>
+                    <!-- Planning Mode Toggle -->
+                    <button id="planningModeToggle" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 font-medium">
+                        Planning Mode
+                    </button>
+                    
+                    <!-- Planning Mode Actions (hidden by default) -->
+                    <div id="planningActions" class="planning-actions hidden">
+                        <button id="cancelBtn" class="btn-cancel">Cancel</button>
+                        <button id="saveBtn" class="btn-save">Save</button>
+                        <button id="applyBtn" class="btn-apply">Apply</button>
                     </div>
                 </div>
             </div>
@@ -69,9 +73,45 @@
         <!-- Sidebar -->
         <aside id="sidebar" class="w-64 bg-white border-r border-gray-200 overflow-y-auto">
             <div class="p-4">
-                <h2 class="text-lg font-semibold text-gray-800 mb-4">Enrolled Courses</h2>
-                <div id="enrolledCoursesList" class="space-y-3">
-                    <!-- Courses will be dynamically loaded here -->
+                <!-- Viewing Mode Sidebar -->
+                <div id="viewingSidebar">
+                    <h2 class="text-lg font-semibold text-gray-800 mb-4">Enrolled Courses</h2>
+                    <div id="enrolledCoursesList" class="space-y-3">
+                        <!-- Courses will be dynamically loaded here -->
+                    </div>
+                </div>
+                
+                <!-- Planning Mode Sidebar (hidden by default) -->
+                <div id="planningSidebar" class="hidden">
+                    <h2 class="text-lg font-semibold text-gray-800 mb-4">Course Filters</h2>
+                    <div id="courseFiltersList" class="space-y-2">
+                        <!-- Course filters will be dynamically loaded here -->
+                    </div>
+                    
+                    <!-- Legend -->
+                    <div class="planning-legend mt-6">
+                        <div class="planning-legend-title">LEGEND</div>
+                        <div class="planning-legend-item">
+                            <div class="planning-legend-box enrolled"></div>
+                            <span>Current</span>
+                        </div>
+                        <div class="planning-legend-item">
+                            <div class="planning-legend-box selected"></div>
+                            <span>Selected</span>
+                        </div>
+                        <div class="planning-legend-item">
+                            <div class="planning-legend-box alternative"></div>
+                            <span>Alternative</span>
+                        </div>
+                        <div class="planning-legend-item">
+                            <div class="planning-legend-box lecture"></div>
+                            <span>Lecture</span>
+                        </div>
+                        <div class="planning-legend-item">
+                            <div class="planning-legend-box conflict"></div>
+                            <span>Conflict</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </aside>
@@ -88,6 +128,7 @@
     <!-- App Scripts -->
     <script type="module" src="js/config.js"></script>
     <script type="module" src="js/utils.js"></script>
+    <script type="module" src="js/planningState.js"></script>
     <script type="module" src="js/app.js"></script>
 </body>
 </html>

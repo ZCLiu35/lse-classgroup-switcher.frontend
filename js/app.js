@@ -4,6 +4,8 @@
 
 import { CONFIG } from './config.js';
 import * as utils from './utils.js';
+import { PlanningState } from './planningState.js';
+import { detectConflicts } from './conflictDetector.js';
 
 class ClassSwitcherApp {
     constructor() {
@@ -20,6 +22,12 @@ class ClassSwitcherApp {
         
         // Course color mapping
         this.courseColors = new Map();
+        
+        // Planning mode state
+        this.planningState = new PlanningState();
+        
+        // Conflict tracking
+        this.conflictingEventIds = new Set();
     }
 
     /**
@@ -127,6 +135,10 @@ class ClassSwitcherApp {
             expandRows: CONFIG.CALENDAR.expandRows,
             firstDay: CONFIG.CALENDAR.weekStart,
             
+            // Enable side-by-side display for overlapping events
+            slotEventOverlap: true,  // Allow events to be placed side-by-side
+            eventOverlap: true,      // Events can overlap in the layout
+            
             // Event handlers
             eventClick: this.handleEventClick.bind(this),
             eventMouseEnter: this.handleEventHover.bind(this),
@@ -160,8 +172,12 @@ class ClassSwitcherApp {
      * Handle event click
      */
     handleEventClick(info) {
-        const props = info.event.extendedProps;
-        alert(`${props.courseName}\n${props.groupType} Group ${props.groupNumber}\n\nInstructor: ${props.instructor}\nLocation: ${props.location}\nWeek ${props.weekNumber}`);
+        if (this.planningState.isPlanning()) {
+            this.handlePlanningEventClick(info);
+        } else {
+            const props = info.event.extendedProps;
+            this.showEventDetails(props);
+        }
     }
 
     /**
@@ -236,8 +252,27 @@ class ClassSwitcherApp {
         // Update calendar date
         this.calendar.gotoDate(start);
         
-        // Get events for this week
-        const events = this.getEventsForWeek(termCode, weekNumber, start);
+        // Get events for this week based on mode
+        let events;
+        if (this.planningState.isPlanning()) {
+            events = this.getEventsForPlanningMode(termCode, weekNumber, start);
+        } else {
+            events = this.getEventsForWeek(termCode, weekNumber, start);
+        }
+        
+        // Detect conflicts in planning mode
+        if (this.planningState.isPlanning()) {
+            this.conflictingEventIds = detectConflicts(events);
+            
+            // Mark conflicting events
+            events.forEach(event => {
+                if (this.conflictingEventIds.has(event.id)) {
+                    event.classNames.push('event-conflict');
+                }
+            });
+        } else {
+            this.conflictingEventIds.clear();
+        }
         
         // Update calendar events
         this.calendar.removeAllEvents();
@@ -337,6 +372,24 @@ class ClassSwitcherApp {
             this.detectCurrentWeekAndTerm();
             this.loadWeek(this.currentTerm, this.currentWeek);
         });
+        
+        // Planning mode toggle
+        document.getElementById('planningModeToggle').addEventListener('click', () => {
+            this.togglePlanningMode();
+        });
+        
+        // Planning mode action buttons
+        document.getElementById('cancelBtn').addEventListener('click', () => {
+            this.exitPlanningMode('cancel');
+        });
+        
+        document.getElementById('saveBtn').addEventListener('click', () => {
+            this.exitPlanningMode('save');
+        });
+        
+        document.getElementById('applyBtn').addEventListener('click', () => {
+            this.applyChanges();
+        });
     }
 
     /**
@@ -345,6 +398,389 @@ class ClassSwitcherApp {
     showError(message) {
         const calendarEl = document.getElementById('calendar');
         calendarEl.innerHTML = `<div class="error-message">${message}</div>`;
+    }
+    
+    // ======================================
+    // Planning Mode Methods
+    // ======================================
+    
+    /**
+     * Toggle planning mode on/off
+     */
+    togglePlanningMode() {
+        if (this.planningState.isPlanning()) {
+            this.exitPlanningMode('cancel');
+        } else {
+            this.enterPlanningMode();
+        }
+    }
+    
+    /**
+     * Enter planning mode
+     */
+    enterPlanningMode() {
+        const enrolledCourses = this.getEnrolledCoursesForTerm(this.currentTerm);
+        this.planningState.enterPlanningMode(enrolledCourses);
+        
+        // Update UI
+        this.updatePlanningModeUI();
+        this.renderPlanningSidebar();
+        
+        // Reload calendar with alternatives
+        this.loadWeek(this.currentTerm, this.currentWeek);
+    }
+    
+    /**
+     * Exit planning mode
+     * @param {string} action - 'cancel', 'save', or 'apply'
+     */
+    exitPlanningMode(action) {
+        const changes = this.planningState.exitPlanningMode(action);
+        
+        if (action === 'save' && changes && changes.size > 0) {
+            // Store changes for later (could save to localStorage)
+            console.log('Changes saved:', changes);
+            alert(`${changes.size} change(s) saved for later.`);
+        }
+        
+        // Update UI
+        this.updatePlanningModeUI();
+        this.renderSidebar();
+        
+        // Reload calendar in viewing mode
+        this.loadWeek(this.currentTerm, this.currentWeek);
+    }
+    
+    /**
+     * Apply staged changes (in a real app, this would call backend API)
+     */
+    applyChanges() {
+        // Check for conflicts first
+        if (this.conflictingEventIds.size > 0) {
+            const confirmApply = confirm(
+                `You have ${this.conflictingEventIds.size / 2} scheduling conflict(s). ` +
+                `Are you sure you want to apply these changes?`
+            );
+            if (!confirmApply) return;
+        }
+        
+        const changes = this.planningState.stagedChanges;
+        
+        if (changes.size === 0) {
+            alert('No changes to apply.');
+            return;
+        }
+        
+        // In a real application, this would make API calls to update enrollment
+        console.log('Applying changes:', changes);
+        
+        // Simulate success
+        alert(`Successfully applied ${changes.size} change(s)!\n\n(In production, this would update your enrollment in the school portal)`);
+        
+        // Exit planning mode
+        this.exitPlanningMode('apply');
+    }
+    
+    /**
+     * Update UI elements for planning mode
+     */
+    updatePlanningModeUI() {
+        const header = document.querySelector('header');
+        const toggleBtn = document.getElementById('planningModeToggle');
+        const planningActions = document.getElementById('planningActions');
+        const viewingSidebar = document.getElementById('viewingSidebar');
+        const planningSidebar = document.getElementById('planningSidebar');
+        
+        if (this.planningState.isPlanning()) {
+            // Planning mode ON
+            header.classList.add('planning-mode-header');
+            toggleBtn.classList.remove('bg-gray-200', 'text-gray-700');
+            toggleBtn.classList.add('bg-amber-500', 'text-white');
+            toggleBtn.textContent = '🔧 Planning Mode';
+            planningActions.classList.remove('hidden');
+            viewingSidebar.classList.add('hidden');
+            planningSidebar.classList.remove('hidden');
+        } else {
+            // Viewing mode ON
+            header.classList.remove('planning-mode-header');
+            toggleBtn.classList.remove('bg-amber-500', 'text-white');
+            toggleBtn.classList.add('bg-gray-200', 'text-gray-700');
+            toggleBtn.textContent = 'Planning Mode';
+            planningActions.classList.add('hidden');
+            viewingSidebar.classList.remove('hidden');
+            planningSidebar.classList.add('hidden');
+        }
+    }
+    
+    /**
+     * Render planning mode sidebar with course filters
+     */
+    renderPlanningSidebar() {
+        const container = document.getElementById('courseFiltersList');
+        container.innerHTML = '';
+        
+        const enrolledCourses = this.getEnrolledCoursesForTerm(this.currentTerm);
+        
+        enrolledCourses.forEach(course => {
+            const enrollment = this.enrollment.find(e => e.CourseID === course.CourseID);
+            if (!enrollment) return;
+            
+            const colorClass = this.courseColors.get(course.CourseID);
+            const isVisible = this.planningState.visibleCourses.has(course.CourseID);
+            const hasChanges = this.planningState.hasChanges(course.CourseID);
+            const showMode = this.planningState.showAlternatives.get(course.CourseID) || 'my';
+            
+            // Get tutorial/seminar groups (not lectures)
+            const tutorialTypes = Object.keys(enrollment.EnrolledGroups).filter(type => type !== 'LEC');
+            
+            const filterItem = document.createElement('div');
+            filterItem.className = 'course-filter-item';
+            
+            // Build change indicator
+            let changeText = '';
+            if (hasChanges) {
+                const changes = this.planningState.getChangesForCourse(course.CourseID);
+                const changeDescriptions = changes.map(ch => {
+                    const fromGroup = this.groups.find(g => g.GroupID === ch.from);
+                    const toGroup = this.groups.find(g => g.GroupID === ch.to);
+                    return `${ch.groupType}${fromGroup?.GroupNumber}→${toGroup?.GroupNumber}`;
+                });
+                changeText = ` (${changeDescriptions.join(', ')})`;
+            }
+            
+            // Count available groups (tutorials/seminars only)
+            const availableGroups = this.groups.filter(g => 
+                g.CourseID === course.CourseID && g.Type !== 'LEC'
+            );
+            
+            filterItem.innerHTML = `
+                <div class="course-filter-header">
+                    <input type="checkbox" 
+                           class="course-filter-checkbox" 
+                           data-course-id="${course.CourseID}"
+                           ${isVisible ? 'checked' : ''}>
+                    <div class="course-color-dot ${colorClass}"></div>
+                    <div class="course-filter-title">${course.CourseCode}</div>
+                    ${hasChanges ? `<div class="course-filter-change-indicator">${changeText}</div>` : ''}
+                </div>
+                <div class="course-filter-controls">
+                    <div class="course-filter-toggle">
+                        <button class="toggle-my ${showMode === 'my' ? 'active' : ''}" 
+                                data-course-id="${course.CourseID}" 
+                                data-mode="my">My</button>
+                        <button class="toggle-all ${showMode === 'all' ? 'active' : ''}" 
+                                data-course-id="${course.CourseID}" 
+                                data-mode="all">All</button>
+                    </div>
+                </div>
+                <div class="course-filter-info">Available: ${availableGroups.length} groups</div>
+            `;
+            
+            container.appendChild(filterItem);
+            
+            // Add event listeners
+            const checkbox = filterItem.querySelector('.course-filter-checkbox');
+            checkbox.addEventListener('change', (e) => {
+                this.planningState.toggleCourseVisibility(course.CourseID);
+                this.loadWeek(this.currentTerm, this.currentWeek);
+            });
+            
+            filterItem.querySelectorAll('.course-filter-toggle button').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const courseId = e.target.dataset.courseId;
+                    const mode = e.target.dataset.mode;
+                    this.planningState.setAlternativeMode(courseId, mode);
+                    this.renderPlanningSidebar(); // Re-render to update active state
+                    this.loadWeek(this.currentTerm, this.currentWeek);
+                });
+            });
+        });
+    }
+    
+    /**
+     * Get events for planning mode (includes alternatives)
+     */
+    getEventsForPlanningMode(termCode, weekNumber, weekStart) {
+        const events = [];
+        const enrolledCourses = this.getEnrolledCoursesForTerm(termCode);
+        
+        enrolledCourses.forEach(course => {
+            // Skip if course is hidden
+            if (!this.planningState.visibleCourses.has(course.CourseID)) {
+                return;
+            }
+            
+            const enrollment = this.enrollment.find(e => e.CourseID === course.CourseID);
+            if (!enrollment) return;
+            
+            const showMode = this.planningState.showAlternatives.get(course.CourseID) || 'my';
+            
+            // Add all enrolled lectures (always show)
+            Object.entries(enrollment.EnrolledGroups).forEach(([groupType, groupId]) => {
+                if (groupType === 'LEC') {
+                    const group = this.groups.find(g => g.GroupID === groupId);
+                    if (!group) return;
+                    
+                    const groupSessions = this.sessions[groupId]?.[termCode];
+                    if (!groupSessions) return;
+                    
+                    const weekSessions = groupSessions.filter(s => s.Week === weekNumber);
+                    weekSessions.forEach(session => {
+                        const event = utils.sessionToEvent(
+                            session, course, group, weekStart,
+                            this.courseColors.get(course.CourseID),
+                            'lecture'
+                        );
+                        events.push(event);
+                    });
+                }
+            });
+            
+            // Add tutorials/seminars based on mode
+            const tutorialTypes = Object.keys(enrollment.EnrolledGroups).filter(t => t !== 'LEC');
+            
+            tutorialTypes.forEach(groupType => {
+                const enrolledGroupId = enrollment.EnrolledGroups[groupType];
+                const selectedGroupId = this.planningState.getSelectedGroup(
+                    course.CourseID, groupType, enrolledGroupId
+                );
+                
+                if (showMode === 'my') {
+                    // Show only enrolled and selected
+                    const groupsToShow = new Set([enrolledGroupId, selectedGroupId]);
+                    
+                    groupsToShow.forEach(groupId => {
+                        const group = this.groups.find(g => g.GroupID === groupId);
+                        if (!group) return;
+                        
+                        const groupSessions = this.sessions[groupId]?.[termCode];
+                        if (!groupSessions) return;
+                        
+                        const weekSessions = groupSessions.filter(s => s.Week === weekNumber);
+                        weekSessions.forEach(session => {
+                            let eventState;
+                            if (groupId === selectedGroupId && groupId !== enrolledGroupId) {
+                                eventState = 'selected';
+                            } else {
+                                eventState = 'enrolled';
+                            }
+                            
+                            const event = utils.sessionToEvent(
+                                session, course, group, weekStart,
+                                this.courseColors.get(course.CourseID),
+                                eventState
+                            );
+                            events.push(event);
+                        });
+                    });
+                } else {
+                    // Show all available groups
+                    const allGroups = this.groups.filter(g => 
+                        g.CourseID === course.CourseID && g.Type === groupType
+                    );
+                    
+                    allGroups.forEach(group => {
+                        const groupSessions = this.sessions[group.GroupID]?.[termCode];
+                        if (!groupSessions) return;
+                        
+                        const weekSessions = groupSessions.filter(s => s.Week === weekNumber);
+                        weekSessions.forEach(session => {
+                            let eventState;
+                            if (group.GroupID === selectedGroupId && group.GroupID !== enrolledGroupId) {
+                                eventState = 'selected';
+                            } else if (group.GroupID === enrolledGroupId) {
+                                eventState = 'enrolled';
+                            } else {
+                                eventState = 'alternative';
+                            }
+                            
+                            const event = utils.sessionToEvent(
+                                session, course, group, weekStart,
+                                this.courseColors.get(course.CourseID),
+                                eventState
+                            );
+                            events.push(event);
+                        });
+                    });
+                }
+            });
+        });
+        
+        return events;
+    }
+    
+    /**
+     * Handle event click in planning mode
+     */
+    handlePlanningEventClick(info) {
+        const props = info.event.extendedProps;
+        
+        // Only allow clicking on tutorials/seminars, not lectures
+        if (props.groupType === 'LEC') {
+            this.showEventDetails(props);
+            return;
+        }
+        
+        // Find enrollment for this course
+        const enrollment = this.enrollment.find(e => e.CourseID === props.courseId);
+        if (!enrollment) return;
+        
+        const enrolledGroupId = enrollment.EnrolledGroups[props.groupType];
+        
+        // If clicking on selected event, de-select it (revert to enrolled)
+        if (props.eventState === 'selected') {
+            this.planningState.selectTutorialGroup(
+                props.courseId,
+                props.groupType,
+                enrolledGroupId,
+                enrolledGroupId  // Set back to enrolled group
+            );
+            
+            // Reload calendar and sidebar
+            this.renderPlanningSidebar();
+            this.loadWeek(this.currentTerm, this.currentWeek);
+            return;
+        }
+        
+        // If clicking on enrolled event, just show details
+        if (props.eventState === 'enrolled') {
+            this.showEventDetails(props);
+            return;
+        }
+        
+        // If clicking on alternative event, select it
+        if (props.eventState === 'alternative') {
+            this.planningState.selectTutorialGroup(
+                props.courseId,
+                props.groupType,
+                enrolledGroupId,
+                props.groupId
+            );
+            
+            // Reload calendar and sidebar
+            this.renderPlanningSidebar();
+            this.loadWeek(this.currentTerm, this.currentWeek);
+            return;
+        }
+    }
+    
+    /**
+     * Show event details in an alert
+     */
+    showEventDetails(props) {
+        const status = props.eventState === 'enrolled' ? 'Enrolled' :
+                      props.eventState === 'selected' ? 'Selected (staged)' :
+                      props.eventState === 'alternative' ? 'Available alternative' :
+                      'Lecture';
+        
+        alert(
+            `${props.courseName}\n` +
+            `${props.groupType} Group ${props.groupNumber}\n\n` +
+            `Status: ${status}\n` +
+            `Instructor: ${props.instructor || 'TBA'}\n` +
+            `Location: ${props.location}\n` +
+            `Week ${props.weekNumber}`
+        );
     }
 }
 

@@ -96,10 +96,10 @@ export function getTermForDate(date) {
  * @param {Object} group - Group object from groups.json
  * @param {Date} weekStart - Start date of the week
  * @param {string} courseColor - CSS class for course color
- * @param {boolean} isEnrolled - Whether this is an enrolled session
+ * @param {string} eventState - Event state: 'enrolled', 'selected', 'alternative', 'lecture'
  * @returns {Object} FullCalendar event object
  */
-export function sessionToEvent(session, course, group, weekStart, courseColor, isEnrolled) {
+export function sessionToEvent(session, course, group, weekStart, courseColor, eventState = 'enrolled') {
     // Map day names to day numbers (0 = Monday)
     const dayMap = { 'Mon': 0, 'Tue': 1, 'Wed': 2, 'Thu': 3, 'Fri': 4, 'Sat': 5, 'Sun': 6 };
     
@@ -117,8 +117,14 @@ export function sessionToEvent(session, course, group, weekStart, courseColor, i
     const endDateTime = new Date(sessionDate);
     endDateTime.setHours(endHours, endMinutes, 0);
     
-    // Build event object
-    const eventType = group.Type === 'LEC' ? 'lecture' : 'tutorial-enrolled';
+    // Build event classes based on state
+    const eventClasses = [courseColor];
+    if (group.Type === 'LEC') {
+        eventClasses.push('lecture');
+    } else {
+        eventClasses.push(`event-${eventState}`);
+    }
+    
     const groupDisplay = group.Type === 'LEC' ? 'Lec' : `${group.Type}-G${group.GroupNumber}`;
     
     return {
@@ -126,16 +132,21 @@ export function sessionToEvent(session, course, group, weekStart, courseColor, i
         title: `${course.CourseCode}\n${groupDisplay}\n${session.Room}`,
         start: startDateTime,
         end: endDateTime,
-        classNames: [courseColor, eventType],
+        classNames: eventClasses,
         extendedProps: {
             courseCode: course.CourseCode,
             courseName: course.CourseName,
+            courseId: course.CourseID,
+            groupId: group.GroupID,
             groupType: group.Type,
             groupNumber: group.GroupNumber,
             instructor: group.Teacher,
             location: session.Room,
             weekNumber: session.Week,
-            isEnrolled: isEnrolled
+            dayOfWeek: session.Day,
+            startTime: session.StartTime,
+            endTime: session.EndTime,
+            eventState: eventState
         }
     };
 }

@@ -20,7 +20,7 @@
 
 /* Time column styling */
 .fc-timegrid-slot-label {
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: #6b7280;
 }
 
@@ -45,16 +45,10 @@
     border-width: 2px;
 }
 
-/* Lecture - Striped Pattern */
+/* Lecture - Solid with thicker border to distinguish from tutorials */
 .fc-event.lecture {
-    background-image: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 4px,
-        rgba(255, 255, 255, 0.3) 4px,
-        rgba(255, 255, 255, 0.3) 8px
-    );
-    border-width: 2px;
+    border-width: 3px;
+    opacity: 0.9;
 }
 
 /* Event Content Layout */
@@ -223,4 +217,288 @@
     border-radius: 6px;
     color: #991b1b;
     margin: 16px;
+}
+
+/* ======================================
+   Planning Mode Styles
+   ====================================== */
+
+/* Planning Mode Header */
+.planning-mode-header {
+    background-color: #fef3c7;
+    border-bottom: 2px solid #fbbf24;
+}
+
+.planning-mode-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background-color: #f59e0b;
+    color: white;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.planning-mode-indicator::before {
+    content: '🔧';
+    font-size: 1rem;
+}
+
+/* Planning Mode Action Buttons */
+.planning-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.planning-actions button {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.planning-actions .btn-cancel {
+    background-color: white;
+    border-color: #d1d5db;
+    color: #374151;
+}
+
+.planning-actions .btn-cancel:hover {
+    border-color: #9ca3af;
+    background-color: #f9fafb;
+}
+
+.planning-actions .btn-save {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.planning-actions .btn-save:hover {
+    background-color: #2563eb;
+}
+
+.planning-actions .btn-apply {
+    background-color: #10b981;
+    color: white;
+}
+
+.planning-actions .btn-apply:hover {
+    background-color: #059669;
+}
+
+.planning-actions button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Planning Mode Event States */
+
+/* Currently enrolled tutorial */
+.fc-event.event-enrolled {
+    opacity: 1;
+    border-width: 2px;
+    cursor: help;  /* Shows info is available on click */
+}
+
+/* Selected for switch (staged change) */
+.fc-event.event-selected {
+    background-color: #6b7280 !important;
+    border-color: #4b5563 !important;
+    color: white !important;
+    box-shadow: 0 0 0 2px white, 0 0 0 4px #4b5563;
+    cursor: pointer;
+}
+
+.fc-event.event-selected:hover {
+    background-color: #4b5563 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 0 0 2px white, 0 0 0 4px #374151, 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Alternative tutorials (not enrolled, not selected) */
+.fc-event.event-alternative {
+    opacity: 0.5;
+    border-style: dashed;
+    border-width: 2px;
+    cursor: pointer;
+}
+
+.fc-event.event-alternative:hover {
+    opacity: 0.75;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Conflict state */
+.fc-event.event-conflict {
+    background-color: #ef4444 !important;
+    border-color: #dc2626 !important;
+    color: white !important;
+    animation: pulse-red 2s infinite;
+    position: relative;
+}
+
+.fc-event.event-conflict::after {
+    content: '⚠️';
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 0.7rem;
+}
+
+@keyframes pulse-red {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 4px rgba(239, 68, 68, 0);
+    }
+}
+
+/* Planning Mode Sidebar - Course Filters */
+.course-filter-item {
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    transition: all 0.2s ease;
+}
+
+.course-filter-item:hover {
+    border-color: #d1d5db;
+    background-color: #f9fafb;
+}
+
+.course-filter-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.course-filter-checkbox {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.course-filter-title {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #1f2937;
+    flex: 1;
+}
+
+.course-filter-change-indicator {
+    font-size: 0.75rem;
+    color: #f59e0b;
+    font-weight: 600;
+}
+
+.course-filter-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 24px;
+    margin-bottom: 6px;
+}
+
+.course-filter-toggle {
+    display: flex;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.course-filter-toggle button {
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.course-filter-toggle button.active {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.course-filter-toggle button:not(.active):hover {
+    background-color: #f3f4f6;
+}
+
+.course-filter-info {
+    font-size: 0.7rem;
+    color: #6b7280;
+    margin-left: 24px;
+}
+
+.course-filter-selected {
+    font-size: 0.75rem;
+    color: #059669;
+    margin-left: 24px;
+    font-weight: 500;
+}
+
+/* Planning Mode Legend */
+.planning-legend {
+    margin-top: 16px;
+    padding: 12px;
+    background-color: #f9fafb;
+    border-radius: 6px;
+    font-size: 0.75rem;
+}
+
+.planning-legend-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #374151;
+}
+
+.planning-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+    color: #6b7280;
+}
+
+.planning-legend-box {
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.planning-legend-box.enrolled {
+    background-color: #3b82f6;
+    border: 2px solid #2563eb;
+}
+
+.planning-legend-box.selected {
+    background-color: #6b7280;
+    border: 2px solid #4b5563;
+}
+
+.planning-legend-box.alternative {
+    background-color: #3b82f6;
+    opacity: 0.5;
+    border: 2px dashed #2563eb;
+}
+
+.planning-legend-box.lecture {
+    background-color: #3b82f6;
+    border: 3px solid #2563eb;
+    opacity: 0.9;
+}
+
+.planning-legend-box.conflict {
+    background-color: #ef4444;
+    border: 2px solid #dc2626;
 }
