@@ -38,7 +38,7 @@ export const CONFIG = {
     // Calendar Configuration
     CALENDAR: {
         weekStart: 1, // Monday
-        minTime: '08:00:00',
+        minTime: '09:00:00',
         maxTime: '20:00:00',
         slotDuration: '00:30:00',
         slotLabelInterval: '01:00:00',
@@ -46,7 +46,8 @@ export const CONFIG = {
         nowIndicator: true,
         weekends: false, // Hide weekends for academic schedule
         headerToolbar: false, // We'll use custom navigation
-        height: '100%'
+        height: '100%',
+        expandRows: true // Auto-expand rows to fill available height
     },
 
     // Data File Paths

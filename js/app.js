@@ -124,6 +124,7 @@ class ClassSwitcherApp {
             nowIndicator: CONFIG.CALENDAR.nowIndicator,
             weekends: CONFIG.CALENDAR.weekends,
             height: CONFIG.CALENDAR.height,
+            expandRows: CONFIG.CALENDAR.expandRows,
             firstDay: CONFIG.CALENDAR.weekStart,
             
             // Event handlers

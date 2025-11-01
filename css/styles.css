@@ -19,10 +19,6 @@
 }
 
 /* Time column styling */
-.fc-timegrid-slot {
-    height: 3rem;
-}
-
 .fc-timegrid-slot-label {
     font-size: 0.875rem;
     color: #6b7280;
