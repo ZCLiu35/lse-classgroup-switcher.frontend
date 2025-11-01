@@ -1,20 +1,54 @@
 [
   {
-    "CourseID": "C100",
-    "CourseCode": "LSE100",
-    "CourseName": "Intro to Economics",
-    "Term": "AT,WT"
+    "CourseID": "EC313",
+    "CourseCode": "EC313",
+    "CourseName": "Industrial Economics",
+    "Terms": [
+      "AT",
+      "ST",
+      "WT"
+    ]
   },
   {
-    "CourseID": "C200",
-    "CourseCode": "LSE200",
-    "CourseName": "Quantitative Methods",
-    "Term": "AT,WT"
+    "CourseID": "EC333",
+    "CourseCode": "EC333",
+    "CourseName": "Problems in Applied Econometrics",
+    "Terms": [
+      "AT",
+      "ST",
+      "WT"
+    ]
   },
   {
-    "CourseID": "C300",
-    "CourseCode": "LSE300",
-    "CourseName": "Public Policy",
-    "Term": "AT,ST"
+    "CourseID": "FM321",
+    "CourseCode": "FM321",
+    "CourseName": "Risk Management and Modelling",
+    "Terms": [
+      "AT"
+    ]
+  },
+  {
+    "CourseID": "FM322",
+    "CourseCode": "FM322",
+    "CourseName": "Derivatives",
+    "Terms": [
+      "WT"
+    ]
+  },
+  {
+    "CourseID": "ST310",
+    "CourseCode": "ST310",
+    "CourseName": "Machine Learning",
+    "Terms": [
+      "AT"
+    ]
+  },
+  {
+    "CourseID": "ST311",
+    "CourseCode": "ST311",
+    "CourseName": "Artificial Intelligence",
+    "Terms": [
+      "WT"
+    ]
   }
 ]

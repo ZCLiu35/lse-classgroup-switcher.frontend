@@ -91,7 +91,7 @@ export function getTermForDate(date) {
 
 /**
  * Convert session to FullCalendar event format
- * @param {Object} session - Session object from sessions.json
+ * @param {Object} session - Session object from sessions.json (Week, Day, StartTime, EndTime, Room)
  * @param {Object} course - Course object from courses.json
  * @param {Object} group - Group object from groups.json
  * @param {Date} weekStart - Start date of the week
@@ -100,43 +100,30 @@ export function getTermForDate(date) {
  * @returns {Object} FullCalendar event object
  */
 export function sessionToEvent(session, course, group, weekStart, courseColor, isEnrolled) {
+    // Map day names to day numbers (0 = Monday)
+    const dayMap = { 'Mon': 0, 'Tue': 1, 'Wed': 2, 'Thu': 3, 'Fri': 4, 'Sat': 5, 'Sun': 6 };
+    
     // Calculate the date for this session
     const sessionDate = new Date(weekStart);
-    sessionDate.setDate(sessionDate.getDate() + (session.DayOfWeek - 1));
+    sessionDate.setDate(sessionDate.getDate() + dayMap[session.Day]);
     
-    // Parse time (format: "HH:MM AM/PM")
-    const [time, period] = session.StartTime.split(' ');
-    let [hours, minutes] = time.split(':').map(Number);
-    
-    if (period === 'PM' && hours !== 12) {
-        hours += 12;
-    } else if (period === 'AM' && hours === 12) {
-        hours = 0;
-    }
-    
+    // Parse time (format: "HH:MM" in 24-hour format)
+    const [hours, minutes] = session.StartTime.split(':').map(Number);
     const startDateTime = new Date(sessionDate);
     startDateTime.setHours(hours, minutes, 0);
     
     // Calculate end time
-    const [endTime, endPeriod] = session.EndTime.split(' ');
-    let [endHours, endMinutes] = endTime.split(':').map(Number);
-    
-    if (endPeriod === 'PM' && endHours !== 12) {
-        endHours += 12;
-    } else if (endPeriod === 'AM' && endHours === 12) {
-        endHours = 0;
-    }
-    
+    const [endHours, endMinutes] = session.EndTime.split(':').map(Number);
     const endDateTime = new Date(sessionDate);
     endDateTime.setHours(endHours, endMinutes, 0);
     
     // Build event object
-    const eventType = group.Type === 'Lecture' ? 'lecture' : 'tutorial-enrolled';
-    const groupDisplay = group.Type === 'Lecture' ? 'Lec' : `Tut-G${group.GroupNumber}`;
+    const eventType = group.Type === 'LEC' ? 'lecture' : 'tutorial-enrolled';
+    const groupDisplay = group.Type === 'LEC' ? 'Lec' : `${group.Type}-G${group.GroupNumber}`;
     
     return {
-        id: `${session.CourseID}-${session.GroupID}-${session.WeekNumber}`,
-        title: `${course.CourseCode}\n${groupDisplay}\n${session.Location}`,
+        id: `${course.CourseID}-${group.GroupID}-${session.Week}`,
+        title: `${course.CourseCode}\n${groupDisplay}\n${session.Room}`,
         start: startDateTime,
         end: endDateTime,
         classNames: [courseColor, eventType],
@@ -145,9 +132,9 @@ export function sessionToEvent(session, course, group, weekStart, courseColor, i
             courseName: course.CourseName,
             groupType: group.Type,
             groupNumber: group.GroupNumber,
-            instructor: group.Instructor,
-            location: session.Location,
-            weekNumber: session.WeekNumber,
+            instructor: group.Teacher,
+            location: session.Room,
+            weekNumber: session.Week,
             isEnrolled: isEnrolled
         }
     };

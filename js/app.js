@@ -15,7 +15,7 @@ class ClassSwitcherApp {
         // Data storage
         this.courses = [];
         this.groups = [];
-        this.sessions = [];
+        this.sessions = {}; // Now an object: { GroupID: { Term: [sessions] } }
         this.enrollment = [];
         
         // Course color mapping
@@ -69,7 +69,7 @@ class ClassSwitcherApp {
             console.log('Data loaded successfully:', {
                 courses: this.courses.length,
                 groups: this.groups.length,
-                sessions: this.sessions.length,
+                sessions: Object.keys(this.sessions).length,
                 enrollment: this.enrollment.length
             });
         } catch (error) {
@@ -143,7 +143,7 @@ class ClassSwitcherApp {
      */
     renderEventContent(arg) {
         const { courseCode, groupType, groupNumber, location } = arg.event.extendedProps;
-        const groupDisplay = groupType === 'Lecture' ? 'Lec' : `Tut-G${groupNumber}`;
+        const groupDisplay = groupType === 'LEC' ? 'LEC' : `Tut-G${groupNumber}`;
         
         return {
             html: `
@@ -184,22 +184,30 @@ class ClassSwitcherApp {
         
         enrolledCourses.forEach(course => {
             const enrollment = this.enrollment.find(e => e.CourseID === course.CourseID);
-            const tutorialGroup = this.groups.find(g => g.GroupID === enrollment.TutorialGroupID);
-            const lectureGroup = this.groups.find(g => 
-                g.CourseID === course.CourseID && g.Type === 'Lecture'
-            );
+            if (!enrollment) return;
             
             const colorClass = this.courseColors.get(course.CourseID);
-            
             const courseCard = document.createElement('div');
             courseCard.className = 'course-card';
+            
+            // Build enrolled groups display
+            let groupsHTML = '';
+            Object.entries(enrollment.EnrolledGroups).forEach(([type, groupId]) => {
+                const group = this.groups.find(g => g.GroupID === groupId);
+                if (group) {
+                    const typeLabel = type === 'LEC' ? 'Lecture' : 
+                                     type === 'CLA' ? 'Class' : 
+                                     type === 'SEM' ? 'Seminar' : type;
+                    groupsHTML += `<div class="course-card-detail">${typeLabel}: Group ${group.GroupNumber}</div>`;
+                }
+            });
+            
             courseCard.innerHTML = `
                 <div class="course-card-header">
                     <div class="course-color-dot ${colorClass}"></div>
                     <div class="course-card-title">${course.CourseCode}</div>
                 </div>
-                <div class="course-card-detail">Tutorial: Group ${tutorialGroup.GroupNumber}</div>
-                ${lectureGroup ? `<div class="course-card-detail">Lecture: ${lectureGroup.Instructor}</div>` : ''}
+                ${groupsHTML}
             `;
             
             container.appendChild(courseCard);
@@ -211,8 +219,7 @@ class ClassSwitcherApp {
      */
     getEnrolledCoursesForTerm(termCode) {
         return this.courses.filter(course => {
-            const terms = course.Term.split(',');
-            return terms.includes(termCode);
+            return course.Terms.includes(termCode);
         });
     }
 
@@ -242,10 +249,8 @@ class ClassSwitcherApp {
 
     /**
      * Get all enrolled events for a specific week
-     * Note: For Phase 1, sessions are term-agnostic. The same week numbers
-     * are used across terms. In reality, AT Week 1 and WT Week 1 would have
-     * different sessions, but our sample data reuses the same session entries.
-     * This is acceptable for Phase 1 demonstration purposes.
+     * Uses nested sessions structure: { GroupID: { Term: [sessions] } }
+     * This provides O(1) lookup instead of filtering through all sessions.
      */
     getEventsForWeek(termCode, weekNumber, weekStart) {
         const events = [];
@@ -253,54 +258,33 @@ class ClassSwitcherApp {
         
         enrolledCourses.forEach(course => {
             const enrollment = this.enrollment.find(e => e.CourseID === course.CourseID);
+            if (!enrollment) return;
             
-            // Get lecture group (always shown)
-            const lectureGroup = this.groups.find(g => 
-                g.CourseID === course.CourseID && g.Type === 'Lecture'
-            );
-            
-            if (lectureGroup) {
-                const lectureSessions = this.sessions.filter(s => 
-                    s.CourseID === course.CourseID && 
-                    s.GroupID === lectureGroup.GroupID && 
-                    s.WeekNumber === weekNumber
-                );
+            // Process all enrolled groups for this course
+            Object.entries(enrollment.EnrolledGroups).forEach(([groupType, groupId]) => {
+                const group = this.groups.find(g => g.GroupID === groupId);
+                if (!group) return;
                 
-                lectureSessions.forEach(session => {
+                // Get sessions for this group and term (direct lookup, no filtering!)
+                const groupSessions = this.sessions[groupId]?.[termCode];
+                if (!groupSessions) return;
+                
+                // Filter sessions for this specific week
+                const weekSessions = groupSessions.filter(s => s.Week === weekNumber);
+                
+                // Convert each session to a calendar event
+                weekSessions.forEach(session => {
                     const event = utils.sessionToEvent(
                         session, 
                         course, 
-                        lectureGroup, 
+                        group, 
                         weekStart, 
                         this.courseColors.get(course.CourseID),
                         true
                     );
                     events.push(event);
                 });
-            }
-            
-            // Get enrolled tutorial group
-            const tutorialGroup = this.groups.find(g => g.GroupID === enrollment.TutorialGroupID);
-            
-            if (tutorialGroup) {
-                const tutorialSessions = this.sessions.filter(s => 
-                    s.CourseID === course.CourseID && 
-                    s.GroupID === tutorialGroup.GroupID && 
-                    s.WeekNumber === weekNumber
-                );
-                
-                tutorialSessions.forEach(session => {
-                    const event = utils.sessionToEvent(
-                        session, 
-                        course, 
-                        tutorialGroup, 
-                        weekStart, 
-                        this.courseColors.get(course.CourseID),
-                        true
-                    );
-                    events.push(event);
-                });
-            }
+            });
         });
         
         return events;

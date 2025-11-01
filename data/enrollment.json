@@ -1,5 +1,43 @@
 [
-  { "CourseID": "C100", "TutorialGroupID": "G100T1" },
-  { "CourseID": "C200", "TutorialGroupID": "G200T1" },
-  { "CourseID": "C300", "TutorialGroupID": "G300T1" }
+  {
+    "CourseID": "EC313",
+    "EnrolledGroups": {
+      "LEC": "EC313/LECTURE/01",
+      "CLA": "EC313/CLASS/04"
+    }
+  },
+  {
+    "CourseID": "EC333",
+    "EnrolledGroups": {
+      "LEC": "EC333/LECTURE/01",
+      "CLA": "EC333/CLASS/01"
+    }
+  },
+  {
+    "CourseID": "FM321",
+    "EnrolledGroups": {
+      "LEC": "FM321/LECTURE/01",
+      "SEM": "FM321/SEMINAR/02"
+    }
+  },
+  {
+    "CourseID": "FM322",
+    "EnrolledGroups": {
+      "SEM": "FM322/SEMINAR/02"
+    }
+  },
+  {
+    "CourseID": "ST310",
+    "EnrolledGroups": {
+      "LEC": "ST310/LECTURE/01",
+      "SEM": "ST310/SEMINAR/07"
+    }
+  },
+  {
+    "CourseID": "ST311",
+    "EnrolledGroups": {
+      "LEC": "ST311/LECTURE/01",
+      "SEM": "ST311/SEMINAR/01"
+    }
+  }
 ]

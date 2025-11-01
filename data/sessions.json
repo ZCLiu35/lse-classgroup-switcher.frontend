@@ -1,109 +1,2944 @@
-[
-  {"CourseID":"C100","GroupID":"G100L","WeekNumber":1,"DayOfWeek":1,"StartTime":"10:00 AM","EndTime":"11:00 AM","Location":"Building A, Room 101"},
-  {"CourseID":"C100","GroupID":"G100L","WeekNumber":2,"DayOfWeek":1,"StartTime":"10:00 AM","EndTime":"11:00 AM","Location":"Building A, Room 101"},
-  {"CourseID":"C100","GroupID":"G100L","WeekNumber":3,"DayOfWeek":1,"StartTime":"10:00 AM","EndTime":"11:00 AM","Location":"Building A, Room 101"},
-  {"CourseID":"C100","GroupID":"G100L","WeekNumber":4,"DayOfWeek":1,"StartTime":"10:00 AM","EndTime":"11:00 AM","Location":"Building A, Room 101"},
-  {"CourseID":"C100","GroupID":"G100L","WeekNumber":5,"DayOfWeek":1,"StartTime":"10:00 AM","EndTime":"11:00 AM","Location":"Building A, Room 101"},
-  {"CourseID":"C100","GroupID":"G100L","WeekNumber":6,"DayOfWeek":1,"StartTime":"10:00 AM","EndTime":"11:00 AM","Location":"Building A, Room 101"},
-  {"CourseID":"C100","GroupID":"G100L","WeekNumber":7,"DayOfWeek":1,"StartTime":"10:00 AM","EndTime":"11:00 AM","Location":"Building A, Room 101"},
-  {"CourseID":"C100","GroupID":"G100L","WeekNumber":8,"DayOfWeek":1,"StartTime":"10:00 AM","EndTime":"11:00 AM","Location":"Building A, Room 101"},
-  {"CourseID":"C100","GroupID":"G100L","WeekNumber":9,"DayOfWeek":1,"StartTime":"10:00 AM","EndTime":"11:00 AM","Location":"Building A, Room 101"},
-  {"CourseID":"C100","GroupID":"G100L","WeekNumber":10,"DayOfWeek":1,"StartTime":"10:00 AM","EndTime":"11:00 AM","Location":"Building A, Room 101"},
-  {"CourseID":"C100","GroupID":"G100L","WeekNumber":11,"DayOfWeek":1,"StartTime":"10:00 AM","EndTime":"11:00 AM","Location":"Building A, Room 101"},
-
-  {"CourseID":"C100","GroupID":"G100T1","WeekNumber":1,"DayOfWeek":3,"StartTime":"02:00 PM","EndTime":"03:00 PM","Location":"Building B, Room 201"},
-  {"CourseID":"C100","GroupID":"G100T1","WeekNumber":2,"DayOfWeek":3,"StartTime":"02:00 PM","EndTime":"03:00 PM","Location":"Building B, Room 201"},
-  {"CourseID":"C100","GroupID":"G100T1","WeekNumber":3,"DayOfWeek":3,"StartTime":"02:00 PM","EndTime":"03:00 PM","Location":"Building B, Room 201"},
-  {"CourseID":"C100","GroupID":"G100T1","WeekNumber":4,"DayOfWeek":3,"StartTime":"02:00 PM","EndTime":"03:00 PM","Location":"Building B, Room 201"},
-  {"CourseID":"C100","GroupID":"G100T1","WeekNumber":5,"DayOfWeek":3,"StartTime":"02:00 PM","EndTime":"03:00 PM","Location":"Building B, Room 201"},
-  {"CourseID":"C100","GroupID":"G100T1","WeekNumber":6,"DayOfWeek":3,"StartTime":"02:00 PM","EndTime":"03:00 PM","Location":"Building B, Room 201"},
-  {"CourseID":"C100","GroupID":"G100T1","WeekNumber":7,"DayOfWeek":3,"StartTime":"02:00 PM","EndTime":"03:00 PM","Location":"Building B, Room 201"},
-  {"CourseID":"C100","GroupID":"G100T1","WeekNumber":8,"DayOfWeek":3,"StartTime":"02:00 PM","EndTime":"03:00 PM","Location":"Building B, Room 201"},
-  {"CourseID":"C100","GroupID":"G100T1","WeekNumber":9,"DayOfWeek":3,"StartTime":"02:00 PM","EndTime":"03:00 PM","Location":"Building B, Room 201"},
-  {"CourseID":"C100","GroupID":"G100T1","WeekNumber":10,"DayOfWeek":3,"StartTime":"02:00 PM","EndTime":"03:00 PM","Location":"Building B, Room 201"},
-  {"CourseID":"C100","GroupID":"G100T1","WeekNumber":11,"DayOfWeek":3,"StartTime":"02:00 PM","EndTime":"03:00 PM","Location":"Building B, Room 201"},
-
-  {"CourseID":"C100","GroupID":"G100T2","WeekNumber":1,"DayOfWeek":4,"StartTime":"11:00 AM","EndTime":"12:00 PM","Location":"Building B, Room 202"},
-  {"CourseID":"C100","GroupID":"G100T2","WeekNumber":2,"DayOfWeek":4,"StartTime":"11:00 AM","EndTime":"12:00 PM","Location":"Building B, Room 202"},
-  {"CourseID":"C100","GroupID":"G100T2","WeekNumber":3,"DayOfWeek":4,"StartTime":"11:00 AM","EndTime":"12:00 PM","Location":"Building B, Room 202"},
-  {"CourseID":"C100","GroupID":"G100T2","WeekNumber":4,"DayOfWeek":4,"StartTime":"11:00 AM","EndTime":"12:00 PM","Location":"Building B, Room 202"},
-  {"CourseID":"C100","GroupID":"G100T2","WeekNumber":5,"DayOfWeek":4,"StartTime":"11:00 AM","EndTime":"12:00 PM","Location":"Building B, Room 202"},
-  {"CourseID":"C100","GroupID":"G100T2","WeekNumber":6,"DayOfWeek":4,"StartTime":"11:00 AM","EndTime":"12:00 PM","Location":"Building B, Room 202"},
-  {"CourseID":"C100","GroupID":"G100T2","WeekNumber":7,"DayOfWeek":4,"StartTime":"11:00 AM","EndTime":"12:00 PM","Location":"Building B, Room 202"},
-  {"CourseID":"C100","GroupID":"G100T2","WeekNumber":8,"DayOfWeek":4,"StartTime":"11:00 AM","EndTime":"12:00 PM","Location":"Building B, Room 202"},
-  {"CourseID":"C100","GroupID":"G100T2","WeekNumber":9,"DayOfWeek":4,"StartTime":"11:00 AM","EndTime":"12:00 PM","Location":"Building B, Room 202"},
-  {"CourseID":"C100","GroupID":"G100T2","WeekNumber":10,"DayOfWeek":4,"StartTime":"11:00 AM","EndTime":"12:00 PM","Location":"Building B, Room 202"},
-  {"CourseID":"C100","GroupID":"G100T2","WeekNumber":11,"DayOfWeek":4,"StartTime":"11:00 AM","EndTime":"12:00 PM","Location":"Building B, Room 202"},
-
-  {"CourseID":"C200","GroupID":"G200L","WeekNumber":1,"DayOfWeek":1,"StartTime":"09:00 AM","EndTime":"10:30 AM","Location":"Building C, Lecture Hall"},
-  {"CourseID":"C200","GroupID":"G200L","WeekNumber":2,"DayOfWeek":1,"StartTime":"09:00 AM","EndTime":"10:30 AM","Location":"Building C, Lecture Hall"},
-  {"CourseID":"C200","GroupID":"G200L","WeekNumber":3,"DayOfWeek":1,"StartTime":"09:00 AM","EndTime":"10:30 AM","Location":"Building C, Lecture Hall"},
-  {"CourseID":"C200","GroupID":"G200L","WeekNumber":4,"DayOfWeek":1,"StartTime":"09:00 AM","EndTime":"10:30 AM","Location":"Building C, Lecture Hall"},
-  {"CourseID":"C200","GroupID":"G200L","WeekNumber":5,"DayOfWeek":1,"StartTime":"09:00 AM","EndTime":"10:30 AM","Location":"Building C, Lecture Hall"},
-  {"CourseID":"C200","GroupID":"G200L","WeekNumber":6,"DayOfWeek":1,"StartTime":"09:00 AM","EndTime":"10:30 AM","Location":"Building C, Lecture Hall"},
-  {"CourseID":"C200","GroupID":"G200L","WeekNumber":7,"DayOfWeek":1,"StartTime":"09:00 AM","EndTime":"10:30 AM","Location":"Building C, Lecture Hall"},
-  {"CourseID":"C200","GroupID":"G200L","WeekNumber":8,"DayOfWeek":1,"StartTime":"09:00 AM","EndTime":"10:30 AM","Location":"Building C, Lecture Hall"},
-  {"CourseID":"C200","GroupID":"G200L","WeekNumber":9,"DayOfWeek":1,"StartTime":"09:00 AM","EndTime":"10:30 AM","Location":"Building C, Lecture Hall"},
-  {"CourseID":"C200","GroupID":"G200L","WeekNumber":10,"DayOfWeek":1,"StartTime":"09:00 AM","EndTime":"10:30 AM","Location":"Building C, Lecture Hall"},
-  {"CourseID":"C200","GroupID":"G200L","WeekNumber":11,"DayOfWeek":1,"StartTime":"09:00 AM","EndTime":"10:30 AM","Location":"Building C, Lecture Hall"},
-
-  {"CourseID":"C200","GroupID":"G200T1","WeekNumber":1,"DayOfWeek":3,"StartTime":"03:00 PM","EndTime":"04:00 PM","Location":"Building D, Room 12"},
-  {"CourseID":"C200","GroupID":"G200T1","WeekNumber":2,"DayOfWeek":3,"StartTime":"03:00 PM","EndTime":"04:00 PM","Location":"Building D, Room 12"},
-  {"CourseID":"C200","GroupID":"G200T1","WeekNumber":3,"DayOfWeek":3,"StartTime":"03:00 PM","EndTime":"04:00 PM","Location":"Building D, Room 12"},
-  {"CourseID":"C200","GroupID":"G200T1","WeekNumber":4,"DayOfWeek":3,"StartTime":"03:00 PM","EndTime":"04:00 PM","Location":"Building D, Room 12"},
-  {"CourseID":"C200","GroupID":"G200T1","WeekNumber":5,"DayOfWeek":3,"StartTime":"03:00 PM","EndTime":"04:00 PM","Location":"Building D, Room 12"},
-  {"CourseID":"C200","GroupID":"G200T1","WeekNumber":6,"DayOfWeek":3,"StartTime":"03:00 PM","EndTime":"04:00 PM","Location":"Building D, Room 12"},
-  {"CourseID":"C200","GroupID":"G200T1","WeekNumber":7,"DayOfWeek":3,"StartTime":"03:00 PM","EndTime":"04:00 PM","Location":"Building D, Room 12"},
-  {"CourseID":"C200","GroupID":"G200T1","WeekNumber":8,"DayOfWeek":3,"StartTime":"03:00 PM","EndTime":"04:00 PM","Location":"Building D, Room 12"},
-  {"CourseID":"C200","GroupID":"G200T1","WeekNumber":9,"DayOfWeek":3,"StartTime":"03:00 PM","EndTime":"04:00 PM","Location":"Building D, Room 12"},
-  {"CourseID":"C200","GroupID":"G200T1","WeekNumber":10,"DayOfWeek":3,"StartTime":"03:00 PM","EndTime":"04:00 PM","Location":"Building D, Room 12"},
-  {"CourseID":"C200","GroupID":"G200T1","WeekNumber":11,"DayOfWeek":3,"StartTime":"03:00 PM","EndTime":"04:00 PM","Location":"Building D, Room 12"},
-
-  {"CourseID":"C200","GroupID":"G200T2","WeekNumber":1,"DayOfWeek":4,"StartTime":"01:00 PM","EndTime":"02:00 PM","Location":"Building D, Room 13"},
-  {"CourseID":"C200","GroupID":"G200T2","WeekNumber":2,"DayOfWeek":4,"StartTime":"01:00 PM","EndTime":"02:00 PM","Location":"Building D, Room 13"},
-  {"CourseID":"C200","GroupID":"G200T2","WeekNumber":3,"DayOfWeek":4,"StartTime":"01:00 PM","EndTime":"02:00 PM","Location":"Building D, Room 13"},
-  {"CourseID":"C200","GroupID":"G200T2","WeekNumber":4,"DayOfWeek":4,"StartTime":"01:00 PM","EndTime":"02:00 PM","Location":"Building D, Room 13"},
-  {"CourseID":"C200","GroupID":"G200T2","WeekNumber":5,"DayOfWeek":4,"StartTime":"01:00 PM","EndTime":"02:00 PM","Location":"Building D, Room 13"},
-  {"CourseID":"C200","GroupID":"G200T2","WeekNumber":6,"DayOfWeek":4,"StartTime":"01:00 PM","EndTime":"02:00 PM","Location":"Building D, Room 13"},
-  {"CourseID":"C200","GroupID":"G200T2","WeekNumber":7,"DayOfWeek":4,"StartTime":"01:00 PM","EndTime":"02:00 PM","Location":"Building D, Room 13"},
-  {"CourseID":"C200","GroupID":"G200T2","WeekNumber":8,"DayOfWeek":4,"StartTime":"01:00 PM","EndTime":"02:00 PM","Location":"Building D, Room 13"},
-  {"CourseID":"C200","GroupID":"G200T2","WeekNumber":9,"DayOfWeek":4,"StartTime":"01:00 PM","EndTime":"02:00 PM","Location":"Building D, Room 13"},
-  {"CourseID":"C200","GroupID":"G200T2","WeekNumber":10,"DayOfWeek":4,"StartTime":"01:00 PM","EndTime":"02:00 PM","Location":"Building D, Room 13"},
-  {"CourseID":"C200","GroupID":"G200T2","WeekNumber":11,"DayOfWeek":4,"StartTime":"01:00 PM","EndTime":"02:00 PM","Location":"Building D, Room 13"},
-
-  {"CourseID":"C300","GroupID":"G300L","WeekNumber":1,"DayOfWeek":2,"StartTime":"11:00 AM","EndTime":"12:00 PM","Location":"Building E, Room 301"},
-  {"CourseID":"C300","GroupID":"G300L","WeekNumber":2,"DayOfWeek":2,"StartTime":"11:00 AM","EndTime":"12:00 PM","Location":"Building E, Room 301"},
-  {"CourseID":"C300","GroupID":"G300L","WeekNumber":3,"DayOfWeek":2,"StartTime":"11:00 AM","EndTime":"12:00 PM","Location":"Building E, Room 301"},
-  {"CourseID":"C300","GroupID":"G300L","WeekNumber":4,"DayOfWeek":2,"StartTime":"11:00 AM","EndTime":"12:00 PM","Location":"Building E, Room 301"},
-  {"CourseID":"C300","GroupID":"G300L","WeekNumber":5,"DayOfWeek":2,"StartTime":"11:00 AM","EndTime":"12:00 PM","Location":"Building E, Room 301"},
-  {"CourseID":"C300","GroupID":"G300L","WeekNumber":6,"DayOfWeek":2,"StartTime":"11:00 AM","EndTime":"12:00 PM","Location":"Building E, Room 301"},
-  {"CourseID":"C300","GroupID":"G300L","WeekNumber":7,"DayOfWeek":2,"StartTime":"11:00 AM","EndTime":"12:00 PM","Location":"Building E, Room 301"},
-  {"CourseID":"C300","GroupID":"G300L","WeekNumber":8,"DayOfWeek":2,"StartTime":"11:00 AM","EndTime":"12:00 PM","Location":"Building E, Room 301"},
-  {"CourseID":"C300","GroupID":"G300L","WeekNumber":9,"DayOfWeek":2,"StartTime":"11:00 AM","EndTime":"12:00 PM","Location":"Building E, Room 301"},
-  {"CourseID":"C300","GroupID":"G300L","WeekNumber":10,"DayOfWeek":2,"StartTime":"11:00 AM","EndTime":"12:00 PM","Location":"Building E, Room 301"},
-  {"CourseID":"C300","GroupID":"G300L","WeekNumber":11,"DayOfWeek":2,"StartTime":"11:00 AM","EndTime":"12:00 PM","Location":"Building E, Room 301"},
-
-  {"CourseID":"C300","GroupID":"G300T1","WeekNumber":1,"DayOfWeek":4,"StartTime":"02:00 PM","EndTime":"03:00 PM","Location":"Building F, Room 2"},
-  {"CourseID":"C300","GroupID":"G300T1","WeekNumber":2,"DayOfWeek":4,"StartTime":"02:00 PM","EndTime":"03:00 PM","Location":"Building F, Room 2"},
-  {"CourseID":"C300","GroupID":"G300T1","WeekNumber":3,"DayOfWeek":4,"StartTime":"02:00 PM","EndTime":"03:00 PM","Location":"Building F, Room 2"},
-  {"CourseID":"C300","GroupID":"G300T1","WeekNumber":4,"DayOfWeek":4,"StartTime":"02:00 PM","EndTime":"03:00 PM","Location":"Building F, Room 2"},
-  {"CourseID":"C300","GroupID":"G300T1","WeekNumber":5,"DayOfWeek":4,"StartTime":"02:00 PM","EndTime":"03:00 PM","Location":"Building F, Room 2"},
-  {"CourseID":"C300","GroupID":"G300T1","WeekNumber":6,"DayOfWeek":4,"StartTime":"02:00 PM","EndTime":"03:00 PM","Location":"Building F, Room 2"},
-  {"CourseID":"C300","GroupID":"G300T1","WeekNumber":7,"DayOfWeek":4,"StartTime":"02:00 PM","EndTime":"03:00 PM","Location":"Building F, Room 2"},
-  {"CourseID":"C300","GroupID":"G300T1","WeekNumber":8,"DayOfWeek":4,"StartTime":"02:00 PM","EndTime":"03:00 PM","Location":"Building F, Room 2"},
-  {"CourseID":"C300","GroupID":"G300T1","WeekNumber":9,"DayOfWeek":4,"StartTime":"02:00 PM","EndTime":"03:00 PM","Location":"Building F, Room 2"},
-  {"CourseID":"C300","GroupID":"G300T1","WeekNumber":10,"DayOfWeek":4,"StartTime":"02:00 PM","EndTime":"03:00 PM","Location":"Building F, Room 2"},
-  {"CourseID":"C300","GroupID":"G300T1","WeekNumber":11,"DayOfWeek":4,"StartTime":"02:00 PM","EndTime":"03:00 PM","Location":"Building F, Room 2"},
-
-  {"CourseID":"C300","GroupID":"G300T2","WeekNumber":1,"DayOfWeek":5,"StartTime":"09:00 AM","EndTime":"10:00 AM","Location":"Building F, Room 3"},
-  {"CourseID":"C300","GroupID":"G300T2","WeekNumber":2,"DayOfWeek":5,"StartTime":"09:00 AM","EndTime":"10:00 AM","Location":"Building F, Room 3"},
-  {"CourseID":"C300","GroupID":"G300T2","WeekNumber":3,"DayOfWeek":5,"StartTime":"09:00 AM","EndTime":"10:00 AM","Location":"Building F, Room 3"},
-  {"CourseID":"C300","GroupID":"G300T2","WeekNumber":4,"DayOfWeek":5,"StartTime":"09:00 AM","EndTime":"10:00 AM","Location":"Building F, Room 3"},
-  {"CourseID":"C300","GroupID":"G300T2","WeekNumber":5,"DayOfWeek":5,"StartTime":"09:00 AM","EndTime":"10:00 AM","Location":"Building F, Room 3"},
-  {"CourseID":"C300","GroupID":"G300T2","WeekNumber":6,"DayOfWeek":5,"StartTime":"09:00 AM","EndTime":"10:00 AM","Location":"Building F, Room 3"},
-  {"CourseID":"C300","GroupID":"G300T2","WeekNumber":7,"DayOfWeek":5,"StartTime":"09:00 AM","EndTime":"10:00 AM","Location":"Building F, Room 3"},
-  {"CourseID":"C300","GroupID":"G300T2","WeekNumber":8,"DayOfWeek":5,"StartTime":"09:00 AM","EndTime":"10:00 AM","Location":"Building F, Room 3"},
-  {"CourseID":"C300","GroupID":"G300T2","WeekNumber":9,"DayOfWeek":5,"StartTime":"09:00 AM","EndTime":"10:00 AM","Location":"Building F, Room 3"},
-  {"CourseID":"C300","GroupID":"G300T2","WeekNumber":10,"DayOfWeek":5,"StartTime":"09:00 AM","EndTime":"10:00 AM","Location":"Building F, Room 3"},
-  {"CourseID":"C300","GroupID":"G300T2","WeekNumber":11,"DayOfWeek":5,"StartTime":"09:00 AM","EndTime":"10:00 AM","Location":"Building F, Room 3"}
-]
+{
+  "EC313/CLASS/01": {
+    "AT": [
+      {
+        "Week": 2,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 3,
+        "Day": "Fri",
+        "StartTime": "14:00",
+        "EndTime": "15:00",
+        "Room": "SAL.G.09"
+      },
+      {
+        "Week": 4,
+        "Day": "Fri",
+        "StartTime": "14:00",
+        "EndTime": "15:00",
+        "Room": "SAL.G.09"
+      },
+      {
+        "Week": 5,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 6,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 7,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 8,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 9,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 10,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 11,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:00",
+        "Room": "SAL.G.06"
+      }
+    ],
+    "WT": [
+      {
+        "Week": 2,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 3,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 4,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 5,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 7,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 8,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 9,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 10,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 11,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:00",
+        "Room": "SAL.G.06"
+      }
+    ],
+    "ST": [
+      {
+        "Week": 1,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:00",
+        "Room": "SAL.G.06"
+      }
+    ]
+  },
+  "EC313/CLASS/02": {
+    "AT": [
+      {
+        "Week": 2,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 3,
+        "Day": "Fri",
+        "StartTime": "15:00",
+        "EndTime": "16:00",
+        "Room": "PAR.1.02"
+      },
+      {
+        "Week": 4,
+        "Day": "Fri",
+        "StartTime": "15:00",
+        "EndTime": "16:00",
+        "Room": "PAR.1.02"
+      },
+      {
+        "Week": 5,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 6,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 7,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 8,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 9,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 10,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 11,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:00",
+        "Room": "SAL.G.06"
+      }
+    ],
+    "WT": [
+      {
+        "Week": 2,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 3,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 4,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 5,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 7,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 8,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 9,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 10,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 11,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:00",
+        "Room": "SAL.G.06"
+      }
+    ],
+    "ST": [
+      {
+        "Week": 1,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:00",
+        "Room": "SAL.G.06"
+      }
+    ]
+  },
+  "EC313/CLASS/03": {
+    "AT": [
+      {
+        "Week": 2,
+        "Day": "Fri",
+        "StartTime": "11:00",
+        "EndTime": "12:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 3,
+        "Day": "Fri",
+        "StartTime": "16:00",
+        "EndTime": "17:00",
+        "Room": "PAR.1.02"
+      },
+      {
+        "Week": 4,
+        "Day": "Fri",
+        "StartTime": "16:00",
+        "EndTime": "17:00",
+        "Room": "PAR.1.02"
+      },
+      {
+        "Week": 5,
+        "Day": "Fri",
+        "StartTime": "11:00",
+        "EndTime": "12:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 6,
+        "Day": "Fri",
+        "StartTime": "11:00",
+        "EndTime": "12:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 7,
+        "Day": "Fri",
+        "StartTime": "11:00",
+        "EndTime": "12:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 8,
+        "Day": "Fri",
+        "StartTime": "11:00",
+        "EndTime": "12:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 9,
+        "Day": "Fri",
+        "StartTime": "11:00",
+        "EndTime": "12:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 10,
+        "Day": "Fri",
+        "StartTime": "11:00",
+        "EndTime": "12:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 11,
+        "Day": "Fri",
+        "StartTime": "11:00",
+        "EndTime": "12:00",
+        "Room": "SAL.G.06"
+      }
+    ],
+    "WT": [
+      {
+        "Week": 2,
+        "Day": "Fri",
+        "StartTime": "11:00",
+        "EndTime": "12:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 3,
+        "Day": "Fri",
+        "StartTime": "11:00",
+        "EndTime": "12:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 4,
+        "Day": "Fri",
+        "StartTime": "11:00",
+        "EndTime": "12:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 5,
+        "Day": "Fri",
+        "StartTime": "11:00",
+        "EndTime": "12:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 7,
+        "Day": "Fri",
+        "StartTime": "11:00",
+        "EndTime": "12:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 8,
+        "Day": "Fri",
+        "StartTime": "11:00",
+        "EndTime": "12:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 9,
+        "Day": "Fri",
+        "StartTime": "11:00",
+        "EndTime": "12:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 10,
+        "Day": "Fri",
+        "StartTime": "11:00",
+        "EndTime": "12:00",
+        "Room": "SAL.G.06"
+      },
+      {
+        "Week": 11,
+        "Day": "Fri",
+        "StartTime": "11:00",
+        "EndTime": "12:00",
+        "Room": "SAL.G.06"
+      }
+    ],
+    "ST": [
+      {
+        "Week": 1,
+        "Day": "Fri",
+        "StartTime": "11:00",
+        "EndTime": "12:00",
+        "Room": "SAL.G.06"
+      }
+    ]
+  },
+  "EC313/CLASS/04": {
+    "AT": [
+      {
+        "Week": 2,
+        "Day": "Fri",
+        "StartTime": "13:00",
+        "EndTime": "14:00",
+        "Room": "SAL.B.13"
+      },
+      {
+        "Week": 3,
+        "Day": "Fri",
+        "StartTime": "13:00",
+        "EndTime": "14:00",
+        "Room": "SAL.B.13"
+      },
+      {
+        "Week": 4,
+        "Day": "Fri",
+        "StartTime": "13:00",
+        "EndTime": "14:00",
+        "Room": "SAL.B.13"
+      },
+      {
+        "Week": 5,
+        "Day": "Fri",
+        "StartTime": "13:00",
+        "EndTime": "14:00",
+        "Room": "SAL.B.13"
+      },
+      {
+        "Week": 6,
+        "Day": "Fri",
+        "StartTime": "13:00",
+        "EndTime": "14:00",
+        "Room": "SAL.B.13"
+      },
+      {
+        "Week": 7,
+        "Day": "Fri",
+        "StartTime": "13:00",
+        "EndTime": "14:00",
+        "Room": "SAL.B.13"
+      },
+      {
+        "Week": 8,
+        "Day": "Fri",
+        "StartTime": "13:00",
+        "EndTime": "14:00",
+        "Room": "SAL.B.13"
+      },
+      {
+        "Week": 9,
+        "Day": "Fri",
+        "StartTime": "13:00",
+        "EndTime": "14:00",
+        "Room": "SAL.B.13"
+      },
+      {
+        "Week": 10,
+        "Day": "Fri",
+        "StartTime": "13:00",
+        "EndTime": "14:00",
+        "Room": "SAL.B.13"
+      },
+      {
+        "Week": 11,
+        "Day": "Fri",
+        "StartTime": "13:00",
+        "EndTime": "14:00",
+        "Room": "SAL.B.13"
+      }
+    ],
+    "WT": [
+      {
+        "Week": 2,
+        "Day": "Fri",
+        "StartTime": "13:00",
+        "EndTime": "14:00",
+        "Room": "PAR.2.03"
+      },
+      {
+        "Week": 3,
+        "Day": "Fri",
+        "StartTime": "13:00",
+        "EndTime": "14:00",
+        "Room": "PAR.2.03"
+      },
+      {
+        "Week": 4,
+        "Day": "Fri",
+        "StartTime": "13:00",
+        "EndTime": "14:00",
+        "Room": "PAR.2.03"
+      },
+      {
+        "Week": 5,
+        "Day": "Fri",
+        "StartTime": "13:00",
+        "EndTime": "14:00",
+        "Room": "PAR.2.03"
+      },
+      {
+        "Week": 6,
+        "Day": "Fri",
+        "StartTime": "13:00",
+        "EndTime": "14:00",
+        "Room": "PAR.2.03"
+      },
+      {
+        "Week": 7,
+        "Day": "Fri",
+        "StartTime": "13:00",
+        "EndTime": "14:00",
+        "Room": "PAR.2.03"
+      },
+      {
+        "Week": 8,
+        "Day": "Fri",
+        "StartTime": "13:00",
+        "EndTime": "14:00",
+        "Room": "PAR.2.03"
+      },
+      {
+        "Week": 9,
+        "Day": "Fri",
+        "StartTime": "13:00",
+        "EndTime": "14:00",
+        "Room": "PAR.2.03"
+      },
+      {
+        "Week": 10,
+        "Day": "Fri",
+        "StartTime": "13:00",
+        "EndTime": "14:00",
+        "Room": "PAR.2.03"
+      },
+      {
+        "Week": 11,
+        "Day": "Fri",
+        "StartTime": "13:00",
+        "EndTime": "14:00",
+        "Room": "PAR.2.03"
+      }
+    ],
+    "ST": [
+      {
+        "Week": 1,
+        "Day": "Fri",
+        "StartTime": "13:00",
+        "EndTime": "14:00",
+        "Room": "OLD.1.16"
+      }
+    ]
+  },
+  "EC313/LECTURE/01": {
+    "AT": [
+      {
+        "Week": 1,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.2.04"
+      },
+      {
+        "Week": 2,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.2.04"
+      },
+      {
+        "Week": 3,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.2.04"
+      },
+      {
+        "Week": 4,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.2.04"
+      },
+      {
+        "Week": 5,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.2.04"
+      },
+      {
+        "Week": 6,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.LG.01"
+      },
+      {
+        "Week": 7,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.2.04"
+      },
+      {
+        "Week": 8,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.2.04"
+      },
+      {
+        "Week": 9,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.2.04"
+      },
+      {
+        "Week": 10,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.2.04"
+      },
+      {
+        "Week": 11,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.2.04"
+      }
+    ],
+    "WT": [
+      {
+        "Week": 1,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.LG.09"
+      },
+      {
+        "Week": 2,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.LG.09"
+      },
+      {
+        "Week": 3,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.LG.09"
+      },
+      {
+        "Week": 4,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.LG.09"
+      },
+      {
+        "Week": 5,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.LG.09"
+      },
+      {
+        "Week": 7,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.LG.09"
+      },
+      {
+        "Week": 8,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.LG.09"
+      },
+      {
+        "Week": 9,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.LG.09"
+      },
+      {
+        "Week": 10,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.LG.09"
+      },
+      {
+        "Week": 11,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.LG.09"
+      }
+    ],
+    "ST": [
+      {
+        "Week": 1,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CBG.2.01"
+      }
+    ]
+  },
+  "EC333/CLASS/01": {
+    "AT": [
+      {
+        "Week": 2,
+        "Day": "Mon",
+        "StartTime": "15:00",
+        "EndTime": "16:00",
+        "Room": "SAL.B.11"
+      },
+      {
+        "Week": 3,
+        "Day": "Mon",
+        "StartTime": "15:00",
+        "EndTime": "16:00",
+        "Room": "SAL.B.11"
+      },
+      {
+        "Week": 4,
+        "Day": "Mon",
+        "StartTime": "15:00",
+        "EndTime": "16:00",
+        "Room": "SAL.B.11"
+      },
+      {
+        "Week": 5,
+        "Day": "Mon",
+        "StartTime": "15:00",
+        "EndTime": "16:00",
+        "Room": "SAL.B.11"
+      },
+      {
+        "Week": 6,
+        "Day": "Mon",
+        "StartTime": "15:00",
+        "EndTime": "16:00",
+        "Room": "SAL.B.11"
+      },
+      {
+        "Week": 7,
+        "Day": "Mon",
+        "StartTime": "15:00",
+        "EndTime": "16:00",
+        "Room": "SAL.B.11"
+      },
+      {
+        "Week": 8,
+        "Day": "Mon",
+        "StartTime": "15:00",
+        "EndTime": "16:00",
+        "Room": "SAL.B.11"
+      },
+      {
+        "Week": 9,
+        "Day": "Mon",
+        "StartTime": "15:00",
+        "EndTime": "16:00",
+        "Room": "SAL.B.11"
+      },
+      {
+        "Week": 10,
+        "Day": "Mon",
+        "StartTime": "15:00",
+        "EndTime": "16:00",
+        "Room": "SAL.B.11"
+      },
+      {
+        "Week": 11,
+        "Day": "Mon",
+        "StartTime": "15:00",
+        "EndTime": "16:00",
+        "Room": "SAL.B.11"
+      }
+    ],
+    "WT": [
+      {
+        "Week": 2,
+        "Day": "Tue",
+        "StartTime": "15:00",
+        "EndTime": "16:00",
+        "Room": "SAL.G.17"
+      },
+      {
+        "Week": 3,
+        "Day": "Tue",
+        "StartTime": "15:00",
+        "EndTime": "16:00",
+        "Room": "SAL.G.17"
+      },
+      {
+        "Week": 4,
+        "Day": "Tue",
+        "StartTime": "15:00",
+        "EndTime": "16:00",
+        "Room": "SAL.G.17"
+      },
+      {
+        "Week": 5,
+        "Day": "Tue",
+        "StartTime": "15:00",
+        "EndTime": "16:00",
+        "Room": "SAL.G.17"
+      },
+      {
+        "Week": 7,
+        "Day": "Tue",
+        "StartTime": "15:00",
+        "EndTime": "16:00",
+        "Room": "SAL.G.17"
+      },
+      {
+        "Week": 8,
+        "Day": "Tue",
+        "StartTime": "15:00",
+        "EndTime": "16:00",
+        "Room": "SAL.G.17"
+      },
+      {
+        "Week": 9,
+        "Day": "Tue",
+        "StartTime": "15:00",
+        "EndTime": "16:00",
+        "Room": "SAL.G.17"
+      },
+      {
+        "Week": 10,
+        "Day": "Tue",
+        "StartTime": "15:00",
+        "EndTime": "16:00",
+        "Room": "SAL.G.17"
+      },
+      {
+        "Week": 11,
+        "Day": "Tue",
+        "StartTime": "15:00",
+        "EndTime": "16:00",
+        "Room": "SAL.G.17"
+      }
+    ],
+    "ST": [
+      {
+        "Week": 1,
+        "Day": "Tue",
+        "StartTime": "15:00",
+        "EndTime": "16:00",
+        "Room": "SAL.G.24"
+      }
+    ]
+  },
+  "EC333/CLASS/02": {
+    "AT": [
+      {
+        "Week": 2,
+        "Day": "Mon",
+        "StartTime": "16:00",
+        "EndTime": "17:00",
+        "Room": "SAL.B.11"
+      },
+      {
+        "Week": 3,
+        "Day": "Mon",
+        "StartTime": "16:00",
+        "EndTime": "17:00",
+        "Room": "SAL.B.11"
+      },
+      {
+        "Week": 4,
+        "Day": "Mon",
+        "StartTime": "16:00",
+        "EndTime": "17:00",
+        "Room": "SAL.B.11"
+      },
+      {
+        "Week": 5,
+        "Day": "Mon",
+        "StartTime": "16:00",
+        "EndTime": "17:00",
+        "Room": "SAL.B.11"
+      },
+      {
+        "Week": 6,
+        "Day": "Mon",
+        "StartTime": "16:00",
+        "EndTime": "17:00",
+        "Room": "SAL.B.11"
+      },
+      {
+        "Week": 7,
+        "Day": "Mon",
+        "StartTime": "16:00",
+        "EndTime": "17:00",
+        "Room": "SAL.B.11"
+      },
+      {
+        "Week": 8,
+        "Day": "Mon",
+        "StartTime": "16:00",
+        "EndTime": "17:00",
+        "Room": "SAL.B.11"
+      },
+      {
+        "Week": 9,
+        "Day": "Mon",
+        "StartTime": "16:00",
+        "EndTime": "17:00",
+        "Room": "SAL.B.11"
+      },
+      {
+        "Week": 10,
+        "Day": "Mon",
+        "StartTime": "16:00",
+        "EndTime": "17:00",
+        "Room": "SAL.B.11"
+      },
+      {
+        "Week": 11,
+        "Day": "Mon",
+        "StartTime": "16:00",
+        "EndTime": "17:00",
+        "Room": "SAL.B.11"
+      }
+    ],
+    "WT": [
+      {
+        "Week": 2,
+        "Day": "Tue",
+        "StartTime": "16:00",
+        "EndTime": "17:00",
+        "Room": "SAL.G.17"
+      },
+      {
+        "Week": 3,
+        "Day": "Tue",
+        "StartTime": "16:00",
+        "EndTime": "17:00",
+        "Room": "SAL.G.17"
+      },
+      {
+        "Week": 4,
+        "Day": "Tue",
+        "StartTime": "16:00",
+        "EndTime": "17:00",
+        "Room": "SAL.G.17"
+      },
+      {
+        "Week": 5,
+        "Day": "Tue",
+        "StartTime": "16:00",
+        "EndTime": "17:00",
+        "Room": "SAL.G.17"
+      },
+      {
+        "Week": 7,
+        "Day": "Tue",
+        "StartTime": "16:00",
+        "EndTime": "17:00",
+        "Room": "SAL.G.17"
+      },
+      {
+        "Week": 8,
+        "Day": "Tue",
+        "StartTime": "16:00",
+        "EndTime": "17:00",
+        "Room": "SAL.G.17"
+      },
+      {
+        "Week": 9,
+        "Day": "Tue",
+        "StartTime": "16:00",
+        "EndTime": "17:00",
+        "Room": "SAL.G.17"
+      },
+      {
+        "Week": 10,
+        "Day": "Tue",
+        "StartTime": "16:00",
+        "EndTime": "17:00",
+        "Room": "SAL.G.17"
+      },
+      {
+        "Week": 11,
+        "Day": "Tue",
+        "StartTime": "16:00",
+        "EndTime": "17:00",
+        "Room": "SAL.G.17"
+      }
+    ],
+    "ST": [
+      {
+        "Week": 1,
+        "Day": "Tue",
+        "StartTime": "16:00",
+        "EndTime": "17:00",
+        "Room": "SAL.G.24"
+      }
+    ]
+  },
+  "EC333/LECTURE/01": {
+    "AT": [
+      {
+        "Week": 1,
+        "Day": "Tue",
+        "StartTime": "15:30",
+        "EndTime": "17:00",
+        "Room": "SAL.B.09"
+      },
+      {
+        "Week": 2,
+        "Day": "Tue",
+        "StartTime": "15:30",
+        "EndTime": "17:00",
+        "Room": "CKK.2.04"
+      },
+      {
+        "Week": 3,
+        "Day": "Tue",
+        "StartTime": "15:30",
+        "EndTime": "17:00",
+        "Room": "CKK.2.04"
+      },
+      {
+        "Week": 4,
+        "Day": "Tue",
+        "StartTime": "15:30",
+        "EndTime": "17:00",
+        "Room": "CKK.2.04"
+      },
+      {
+        "Week": 5,
+        "Day": "Tue",
+        "StartTime": "15:30",
+        "EndTime": "17:00",
+        "Room": "CKK.2.04"
+      },
+      {
+        "Week": 6,
+        "Day": "Tue",
+        "StartTime": "15:30",
+        "EndTime": "17:00",
+        "Room": "CKK.LG.01"
+      },
+      {
+        "Week": 7,
+        "Day": "Tue",
+        "StartTime": "15:30",
+        "EndTime": "17:00",
+        "Room": "CKK.2.04"
+      },
+      {
+        "Week": 8,
+        "Day": "Tue",
+        "StartTime": "15:30",
+        "EndTime": "17:00",
+        "Room": "CKK.2.04"
+      },
+      {
+        "Week": 9,
+        "Day": "Tue",
+        "StartTime": "15:30",
+        "EndTime": "17:00",
+        "Room": "CKK.2.04"
+      },
+      {
+        "Week": 10,
+        "Day": "Tue",
+        "StartTime": "15:30",
+        "EndTime": "17:00",
+        "Room": "CKK.2.04"
+      },
+      {
+        "Week": 11,
+        "Day": "Tue",
+        "StartTime": "15:30",
+        "EndTime": "17:00",
+        "Room": "CKK.2.04"
+      }
+    ],
+    "WT": [
+      {
+        "Week": 1,
+        "Day": "Tue",
+        "StartTime": "11:00",
+        "EndTime": "12:30",
+        "Room": "SAL.G.20"
+      },
+      {
+        "Week": 2,
+        "Day": "Tue",
+        "StartTime": "11:00",
+        "EndTime": "12:30",
+        "Room": "SAL.G.20"
+      },
+      {
+        "Week": 3,
+        "Day": "Tue",
+        "StartTime": "11:00",
+        "EndTime": "12:30",
+        "Room": "SAL.G.20"
+      },
+      {
+        "Week": 4,
+        "Day": "Tue",
+        "StartTime": "11:00",
+        "EndTime": "12:30",
+        "Room": "SAL.G.20"
+      },
+      {
+        "Week": 5,
+        "Day": "Tue",
+        "StartTime": "11:00",
+        "EndTime": "12:30",
+        "Room": "SAL.G.20"
+      },
+      {
+        "Week": 7,
+        "Day": "Tue",
+        "StartTime": "11:00",
+        "EndTime": "12:30",
+        "Room": "SAL.G.20"
+      },
+      {
+        "Week": 8,
+        "Day": "Tue",
+        "StartTime": "11:00",
+        "EndTime": "12:30",
+        "Room": "SAL.G.20"
+      },
+      {
+        "Week": 9,
+        "Day": "Tue",
+        "StartTime": "11:00",
+        "EndTime": "12:30",
+        "Room": "SAL.G.20"
+      },
+      {
+        "Week": 10,
+        "Day": "Tue",
+        "StartTime": "11:00",
+        "EndTime": "12:30",
+        "Room": "SAL.G.20"
+      },
+      {
+        "Week": 11,
+        "Day": "Tue",
+        "StartTime": "11:00",
+        "EndTime": "12:30",
+        "Room": "SAL.G.20"
+      }
+    ],
+    "ST": [
+      {
+        "Week": 1,
+        "Day": "Tue",
+        "StartTime": "11:00",
+        "EndTime": "12:30",
+        "Room": "SAL.G.20"
+      }
+    ]
+  },
+  "FM321/LECTURE/01": {
+    "AT": [
+      {
+        "Week": 1,
+        "Day": "Tue",
+        "StartTime": "11:00",
+        "EndTime": "13:00",
+        "Room": "CLM.G.02"
+      },
+      {
+        "Week": 2,
+        "Day": "Tue",
+        "StartTime": "11:00",
+        "EndTime": "13:00",
+        "Room": "CLM.G.02"
+      },
+      {
+        "Week": 3,
+        "Day": "Tue",
+        "StartTime": "11:00",
+        "EndTime": "13:00",
+        "Room": "CLM.G.02"
+      },
+      {
+        "Week": 4,
+        "Day": "Tue",
+        "StartTime": "11:00",
+        "EndTime": "13:00",
+        "Room": "CLM.G.02"
+      },
+      {
+        "Week": 5,
+        "Day": "Tue",
+        "StartTime": "11:00",
+        "EndTime": "13:00",
+        "Room": "CLM.G.02"
+      },
+      {
+        "Week": 7,
+        "Day": "Tue",
+        "StartTime": "11:00",
+        "EndTime": "13:00",
+        "Room": "CLM.G.02"
+      },
+      {
+        "Week": 8,
+        "Day": "Tue",
+        "StartTime": "11:00",
+        "EndTime": "13:00",
+        "Room": "CLM.G.02"
+      },
+      {
+        "Week": 9,
+        "Day": "Tue",
+        "StartTime": "11:00",
+        "EndTime": "13:00",
+        "Room": "CLM.G.02"
+      },
+      {
+        "Week": 10,
+        "Day": "Tue",
+        "StartTime": "11:00",
+        "EndTime": "13:00",
+        "Room": "CLM.G.02"
+      },
+      {
+        "Week": 11,
+        "Day": "Tue",
+        "StartTime": "11:00",
+        "EndTime": "13:00",
+        "Room": "CLM.G.02"
+      }
+    ]
+  },
+  "FM321/SEMINAR/01": {
+    "AT": [
+      {
+        "Week": 2,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:30",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 3,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:30",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 4,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:30",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 5,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:30",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 6,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:30",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 7,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:30",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 8,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:30",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 9,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:30",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 10,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:30",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 11,
+        "Day": "Fri",
+        "StartTime": "10:00",
+        "EndTime": "11:30",
+        "Room": "MAR.1.09"
+      }
+    ]
+  },
+  "FM321/SEMINAR/02": {
+    "AT": [
+      {
+        "Week": 2,
+        "Day": "Fri",
+        "StartTime": "11:30",
+        "EndTime": "13:00",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 3,
+        "Day": "Fri",
+        "StartTime": "11:30",
+        "EndTime": "13:00",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 4,
+        "Day": "Fri",
+        "StartTime": "11:30",
+        "EndTime": "13:00",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 5,
+        "Day": "Fri",
+        "StartTime": "11:30",
+        "EndTime": "13:00",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 6,
+        "Day": "Fri",
+        "StartTime": "11:30",
+        "EndTime": "13:00",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 7,
+        "Day": "Fri",
+        "StartTime": "11:30",
+        "EndTime": "13:00",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 8,
+        "Day": "Fri",
+        "StartTime": "11:30",
+        "EndTime": "13:00",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 9,
+        "Day": "Fri",
+        "StartTime": "11:30",
+        "EndTime": "13:00",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 10,
+        "Day": "Fri",
+        "StartTime": "11:30",
+        "EndTime": "13:00",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 11,
+        "Day": "Fri",
+        "StartTime": "11:30",
+        "EndTime": "13:00",
+        "Room": "MAR.1.09"
+      }
+    ]
+  },
+  "FM321/SEMINAR/03": {
+    "AT": [
+      {
+        "Week": 2,
+        "Day": "Fri",
+        "StartTime": "14:00",
+        "EndTime": "15:30",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 3,
+        "Day": "Fri",
+        "StartTime": "14:00",
+        "EndTime": "15:30",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 4,
+        "Day": "Fri",
+        "StartTime": "14:00",
+        "EndTime": "15:30",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 5,
+        "Day": "Fri",
+        "StartTime": "14:00",
+        "EndTime": "15:30",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 6,
+        "Day": "Fri",
+        "StartTime": "14:00",
+        "EndTime": "15:30",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 7,
+        "Day": "Fri",
+        "StartTime": "14:00",
+        "EndTime": "15:30",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 8,
+        "Day": "Fri",
+        "StartTime": "14:00",
+        "EndTime": "15:30",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 9,
+        "Day": "Fri",
+        "StartTime": "14:00",
+        "EndTime": "15:30",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 10,
+        "Day": "Fri",
+        "StartTime": "14:00",
+        "EndTime": "15:30",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 11,
+        "Day": "Fri",
+        "StartTime": "14:00",
+        "EndTime": "15:30",
+        "Room": "MAR.1.09"
+      }
+    ]
+  },
+  "FM321/SEMINAR/04": {
+    "AT": [
+      {
+        "Week": 2,
+        "Day": "Tue",
+        "StartTime": "17:30",
+        "EndTime": "19:00",
+        "Room": "SAL.LG.18"
+      },
+      {
+        "Week": 3,
+        "Day": "Tue",
+        "StartTime": "17:30",
+        "EndTime": "19:00",
+        "Room": "SAL.LG.18"
+      },
+      {
+        "Week": 4,
+        "Day": "Tue",
+        "StartTime": "17:30",
+        "EndTime": "19:00",
+        "Room": "SAL.LG.18"
+      },
+      {
+        "Week": 5,
+        "Day": "Tue",
+        "StartTime": "17:30",
+        "EndTime": "19:00",
+        "Room": "SAL.LG.18"
+      },
+      {
+        "Week": 6,
+        "Day": "Tue",
+        "StartTime": "17:30",
+        "EndTime": "19:00",
+        "Room": "SAL.LG.18"
+      },
+      {
+        "Week": 7,
+        "Day": "Mon",
+        "StartTime": "17:30",
+        "EndTime": "19:00",
+        "Room": "SAL.LG.18"
+      },
+      {
+        "Week": 8,
+        "Day": "Tue",
+        "StartTime": "17:30",
+        "EndTime": "19:00",
+        "Room": "SAL.LG.18"
+      },
+      {
+        "Week": 9,
+        "Day": "Mon",
+        "StartTime": "17:30",
+        "EndTime": "19:00",
+        "Room": "SAL.LG.18"
+      },
+      {
+        "Week": 10,
+        "Day": "Mon",
+        "StartTime": "17:30",
+        "EndTime": "19:00",
+        "Room": "SAL.LG.18"
+      },
+      {
+        "Week": 11,
+        "Day": "Mon",
+        "StartTime": "17:30",
+        "EndTime": "19:00",
+        "Room": "SAL.LG.18"
+      }
+    ]
+  },
+  "FM321/SEMINAR/05": {
+    "AT": [
+      {
+        "Week": 2,
+        "Day": "Tue",
+        "StartTime": "16:00",
+        "EndTime": "17:30",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 3,
+        "Day": "Tue",
+        "StartTime": "16:00",
+        "EndTime": "17:30",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 4,
+        "Day": "Tue",
+        "StartTime": "16:00",
+        "EndTime": "17:30",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 5,
+        "Day": "Tue",
+        "StartTime": "16:00",
+        "EndTime": "17:30",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 6,
+        "Day": "Tue",
+        "StartTime": "16:00",
+        "EndTime": "17:30",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 7,
+        "Day": "Tue",
+        "StartTime": "16:00",
+        "EndTime": "17:30",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 8,
+        "Day": "Tue",
+        "StartTime": "16:00",
+        "EndTime": "17:30",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 9,
+        "Day": "Tue",
+        "StartTime": "16:00",
+        "EndTime": "17:30",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 10,
+        "Day": "Tue",
+        "StartTime": "16:00",
+        "EndTime": "17:30",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 11,
+        "Day": "Tue",
+        "StartTime": "16:00",
+        "EndTime": "17:30",
+        "Room": "SAL.LG.03"
+      }
+    ]
+  },
+  "FM321/SEMINAR/06": {
+    "AT": [
+      {
+        "Week": 2,
+        "Day": "Tue",
+        "StartTime": "17:30",
+        "EndTime": "19:00",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 3,
+        "Day": "Tue",
+        "StartTime": "17:30",
+        "EndTime": "19:00",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 4,
+        "Day": "Tue",
+        "StartTime": "17:30",
+        "EndTime": "19:00",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 5,
+        "Day": "Tue",
+        "StartTime": "17:30",
+        "EndTime": "19:00",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 6,
+        "Day": "Tue",
+        "StartTime": "17:30",
+        "EndTime": "19:00",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 7,
+        "Day": "Tue",
+        "StartTime": "17:30",
+        "EndTime": "19:00",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 8,
+        "Day": "Tue",
+        "StartTime": "17:30",
+        "EndTime": "19:00",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 9,
+        "Day": "Tue",
+        "StartTime": "17:30",
+        "EndTime": "19:00",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 10,
+        "Day": "Tue",
+        "StartTime": "17:30",
+        "EndTime": "19:00",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 11,
+        "Day": "Tue",
+        "StartTime": "17:30",
+        "EndTime": "19:00",
+        "Room": "SAL.LG.03"
+      }
+    ]
+  },
+  "FM322/SEMINAR/01": {
+    "WT": [
+      {
+        "Week": 1,
+        "Day": "Wed",
+        "StartTime": "09:00",
+        "EndTime": "12:00",
+        "Room": "CLM.4.02"
+      },
+      {
+        "Week": 2,
+        "Day": "Wed",
+        "StartTime": "09:00",
+        "EndTime": "12:00",
+        "Room": "CLM.4.02"
+      },
+      {
+        "Week": 3,
+        "Day": "Wed",
+        "StartTime": "09:00",
+        "EndTime": "12:00",
+        "Room": "CLM.4.02"
+      },
+      {
+        "Week": 4,
+        "Day": "Wed",
+        "StartTime": "09:00",
+        "EndTime": "12:00",
+        "Room": "CLM.4.02"
+      },
+      {
+        "Week": 5,
+        "Day": "Wed",
+        "StartTime": "09:00",
+        "EndTime": "12:00",
+        "Room": "CLM.4.02"
+      },
+      {
+        "Week": 6,
+        "Day": "Wed",
+        "StartTime": "09:00",
+        "EndTime": "12:00",
+        "Room": "CLM.4.02"
+      },
+      {
+        "Week": 7,
+        "Day": "Wed",
+        "StartTime": "09:00",
+        "EndTime": "12:00",
+        "Room": "CLM.4.02"
+      },
+      {
+        "Week": 8,
+        "Day": "Wed",
+        "StartTime": "09:00",
+        "EndTime": "12:00",
+        "Room": "CLM.4.02"
+      },
+      {
+        "Week": 9,
+        "Day": "Wed",
+        "StartTime": "09:00",
+        "EndTime": "12:00",
+        "Room": "CLM.4.02"
+      },
+      {
+        "Week": 10,
+        "Day": "Wed",
+        "StartTime": "09:00",
+        "EndTime": "12:00",
+        "Room": "CLM.4.02"
+      },
+      {
+        "Week": 11,
+        "Day": "Wed",
+        "StartTime": "09:00",
+        "EndTime": "12:00",
+        "Room": "CLM.4.02"
+      }
+    ]
+  },
+  "FM322/SEMINAR/02": {
+    "WT": [
+      {
+        "Week": 1,
+        "Day": "Fri",
+        "StartTime": "14:00",
+        "EndTime": "17:00",
+        "Room": "MAR.2.10"
+      },
+      {
+        "Week": 2,
+        "Day": "Fri",
+        "StartTime": "14:00",
+        "EndTime": "17:00",
+        "Room": "MAR.2.10"
+      },
+      {
+        "Week": 3,
+        "Day": "Fri",
+        "StartTime": "14:00",
+        "EndTime": "17:00",
+        "Room": "MAR.2.10"
+      },
+      {
+        "Week": 4,
+        "Day": "Fri",
+        "StartTime": "14:00",
+        "EndTime": "17:00",
+        "Room": "MAR.2.10"
+      },
+      {
+        "Week": 5,
+        "Day": "Fri",
+        "StartTime": "14:00",
+        "EndTime": "17:00",
+        "Room": "MAR.2.10"
+      },
+      {
+        "Week": 6,
+        "Day": "Fri",
+        "StartTime": "14:00",
+        "EndTime": "17:00",
+        "Room": "MAR.2.10"
+      },
+      {
+        "Week": 7,
+        "Day": "Fri",
+        "StartTime": "14:00",
+        "EndTime": "17:00",
+        "Room": "MAR.2.10"
+      },
+      {
+        "Week": 8,
+        "Day": "Fri",
+        "StartTime": "14:00",
+        "EndTime": "17:00",
+        "Room": "MAR.2.10"
+      },
+      {
+        "Week": 9,
+        "Day": "Fri",
+        "StartTime": "14:00",
+        "EndTime": "17:00",
+        "Room": "MAR.2.10"
+      },
+      {
+        "Week": 10,
+        "Day": "Fri",
+        "StartTime": "14:00",
+        "EndTime": "17:00",
+        "Room": "MAR.2.10"
+      },
+      {
+        "Week": 11,
+        "Day": "Fri",
+        "StartTime": "14:00",
+        "EndTime": "17:00",
+        "Room": "MAR.2.10"
+      }
+    ]
+  },
+  "ST310/LECTURE/01": {
+    "AT": [
+      {
+        "Week": 1,
+        "Day": "Fri",
+        "StartTime": "15:00",
+        "EndTime": "16:30",
+        "Room": "CLM.G.02"
+      },
+      {
+        "Week": 2,
+        "Day": "Fri",
+        "StartTime": "15:00",
+        "EndTime": "16:30",
+        "Room": "CLM.G.02"
+      },
+      {
+        "Week": 3,
+        "Day": "Fri",
+        "StartTime": "15:00",
+        "EndTime": "16:30",
+        "Room": "CLM.G.02"
+      },
+      {
+        "Week": 4,
+        "Day": "Fri",
+        "StartTime": "15:00",
+        "EndTime": "16:30",
+        "Room": "CLM.G.02"
+      },
+      {
+        "Week": 5,
+        "Day": "Fri",
+        "StartTime": "15:00",
+        "EndTime": "16:30",
+        "Room": "CLM.G.02"
+      },
+      {
+        "Week": 7,
+        "Day": "Fri",
+        "StartTime": "15:00",
+        "EndTime": "16:30",
+        "Room": "CLM.G.02"
+      },
+      {
+        "Week": 8,
+        "Day": "Fri",
+        "StartTime": "15:00",
+        "EndTime": "16:30",
+        "Room": "CLM.G.02"
+      },
+      {
+        "Week": 9,
+        "Day": "Fri",
+        "StartTime": "15:00",
+        "EndTime": "16:30",
+        "Room": "CLM.G.02"
+      },
+      {
+        "Week": 10,
+        "Day": "Fri",
+        "StartTime": "15:00",
+        "EndTime": "16:30",
+        "Room": "CLM.G.02"
+      },
+      {
+        "Week": 11,
+        "Day": "Fri",
+        "StartTime": "15:00",
+        "EndTime": "16:30",
+        "Room": "CLM.G.02"
+      }
+    ]
+  },
+  "ST310/SEMINAR/01": {
+    "AT": [
+      {
+        "Week": 2,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "SAL.LG.04"
+      },
+      {
+        "Week": 3,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "SAL.LG.04"
+      },
+      {
+        "Week": 4,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "SAL.LG.04"
+      },
+      {
+        "Week": 5,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "SAL.LG.04"
+      },
+      {
+        "Week": 7,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "SAL.LG.04"
+      },
+      {
+        "Week": 8,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "SAL.LG.04"
+      },
+      {
+        "Week": 9,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "SAL.LG.04"
+      },
+      {
+        "Week": 10,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "SAL.LG.04"
+      },
+      {
+        "Week": 11,
+        "Day": "Mon",
+        "StartTime": "16:30",
+        "EndTime": "18:00",
+        "Room": "CBG.2.02"
+      },
+      {
+        "Week": 11,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "SAL.LG.04"
+      }
+    ]
+  },
+  "ST310/SEMINAR/02": {
+    "AT": [
+      {
+        "Week": 2,
+        "Day": "Fri",
+        "StartTime": "10:30",
+        "EndTime": "12:00",
+        "Room": "SAL.LG.04"
+      },
+      {
+        "Week": 3,
+        "Day": "Fri",
+        "StartTime": "10:30",
+        "EndTime": "12:00",
+        "Room": "SAL.LG.04"
+      },
+      {
+        "Week": 4,
+        "Day": "Fri",
+        "StartTime": "10:30",
+        "EndTime": "12:00",
+        "Room": "SAL.LG.04"
+      },
+      {
+        "Week": 5,
+        "Day": "Fri",
+        "StartTime": "10:30",
+        "EndTime": "12:00",
+        "Room": "SAL.LG.04"
+      },
+      {
+        "Week": 7,
+        "Day": "Fri",
+        "StartTime": "10:30",
+        "EndTime": "12:00",
+        "Room": "SAL.LG.04"
+      },
+      {
+        "Week": 8,
+        "Day": "Fri",
+        "StartTime": "10:30",
+        "EndTime": "12:00",
+        "Room": "SAL.LG.04"
+      },
+      {
+        "Week": 9,
+        "Day": "Fri",
+        "StartTime": "10:30",
+        "EndTime": "12:00",
+        "Room": "SAL.LG.04"
+      },
+      {
+        "Week": 10,
+        "Day": "Fri",
+        "StartTime": "10:30",
+        "EndTime": "12:00",
+        "Room": "SAL.LG.04"
+      },
+      {
+        "Week": 11,
+        "Day": "Mon",
+        "StartTime": "15:00",
+        "EndTime": "16:30",
+        "Room": "CBG.2.02"
+      },
+      {
+        "Week": 11,
+        "Day": "Fri",
+        "StartTime": "10:30",
+        "EndTime": "12:00",
+        "Room": "SAL.LG.04"
+      }
+    ]
+  },
+  "ST310/SEMINAR/03": {
+    "AT": [
+      {
+        "Week": 2,
+        "Day": "Thu",
+        "StartTime": "14:00",
+        "EndTime": "15:30",
+        "Room": "CBG.2.03"
+      },
+      {
+        "Week": 3,
+        "Day": "Thu",
+        "StartTime": "14:00",
+        "EndTime": "15:30",
+        "Room": "CBG.2.03"
+      },
+      {
+        "Week": 4,
+        "Day": "Thu",
+        "StartTime": "14:00",
+        "EndTime": "15:30",
+        "Room": "CBG.2.03"
+      },
+      {
+        "Week": 5,
+        "Day": "Thu",
+        "StartTime": "14:00",
+        "EndTime": "15:30",
+        "Room": "CBG.2.03"
+      },
+      {
+        "Week": 7,
+        "Day": "Thu",
+        "StartTime": "14:00",
+        "EndTime": "15:30",
+        "Room": "CBG.2.03"
+      },
+      {
+        "Week": 8,
+        "Day": "Thu",
+        "StartTime": "14:00",
+        "EndTime": "15:30",
+        "Room": "CBG.2.03"
+      },
+      {
+        "Week": 9,
+        "Day": "Thu",
+        "StartTime": "14:00",
+        "EndTime": "15:30",
+        "Room": "CBG.2.03"
+      },
+      {
+        "Week": 10,
+        "Day": "Thu",
+        "StartTime": "14:00",
+        "EndTime": "15:30",
+        "Room": "CBG.2.03"
+      },
+      {
+        "Week": 11,
+        "Day": "Wed",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "MAR.1.09"
+      },
+      {
+        "Week": 11,
+        "Day": "Thu",
+        "StartTime": "14:00",
+        "EndTime": "15:30",
+        "Room": "CBG.2.03"
+      }
+    ]
+  },
+  "ST310/SEMINAR/04": {
+    "AT": [
+      {
+        "Week": 2,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.1.06"
+      },
+      {
+        "Week": 3,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.1.06"
+      },
+      {
+        "Week": 4,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.1.06"
+      },
+      {
+        "Week": 5,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.1.06"
+      },
+      {
+        "Week": 7,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.1.06"
+      },
+      {
+        "Week": 8,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.1.06"
+      },
+      {
+        "Week": 9,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.1.06"
+      },
+      {
+        "Week": 10,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.1.06"
+      },
+      {
+        "Week": 11,
+        "Day": "Mon",
+        "StartTime": "11:30",
+        "EndTime": "13:00",
+        "Room": "MAR.2.05"
+      },
+      {
+        "Week": 11,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.1.06"
+      }
+    ]
+  },
+  "ST310/SEMINAR/05": {
+    "AT": [
+      {
+        "Week": 2,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.2.04"
+      },
+      {
+        "Week": 3,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.2.04"
+      },
+      {
+        "Week": 4,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.2.04"
+      },
+      {
+        "Week": 5,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.2.04"
+      },
+      {
+        "Week": 7,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.2.04"
+      },
+      {
+        "Week": 8,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.2.04"
+      },
+      {
+        "Week": 9,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.2.04"
+      },
+      {
+        "Week": 10,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.2.04"
+      },
+      {
+        "Week": 11,
+        "Day": "Mon",
+        "StartTime": "12:00",
+        "EndTime": "13:30",
+        "Room": "FAW.2.04"
+      },
+      {
+        "Week": 11,
+        "Day": "Fri",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.2.04"
+      }
+    ]
+  },
+  "ST310/SEMINAR/06": {
+    "AT": [
+      {
+        "Week": 2,
+        "Day": "Fri",
+        "StartTime": "13:30",
+        "EndTime": "15:00",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 3,
+        "Day": "Fri",
+        "StartTime": "13:30",
+        "EndTime": "15:00",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 4,
+        "Day": "Fri",
+        "StartTime": "13:30",
+        "EndTime": "15:00",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 5,
+        "Day": "Fri",
+        "StartTime": "13:30",
+        "EndTime": "15:00",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 7,
+        "Day": "Fri",
+        "StartTime": "13:30",
+        "EndTime": "15:00",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 8,
+        "Day": "Fri",
+        "StartTime": "13:30",
+        "EndTime": "15:00",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 9,
+        "Day": "Fri",
+        "StartTime": "13:30",
+        "EndTime": "15:00",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 10,
+        "Day": "Fri",
+        "StartTime": "13:30",
+        "EndTime": "15:00",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 11,
+        "Day": "Wed",
+        "StartTime": "10:30",
+        "EndTime": "12:00",
+        "Room": "CBG.2.02"
+      },
+      {
+        "Week": 11,
+        "Day": "Fri",
+        "StartTime": "13:30",
+        "EndTime": "15:00",
+        "Room": "CBG.2.06"
+      }
+    ]
+  },
+  "ST310/SEMINAR/07": {
+    "AT": [
+      {
+        "Week": 2,
+        "Day": "Thu",
+        "StartTime": "17:00",
+        "EndTime": "18:30",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 3,
+        "Day": "Thu",
+        "StartTime": "17:00",
+        "EndTime": "18:30",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 4,
+        "Day": "Thu",
+        "StartTime": "17:00",
+        "EndTime": "18:30",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 5,
+        "Day": "Thu",
+        "StartTime": "17:00",
+        "EndTime": "18:30",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 7,
+        "Day": "Thu",
+        "StartTime": "17:00",
+        "EndTime": "18:30",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 8,
+        "Day": "Thu",
+        "StartTime": "17:00",
+        "EndTime": "18:30",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 9,
+        "Day": "Thu",
+        "StartTime": "17:00",
+        "EndTime": "18:30",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 10,
+        "Day": "Thu",
+        "StartTime": "17:00",
+        "EndTime": "18:30",
+        "Room": "SAL.LG.03"
+      },
+      {
+        "Week": 11,
+        "Day": "Thu",
+        "StartTime": "16:00",
+        "EndTime": "17:30",
+        "Room": "CBG.1.05"
+      },
+      {
+        "Week": 11,
+        "Day": "Thu",
+        "StartTime": "17:30",
+        "EndTime": "19:00",
+        "Room": "CBG.1.05"
+      }
+    ]
+  },
+  "ST311/LECTURE/01": {
+    "WT": [
+      {
+        "Week": 1,
+        "Day": "Tue",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.LG.01"
+      },
+      {
+        "Week": 2,
+        "Day": "Tue",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.LG.01"
+      },
+      {
+        "Week": 3,
+        "Day": "Tue",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.LG.01"
+      },
+      {
+        "Week": 4,
+        "Day": "Tue",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.LG.01"
+      },
+      {
+        "Week": 5,
+        "Day": "Tue",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.LG.01"
+      },
+      {
+        "Week": 6,
+        "Day": "Tue",
+        "StartTime": "13:00",
+        "EndTime": "15:30",
+        "Room": "CKK.LG.01"
+      },
+      {
+        "Week": 7,
+        "Day": "Tue",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.LG.01"
+      },
+      {
+        "Week": 8,
+        "Day": "Tue",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.LG.01"
+      },
+      {
+        "Week": 9,
+        "Day": "Tue",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.LG.01"
+      },
+      {
+        "Week": 10,
+        "Day": "Tue",
+        "StartTime": "13:00",
+        "EndTime": "15:00",
+        "Room": "CKK.LG.01"
+      },
+      {
+        "Week": 11,
+        "Day": "Tue",
+        "StartTime": "13:00",
+        "EndTime": "15:30",
+        "Room": "CLM.3.02"
+      }
+    ]
+  },
+  "ST311/SEMINAR/01": {
+    "WT": [
+      {
+        "Week": 1,
+        "Day": "Thu",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 2,
+        "Day": "Thu",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 3,
+        "Day": "Thu",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 4,
+        "Day": "Thu",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 5,
+        "Day": "Thu",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 7,
+        "Day": "Thu",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 8,
+        "Day": "Thu",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 9,
+        "Day": "Thu",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 10,
+        "Day": "Thu",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 11,
+        "Day": "Thu",
+        "StartTime": "09:00",
+        "EndTime": "10:30",
+        "Room": "CBG.2.06"
+      }
+    ]
+  },
+  "ST311/SEMINAR/02": {
+    "WT": [
+      {
+        "Week": 1,
+        "Day": "Thu",
+        "StartTime": "10:30",
+        "EndTime": "12:00",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 2,
+        "Day": "Thu",
+        "StartTime": "10:30",
+        "EndTime": "12:00",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 3,
+        "Day": "Thu",
+        "StartTime": "10:30",
+        "EndTime": "12:00",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 4,
+        "Day": "Thu",
+        "StartTime": "10:30",
+        "EndTime": "12:00",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 5,
+        "Day": "Thu",
+        "StartTime": "10:30",
+        "EndTime": "12:00",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 7,
+        "Day": "Thu",
+        "StartTime": "10:30",
+        "EndTime": "12:00",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 8,
+        "Day": "Thu",
+        "StartTime": "10:30",
+        "EndTime": "12:00",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 9,
+        "Day": "Thu",
+        "StartTime": "10:30",
+        "EndTime": "12:00",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 10,
+        "Day": "Thu",
+        "StartTime": "10:30",
+        "EndTime": "12:00",
+        "Room": "CBG.2.06"
+      },
+      {
+        "Week": 11,
+        "Day": "Thu",
+        "StartTime": "10:30",
+        "EndTime": "12:00",
+        "Room": "CBG.2.06"
+      }
+    ]
+  },
+  "ST311/SEMINAR/03": {
+    "WT": [
+      {
+        "Week": 1,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "14:30",
+        "Room": "CBG.1.07"
+      },
+      {
+        "Week": 2,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "14:30",
+        "Room": "CBG.1.07"
+      },
+      {
+        "Week": 3,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "14:30",
+        "Room": "CBG.1.07"
+      },
+      {
+        "Week": 4,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "14:30",
+        "Room": "CBG.1.07"
+      },
+      {
+        "Week": 5,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "14:30",
+        "Room": "CBG.1.07"
+      },
+      {
+        "Week": 7,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "14:30",
+        "Room": "CBG.1.07"
+      },
+      {
+        "Week": 8,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "14:30",
+        "Room": "CBG.1.07"
+      },
+      {
+        "Week": 9,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "14:30",
+        "Room": "CBG.1.07"
+      },
+      {
+        "Week": 10,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "14:30",
+        "Room": "CBG.1.07"
+      },
+      {
+        "Week": 11,
+        "Day": "Thu",
+        "StartTime": "13:00",
+        "EndTime": "14:30",
+        "Room": "CBG.1.07"
+      }
+    ]
+  },
+  "ST311/SEMINAR/04": {
+    "WT": [
+      {
+        "Week": 1,
+        "Day": "Thu",
+        "StartTime": "14:30",
+        "EndTime": "16:00",
+        "Room": "CBG.1.07"
+      },
+      {
+        "Week": 2,
+        "Day": "Thu",
+        "StartTime": "14:30",
+        "EndTime": "16:00",
+        "Room": "CBG.1.07"
+      },
+      {
+        "Week": 3,
+        "Day": "Thu",
+        "StartTime": "14:30",
+        "EndTime": "16:00",
+        "Room": "CBG.1.07"
+      },
+      {
+        "Week": 4,
+        "Day": "Thu",
+        "StartTime": "14:30",
+        "EndTime": "16:00",
+        "Room": "CBG.1.07"
+      },
+      {
+        "Week": 5,
+        "Day": "Thu",
+        "StartTime": "14:30",
+        "EndTime": "16:00",
+        "Room": "CBG.1.07"
+      },
+      {
+        "Week": 7,
+        "Day": "Thu",
+        "StartTime": "14:30",
+        "EndTime": "16:00",
+        "Room": "CBG.1.07"
+      },
+      {
+        "Week": 8,
+        "Day": "Thu",
+        "StartTime": "14:30",
+        "EndTime": "16:00",
+        "Room": "CBG.1.07"
+      },
+      {
+        "Week": 9,
+        "Day": "Thu",
+        "StartTime": "14:30",
+        "EndTime": "16:00",
+        "Room": "CBG.1.07"
+      },
+      {
+        "Week": 10,
+        "Day": "Thu",
+        "StartTime": "14:30",
+        "EndTime": "16:00",
+        "Room": "CBG.1.07"
+      },
+      {
+        "Week": 11,
+        "Day": "Thu",
+        "StartTime": "14:30",
+        "EndTime": "16:00",
+        "Room": "CBG.1.07"
+      }
+    ]
+  },
+  "ST311/SEMINAR/05": {
+    "WT": [
+      {
+        "Week": 1,
+        "Day": "Thu",
+        "StartTime": "12:00",
+        "EndTime": "13:30",
+        "Room": "CBG.1.04"
+      },
+      {
+        "Week": 2,
+        "Day": "Thu",
+        "StartTime": "12:00",
+        "EndTime": "13:30",
+        "Room": "CBG.1.04"
+      },
+      {
+        "Week": 3,
+        "Day": "Thu",
+        "StartTime": "12:00",
+        "EndTime": "13:30",
+        "Room": "CBG.1.04"
+      },
+      {
+        "Week": 4,
+        "Day": "Thu",
+        "StartTime": "12:00",
+        "EndTime": "13:30",
+        "Room": "CBG.1.04"
+      },
+      {
+        "Week": 5,
+        "Day": "Thu",
+        "StartTime": "12:00",
+        "EndTime": "13:30",
+        "Room": "CBG.1.04"
+      },
+      {
+        "Week": 7,
+        "Day": "Thu",
+        "StartTime": "12:00",
+        "EndTime": "13:30",
+        "Room": "CBG.1.04"
+      },
+      {
+        "Week": 8,
+        "Day": "Thu",
+        "StartTime": "12:00",
+        "EndTime": "13:30",
+        "Room": "CBG.1.04"
+      },
+      {
+        "Week": 9,
+        "Day": "Thu",
+        "StartTime": "12:00",
+        "EndTime": "13:30",
+        "Room": "CBG.1.04"
+      },
+      {
+        "Week": 10,
+        "Day": "Thu",
+        "StartTime": "12:00",
+        "EndTime": "13:30",
+        "Room": "CBG.1.04"
+      },
+      {
+        "Week": 11,
+        "Day": "Thu",
+        "StartTime": "12:00",
+        "EndTime": "13:30",
+        "Room": "CBG.1.04"
+      }
+    ]
+  }
+}
