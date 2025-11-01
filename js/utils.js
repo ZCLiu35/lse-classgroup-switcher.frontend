@@ -90,6 +90,27 @@ export function getTermForDate(date) {
 }
 
 /**
+ * Get day name from Date object
+ * @param {Date} date - Date object
+ * @returns {string} - Day name (Mon, Tue, Wed, etc.)
+ */
+export function getDayName(date) {
+    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    return days[date.getDay()];
+}
+
+/**
+ * Get time string from Date object in HH:MM format
+ * @param {Date} date - Date object
+ * @returns {string} - Time string in HH:MM format (24-hour)
+ */
+export function getTimeString(date) {
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    return `${hours}:${minutes}`;
+}
+
+/**
  * Convert session to FullCalendar event format
  * @param {Object} session - Session object from sessions.json (Week, Day, StartTime, EndTime, Room)
  * @param {Object} course - Course object from courses.json
@@ -143,9 +164,6 @@ export function sessionToEvent(session, course, group, weekStart, courseColor, e
             instructor: group.Teacher,
             location: session.Room,
             weekNumber: session.Week,
-            dayOfWeek: session.Day,
-            startTime: session.StartTime,
-            endTime: session.EndTime,
             eventState: eventState
         }
     };
@@ -192,6 +210,8 @@ export default {
     formatDateRange,
     getWeekNumberForDate,
     getTermForDate,
+    getDayName,
+    getTimeString,
     sessionToEvent,
     loadJSON,
     debounce

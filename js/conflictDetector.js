@@ -2,6 +2,8 @@
 // Conflict Detection Utility
 // ======================================
 
+import { getDayName, getTimeString } from './utils.js';
+
 /**
  * Check if two time ranges overlap
  * @param {Object} session1 - First session with DayOfWeek, StartTime, EndTime
@@ -84,18 +86,18 @@ export function detectConflicts(events) {
             // Skip if same course (can't conflict with yourself)
             if (event1.extendedProps.courseId === event2.extendedProps.courseId) continue;
             
-            // Extract session data from extendedProps
+            // Extract session data from standard Event properties
             const session1 = {
-                DayOfWeek: event1.extendedProps.dayOfWeek,
-                StartTime: event1.extendedProps.startTime,
-                EndTime: event1.extendedProps.endTime,
+                DayOfWeek: getDayName(event1.start),
+                StartTime: getTimeString(event1.start),
+                EndTime: getTimeString(event1.end),
                 Week: event1.extendedProps.weekNumber
             };
             
             const session2 = {
-                DayOfWeek: event2.extendedProps.dayOfWeek,
-                StartTime: event2.extendedProps.startTime,
-                EndTime: event2.extendedProps.endTime,
+                DayOfWeek: getDayName(event2.start),
+                StartTime: getTimeString(event2.start),
+                EndTime: getTimeString(event2.end),
                 Week: event2.extendedProps.weekNumber
             };
             
