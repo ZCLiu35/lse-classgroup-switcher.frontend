@@ -1,6 +1,6 @@
-# ClassSwitcher Frontend - Phase 1
+# ClassSwitcher Frontend - Phase 2
 
-**Viewing Mode Only** - Display enrolled class schedule with static data.
+**Full-Featured Class Planner** - View enrolled schedule and plan tutorial group changes with conflict detection.
 
 ## Quick Start
 
@@ -31,14 +31,39 @@ python -m http.server 3000
 **Direct File Opening** (May have CORS issues):
 Simply open `index.html` in a web browser. Note: Some browsers may block loading JSON files due to CORS restrictions.
 
-## Features (Phase 1)
+## Features
 
 ✅ **Viewing Mode**
 - Calendar displays all enrolled sessions (lectures + tutorials)
 - Week-by-week navigation (Weeks 1-11)
 - Term switching (Autumn Term / Winter Term)
 - "Today" button to jump to current week
-- Sidebar showing enrolled courses
+- Sidebar showing enrolled courses with group details
+- Click events to view session details in modal popup
+
+✅ **Planning Mode**
+- Toggle planning mode to explore alternative tutorial groups
+- Course filtering - show/hide individual courses
+- View alternatives - toggle between "My Sessions" and "All Sessions" per course
+- Click to select alternative tutorial groups
+- Visual state indicators:
+  - Enrolled groups (solid fill)
+  - Selected alternatives (yellow border + solid fill)
+  - Available alternatives (dotted border + transparent fill)
+  - Lectures (striped pattern, always shown)
+- Change tracking with indicators in sidebar
+- Conflict detection with visual warnings
+
+✅ **Conflict Detection**
+- Real-time detection of scheduling conflicts
+- Conflicting events highlighted with red borders
+- Warning when attempting to save/apply changes with conflicts
+- Supports multiple overlapping sessions
+
+✅ **Planning Actions**
+- **Cancel** - Discard all changes and exit planning mode
+- **Save** - Save changes for later without applying
+- **Apply** - Apply changes immediately (with conflict confirmation)
 
 ✅ **Data-Driven Display**
 - 4 sample courses with comprehensive session data
@@ -50,14 +75,9 @@ Simply open `index.html` in a web browser. Note: Some browsers may block loading
 ✅ **Visual Design**
 - Color-coded courses (neutral, color-blind friendly palette)
 - Striped pattern for lectures
-- Solid fill for enrolled tutorials
-- Responsive layout with sidebar
-
-🚧 **Not Yet Implemented** (Phase 2)
-- Planning Mode (viewing alternatives)
-- Tutorial group switching
-- Conflict detection
-- Course filtering
+- State-based styling for tutorials
+- Responsive layout with mode-specific sidebars
+- Smooth transitions and animations
 
 ## Project Structure
 
@@ -69,7 +89,9 @@ frontend/
 ├── js/
 │   ├── app.js            # Main application class
 │   ├── config.js         # Configuration constants
-│   └── utils.js          # Helper functions
+│   ├── utils.js          # Helper functions
+│   ├── planningState.js  # Planning mode state management
+│   └── conflictDetector.js  # Conflict detection logic
 └── data/
     ├── courses.json      # Course definitions
     ├── groups.json       # Tutorial/lecture groups
@@ -115,17 +137,19 @@ frontend/
 
 ### Clean Code Principles
 ✅ No unnecessary libraries
-✅ Modular structure (config, utils, app)
+✅ Modular structure (config, utils, app, state management)
 ✅ Clear separation of concerns
 ✅ Data-driven, no hardcoded assumptions
 ✅ Readable variable names
+✅ Immutable state patterns
+✅ Efficient conflict detection algorithms
 
-### Next Steps (Phase 2)
-1. Add Planning Mode toggle
-2. Display alternative tutorial groups
-3. Implement course filtering in sidebar
-4. Add conflict detection
-5. Visual distinction for alternative sessions
+### Implementation Highlights
+- **State Management**: Separate `PlanningState` class for clean state handling
+- **Conflict Detection**: Optimized O(n log n) algorithm for scheduling conflicts
+- **Full Rerender Approach**: Calendar events completely refreshed on state changes
+- **Nested Data Structure**: O(1) session lookup with `{ GroupID: { Term: [sessions] } }`
+- **Visual Feedback**: Clear state indicators and smooth transitions
 
 ## Troubleshooting
 
@@ -143,19 +167,42 @@ frontend/
 
 ## Testing Checklist
 
+### Viewing Mode
 - [ ] Calendar loads and displays current week
 - [ ] Week navigation (Prev/Next) works
-- [ ] Term selector switches between AT/WT/ST
+- [ ] Term selector switches between AT/WT
 - [ ] "Today" button jumps to current week
-- [ ] Sidebar shows 4 enrolled courses
+- [ ] Sidebar shows 4 enrolled courses with group info
 - [ ] Lectures have striped pattern
 - [ ] Tutorials have solid fill
 - [ ] Each course has distinct color
-- [ ] Hover shows session details
-- [ ] Click shows session info alert
+- [ ] Click shows session details in modal popup
+- [ ] Modal can be closed via X button, clicking outside, or Escape key
 - [ ] Responsive layout (resize browser)
+
+### Planning Mode
+- [ ] Planning mode toggle button works
+- [ ] Header changes to amber when planning mode is active
+- [ ] Planning sidebar appears with course filters
+- [ ] Course visibility checkboxes work
+- [ ] "My Sessions" / "All Sessions" toggle works per course
+- [ ] Clicking alternative sessions selects them (yellow border)
+- [ ] Clicking selected sessions deselects them (reverts to enrolled)
+- [ ] Change indicators appear in sidebar
+- [ ] Lectures remain non-interactive (can view details only)
+- [ ] Cancel button discards changes
+- [ ] Save button stores changes
+- [ ] Apply button confirms and exits planning mode
+
+### Conflict Detection
+- [ ] Conflicts are detected when sessions overlap
+- [ ] Conflicting events show red borders
+- [ ] Warning appears when applying changes with conflicts
+- [ ] Conflict count is accurate
+- [ ] Conflicts clear when resolved
 
 ---
 
-**Phase 1 Status**: ✅ Complete
-**Next**: Phase 2 - Planning Mode & Alternatives
+**Phase 1 Status**: ✅ Complete  
+**Phase 2 Status**: ✅ Complete  
+**Next**: Backend Integration & Real Enrollment Updates
