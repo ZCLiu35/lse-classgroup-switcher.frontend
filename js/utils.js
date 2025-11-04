@@ -68,10 +68,7 @@ export function getWeekNumberForDate(date, termCode) {
     const daysDiff = Math.floor((date - weekOneStart) / (1000 * 60 * 60 * 24));
     const weekNumber = Math.floor(daysDiff / 7) + 1;
     
-    if (weekNumber >= 1 && weekNumber <= term.totalWeeks) {
-        return weekNumber;
-    }
-    return null;
+    return (weekNumber >= 1 && weekNumber <= term.totalWeeks) ? weekNumber : null;
 }
 
 /**
@@ -128,23 +125,19 @@ export function sessionToEvent(session, course, group, weekStart, courseColor, e
     const sessionDate = new Date(weekStart);
     sessionDate.setDate(sessionDate.getDate() + dayMap[session.Day]);
     
-    // Parse time (format: "HH:MM" in 24-hour format)
-    const [hours, minutes] = session.StartTime.split(':').map(Number);
+    // Parse and set start time
+    const [startHours, startMinutes] = session.StartTime.split(':').map(Number);
     const startDateTime = new Date(sessionDate);
-    startDateTime.setHours(hours, minutes, 0);
+    startDateTime.setHours(startHours, startMinutes, 0);
     
-    // Calculate end time
+    // Parse and set end time
     const [endHours, endMinutes] = session.EndTime.split(':').map(Number);
     const endDateTime = new Date(sessionDate);
     endDateTime.setHours(endHours, endMinutes, 0);
     
     // Build event classes based on state
     const eventClasses = [courseColor];
-    if (group.Type === 'LEC') {
-        eventClasses.push('lecture');
-    } else {
-        eventClasses.push(`event-${eventState}`);
-    }
+    eventClasses.push(group.Type === 'LEC' ? 'lecture' : `event-${eventState}`);
     
     const groupDisplay = group.Type === 'LEC' ? 'Lec' : `${group.Type}-G${group.GroupNumber}`;
     
@@ -196,23 +189,7 @@ export async function loadJSON(path) {
 export function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
         clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
+        timeout = setTimeout(() => func(...args), wait);
     };
 }
-
-export default {
-    getWeekDateRange,
-    formatDateRange,
-    getWeekNumberForDate,
-    getTermForDate,
-    getDayName,
-    getTimeString,
-    sessionToEvent,
-    loadJSON,
-    debounce
-};
