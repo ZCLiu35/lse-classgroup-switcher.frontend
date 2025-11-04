@@ -245,10 +245,7 @@ class ClassSwitcherApp {
             Object.entries(enrollment.EnrolledGroups).forEach(([type, groupId]) => {
                 const group = this.groups.find(g => g.GroupID === groupId);
                 if (group) {
-                    const typeLabel = type === 'LEC' ? 'Lecture' : 
-                                     type === 'CLA' ? 'Class' : 
-                                     type === 'SEM' ? 'Seminar' : type;
-                    groupsHTML += `<div class="course-card-detail">${typeLabel}: Group ${group.GroupNumber}</div>`;
+                    groupsHTML += `<div class="course-card-detail">${this.getGroupTypeLabel(type)}: Group ${group.GroupNumber}</div>`;
                 }
             });
             
@@ -269,9 +266,23 @@ class ClassSwitcherApp {
      * Get enrolled courses for a specific term
      */
     getEnrolledCoursesForTerm(termCode) {
-        return this.courses.filter(course => {
-            return course.Terms.includes(termCode);
-        });
+        return this.courses.filter(course => course.Terms.includes(termCode));
+    }
+    
+    /**
+     * Get group type label for display
+     */
+    getGroupTypeLabel(type) {
+        const labels = { 'LEC': 'Lecture', 'CLA': 'Class', 'SEM': 'Seminar' };
+        return labels[type] || type;
+    }
+    
+    /**
+     * Refresh planning view (reload calendar and sidebar)
+     */
+    refreshPlanningView() {
+        this.renderPlanningSidebar();
+        this.loadWeek(this.currentTerm, this.currentWeek);
     }
 
     /**
@@ -313,7 +324,7 @@ class ClassSwitcherApp {
             this.conflictingEventIds.clear();
         }
         
-        // Update calendar events
+        // Update calendar events - full rerender
         this.calendar.removeAllEvents();
         this.calendar.addEventSource(events);
         
@@ -426,7 +437,8 @@ class ClassSwitcherApp {
         });
         
         document.getElementById('saveBtn').addEventListener('click', () => {
-            this.exitPlanningMode('save');
+            const applied = this.applyChanges();
+            this.exitPlanningMode(applied ? 'save' : 'cancel');
         });
         
         document.getElementById('applyBtn').addEventListener('click', () => {
@@ -495,6 +507,8 @@ class ClassSwitcherApp {
     
     /**
      * Apply staged changes (in a real app, this would call backend API)
+     * Note: This does NOT exit planning mode - only "Save and Apply" does that
+     * @returns {boolean} - Returns true if changes were applied, false otherwise
      */
     applyChanges() {
         // Check for conflicts first
@@ -503,14 +517,14 @@ class ClassSwitcherApp {
                 `You have ${this.conflictingEventIds.size / 2} scheduling conflict(s). ` +
                 `Are you sure you want to apply these changes?`
             );
-            if (!confirmApply) return;
+            if (!confirmApply) return false;
         }
         
         const changes = this.planningState.stagedChanges;
         
         if (changes.size === 0) {
             alert('No changes to apply.');
-            return;
+            return false;
         }
         
         // In a real application, this would make API calls to update enrollment
@@ -519,39 +533,33 @@ class ClassSwitcherApp {
         // Simulate success
         alert(`Successfully applied ${changes.size} change(s)!\n\n(In production, this would update your enrollment in the school portal)`);
         
-        // Exit planning mode
-        this.exitPlanningMode('apply');
+        // Stay in planning mode - don't exit
+        // User can continue making more changes or use "Save and Apply" to exit
+        return true;
     }
     
     /**
      * Update UI elements for planning mode
      */
     updatePlanningModeUI() {
-        const header = document.querySelector('header');
-        const toggleBtn = document.getElementById('planningModeToggle');
-        const planningActions = document.getElementById('planningActions');
-        const viewingSidebar = document.getElementById('viewingSidebar');
-        const planningSidebar = document.getElementById('planningSidebar');
+        const isPlanning = this.planningState.isPlanning();
+        const elements = {
+            header: document.querySelector('header'),
+            toggleBtn: document.getElementById('planningModeToggle'),
+            planningActions: document.getElementById('planningActions'),
+            viewingSidebar: document.getElementById('viewingSidebar'),
+            planningSidebar: document.getElementById('planningSidebar')
+        };
         
-        if (this.planningState.isPlanning()) {
-            // Planning mode ON
-            header.classList.add('planning-mode-header');
-            toggleBtn.classList.remove('bg-gray-200', 'text-gray-700');
-            toggleBtn.classList.add('bg-amber-500', 'text-white');
-            toggleBtn.textContent = '🔧 Planning Mode';
-            planningActions.classList.remove('hidden');
-            viewingSidebar.classList.add('hidden');
-            planningSidebar.classList.remove('hidden');
-        } else {
-            // Viewing mode ON
-            header.classList.remove('planning-mode-header');
-            toggleBtn.classList.remove('bg-amber-500', 'text-white');
-            toggleBtn.classList.add('bg-gray-200', 'text-gray-700');
-            toggleBtn.textContent = 'Planning Mode';
-            planningActions.classList.add('hidden');
-            viewingSidebar.classList.remove('hidden');
-            planningSidebar.classList.add('hidden');
-        }
+        elements.header.classList.toggle('planning-mode-header', isPlanning);
+        elements.toggleBtn.classList.toggle('bg-gray-200', !isPlanning);
+        elements.toggleBtn.classList.toggle('text-gray-700', !isPlanning);
+        elements.toggleBtn.classList.toggle('bg-amber-500', isPlanning);
+        elements.toggleBtn.classList.toggle('text-white', isPlanning);
+        elements.toggleBtn.textContent = isPlanning ? '🔧 Planning Mode' : 'Planning Mode';
+        elements.planningActions.classList.toggle('hidden', !isPlanning);
+        elements.viewingSidebar.classList.toggle('hidden', isPlanning);
+        elements.planningSidebar.classList.toggle('hidden', !isPlanning);
     }
     
     /**
@@ -630,9 +638,26 @@ class ClassSwitcherApp {
                 const currentMode = this.planningState.showAlternatives.get(courseId) || 'my';
                 const newMode = currentMode === 'my' ? 'all' : 'my';
                 this.planningState.setAlternativeMode(courseId, newMode);
-                this.renderPlanningSidebar(); // Re-render to update button text
-                this.loadWeek(this.currentTerm, this.currentWeek);
+                this.refreshPlanningView();
             });
+        });
+    }
+    
+    /**
+     * Add sessions for a group to events array
+     */
+    addGroupSessionsToEvents(events, group, course, termCode, weekNumber, weekStart, eventState) {
+        const groupSessions = this.sessions[group.GroupID]?.[termCode];
+        if (!groupSessions) return;
+        
+        const weekSessions = groupSessions.filter(s => s.Week === weekNumber);
+        weekSessions.forEach(session => {
+            const event = utils.sessionToEvent(
+                session, course, group, weekStart,
+                this.courseColors.get(course.CourseID),
+                eventState
+            );
+            events.push(event);
         });
     }
     
@@ -658,20 +683,9 @@ class ClassSwitcherApp {
             Object.entries(enrollment.EnrolledGroups).forEach(([groupType, groupId]) => {
                 if (groupType === 'LEC') {
                     const group = this.groups.find(g => g.GroupID === groupId);
-                    if (!group) return;
-                    
-                    const groupSessions = this.sessions[groupId]?.[termCode];
-                    if (!groupSessions) return;
-                    
-                    const weekSessions = groupSessions.filter(s => s.Week === weekNumber);
-                    weekSessions.forEach(session => {
-                        const event = utils.sessionToEvent(
-                            session, course, group, weekStart,
-                            this.courseColors.get(course.CourseID),
-                            'lecture'
-                        );
-                        events.push(event);
-                    });
+                    if (group) {
+                        this.addGroupSessionsToEvents(events, group, course, termCode, weekNumber, weekStart, 'lecture');
+                    }
                 }
             });
             
@@ -692,25 +706,10 @@ class ClassSwitcherApp {
                         const group = this.groups.find(g => g.GroupID === groupId);
                         if (!group) return;
                         
-                        const groupSessions = this.sessions[groupId]?.[termCode];
-                        if (!groupSessions) return;
-                        
-                        const weekSessions = groupSessions.filter(s => s.Week === weekNumber);
-                        weekSessions.forEach(session => {
-                            let eventState;
-                            if (groupId === selectedGroupId && groupId !== enrolledGroupId) {
-                                eventState = 'selected';
-                            } else {
-                                eventState = 'enrolled';
-                            }
-                            
-                            const event = utils.sessionToEvent(
-                                session, course, group, weekStart,
-                                this.courseColors.get(course.CourseID),
-                                eventState
-                            );
-                            events.push(event);
-                        });
+                        const eventState = (groupId === selectedGroupId && groupId !== enrolledGroupId) 
+                            ? 'selected' 
+                            : 'enrolled';
+                        this.addGroupSessionsToEvents(events, group, course, termCode, weekNumber, weekStart, eventState);
                     });
                 } else {
                     // Show all available groups
@@ -719,27 +718,15 @@ class ClassSwitcherApp {
                     );
                     
                     allGroups.forEach(group => {
-                        const groupSessions = this.sessions[group.GroupID]?.[termCode];
-                        if (!groupSessions) return;
-                        
-                        const weekSessions = groupSessions.filter(s => s.Week === weekNumber);
-                        weekSessions.forEach(session => {
-                            let eventState;
-                            if (group.GroupID === selectedGroupId && group.GroupID !== enrolledGroupId) {
-                                eventState = 'selected';
-                            } else if (group.GroupID === enrolledGroupId) {
-                                eventState = 'enrolled';
-                            } else {
-                                eventState = 'alternative';
-                            }
-                            
-                            const event = utils.sessionToEvent(
-                                session, course, group, weekStart,
-                                this.courseColors.get(course.CourseID),
-                                eventState
-                            );
-                            events.push(event);
-                        });
+                        let eventState;
+                        if (group.GroupID === selectedGroupId && group.GroupID !== enrolledGroupId) {
+                            eventState = 'selected';
+                        } else if (group.GroupID === enrolledGroupId) {
+                            eventState = 'enrolled';
+                        } else {
+                            eventState = 'alternative';
+                        }
+                        this.addGroupSessionsToEvents(events, group, course, termCode, weekNumber, weekStart, eventState);
                     });
                 }
             });
@@ -774,10 +761,7 @@ class ClassSwitcherApp {
                 enrolledGroupId,
                 enrolledGroupId  // Set back to enrolled group
             );
-            
-            // Reload calendar and sidebar
-            this.renderPlanningSidebar();
-            this.loadWeek(this.currentTerm, this.currentWeek);
+            this.refreshPlanningView();
             return;
         }
         
@@ -795,11 +779,25 @@ class ClassSwitcherApp {
                 enrolledGroupId,
                 props.groupId
             );
-            
-            // Reload calendar and sidebar
-            this.renderPlanningSidebar();
-            this.loadWeek(this.currentTerm, this.currentWeek);
+            this.refreshPlanningView();
             return;
+        }
+    }
+    
+    /**
+     * Show/hide modal with animation
+     */
+    toggleModal(show) {
+        if (show) {
+            this.modal.classList.remove('hidden', 'fade-out');
+            this.modal.classList.add('fade-in');
+        } else {
+            this.modal.classList.remove('fade-in');
+            this.modal.classList.add('fade-out');
+            setTimeout(() => {
+                this.modal.classList.add('hidden');
+                this.modal.classList.remove('fade-out');
+            }, 200);
         }
     }
     
@@ -821,7 +819,7 @@ class ClassSwitcherApp {
         this.modalElements.location.textContent = props.location;
         
         // Position modal near the clicked event
-        if (clickEvent && clickEvent.jsEvent) {
+        if (clickEvent?.jsEvent) {
             this.positionModal(clickEvent.jsEvent);
         } else {
             // Fallback to center if no click event
@@ -830,9 +828,7 @@ class ClassSwitcherApp {
             this.modal.style.transform = 'translate(-50%, -50%)';
         }
         
-        // Show modal with fade-in animation
-        this.modal.classList.remove('hidden', 'fade-out');
-        this.modal.classList.add('fade-in');
+        this.toggleModal(true);
     }
     
     /**
@@ -872,15 +868,7 @@ class ClassSwitcherApp {
      * Hide the event details modal
      */
     hideModal() {
-        // Start fade-out animation
-        this.modal.classList.remove('fade-in');
-        this.modal.classList.add('fade-out');
-        
-        // Hide modal after animation completes (200ms)
-        setTimeout(() => {
-            this.modal.classList.add('hidden');
-            this.modal.classList.remove('fade-out');
-        }, 200);
+        this.toggleModal(false);
     }
 }
 

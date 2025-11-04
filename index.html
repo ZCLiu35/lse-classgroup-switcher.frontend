@@ -51,13 +51,6 @@
                     <button id="planningModeToggle" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 font-medium">
                         Planning Mode
                     </button>
-                    
-                    <!-- Planning Mode Actions (hidden by default) -->
-                    <div id="planningActions" class="planning-actions hidden">
-                        <button id="cancelBtn" class="btn-cancel">Cancel</button>
-                        <button id="saveBtn" class="btn-save">Save</button>
-                        <button id="applyBtn" class="btn-apply">Apply</button>
-                    </div>
                 </div>
             </div>
             
@@ -71,11 +64,11 @@
     <!-- Main Content -->
     <div class="flex h-[calc(100vh-120px)]">
         <!-- Sidebar -->
-        <aside id="sidebar" class="w-64 bg-white border-r border-gray-200 overflow-y-auto">
-            <div class="p-4">
+        <aside id="sidebar" class="w-64 bg-white border-r border-gray-200 flex flex-col">
+            <div class="p-4 flex-1 overflow-y-auto">
                 <!-- Viewing Mode Sidebar -->
                 <div id="viewingSidebar">
-                    <h2 class="text-lg font-semibold text-gray-800 mb-4">Enrolled Courses</h2>
+                    <h2 class="text-lg font-semibold text-gray-800 mb-4">Courses</h2>
                     <div id="enrolledCoursesList" class="space-y-3">
                         <!-- Courses will be dynamically loaded here -->
                     </div>
@@ -83,11 +76,20 @@
                 
                 <!-- Planning Mode Sidebar (hidden by default) -->
                 <div id="planningSidebar" class="hidden">
-                    <h2 class="text-lg font-semibold text-gray-800 mb-4">Course Filters</h2>
+                    <h2 class="text-lg font-semibold text-gray-800 mb-4">Courses</h2>
                     <div id="courseFiltersList" class="space-y-2">
                         <!-- Course filters will be dynamically loaded here -->
                     </div>
                 </div>
+            </div>
+            
+            <!-- Planning Mode Actions (hidden by default) -->
+            <div id="planningActions" class="planning-actions hidden border-t border-gray-200 p-4">
+                <div class="flex gap-2">
+                    <button id="cancelBtn" class="btn-cancel flex-1">Cancel</button>
+                    <button id="applyBtn" class="btn-apply flex-1">Apply</button>
+                </div>
+                <button id="saveBtn" class="btn-save w-full">Save and Apply</button>
             </div>
         </aside>
 
