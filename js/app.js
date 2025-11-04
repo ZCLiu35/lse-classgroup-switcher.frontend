@@ -28,6 +28,10 @@ class ClassSwitcherApp {
         
         // Conflict tracking
         this.conflictingEventIds = new Set();
+        
+        // Modal elements
+        this.modal = null;
+        this.modalElements = {};
     }
 
     /**
@@ -46,6 +50,9 @@ class ClassSwitcherApp {
             
             // Initialize calendar
             this.initializeCalendar();
+            
+            // Initialize modal
+            this.initializeModal();
             
             // Render sidebar
             this.renderSidebar();
@@ -141,7 +148,6 @@ class ClassSwitcherApp {
             
             // Event handlers
             eventClick: this.handleEventClick.bind(this),
-            eventMouseEnter: this.handleEventHover.bind(this),
             
             // Custom event content
             eventContent: this.renderEventContent.bind(this)
@@ -151,16 +157,53 @@ class ClassSwitcherApp {
     }
 
     /**
+     * Initialize modal for event details
+     */
+    initializeModal() {
+        this.modal = document.getElementById('eventModal');
+        this.modalElements = {
+            courseName: document.getElementById('modalCourseName'),
+            courseCode: document.getElementById('modalCourseCode'),
+            groupInfo: document.getElementById('modalGroupInfo'),
+            time: document.getElementById('modalTime'),
+            instructor: document.getElementById('modalInstructor'),
+            location: document.getElementById('modalLocation'),
+            closeBtn: document.getElementById('modalCloseBtn')
+        };
+        
+        // Close modal when clicking close button
+        this.modalElements.closeBtn.addEventListener('click', () => {
+            this.hideModal();
+        });
+        
+        // Close modal when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!this.modal.classList.contains('hidden') && 
+                !this.modal.contains(e.target) && 
+                !e.target.closest('.fc-event')) {
+                this.hideModal();
+            }
+        });
+        
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !this.modal.classList.contains('hidden')) {
+                this.hideModal();
+            }
+        });
+    }
+
+    /**
      * Render custom event content
      */
     renderEventContent(arg) {
-        const { courseCode, courseName, groupType, groupNumber, location } = arg.event.extendedProps;
-        const groupDisplay = groupType === 'LEC' ? 'LEC' : `Tut-G${groupNumber}`;
+        const { courseCode, groupType, groupNumber, location } = arg.event.extendedProps;
+        const groupDisplay = `${groupType} Group ${groupNumber}`;
         
         return {
             html: `
                 <div class="event-content">
-                    <div class="event-course">${courseCode}  ${courseName}</div>
+                    <div class="event-course">${courseCode}</div>
                     <div class="event-type-location">${groupDisplay} • ${location}</div>
                 </div>
             `
@@ -175,16 +218,8 @@ class ClassSwitcherApp {
             this.handlePlanningEventClick(info);
         } else {
             const props = info.event.extendedProps;
-            this.showEventDetails(props);
+            this.showEventDetails(props, info);
         }
-    }
-
-    /**
-     * Handle event hover (for tooltip - basic implementation)
-     */
-    handleEventHover(info) {
-        const props = info.event.extendedProps;
-        info.el.title = `${props.courseName}\n${props.groupType} Group ${props.groupNumber}\nInstructor: ${props.instructor}`;
     }
 
     /**
@@ -222,6 +257,7 @@ class ClassSwitcherApp {
                     <div class="course-color-dot ${colorClass}"></div>
                     <div class="course-card-title">${course.CourseCode}</div>
                 </div>
+                <div class="course-card-name">${course.CourseName}</div>
                 ${groupsHTML}
             `;
             
@@ -266,6 +302,10 @@ class ClassSwitcherApp {
             // Mark conflicting events
             events.forEach(event => {
                 if (this.conflictingEventIds.has(event.id)) {
+                    // Ensure classNames is an array before pushing
+                    if (!Array.isArray(event.classNames)) {
+                        event.classNames = [];
+                    }
                     event.classNames.push('event-conflict');
                 }
             });
@@ -308,13 +348,16 @@ class ClassSwitcherApp {
                 
                 // Convert each session to a calendar event
                 weekSessions.forEach(session => {
+                    // Determine event state based on group type
+                    const eventState = group.Type === 'LEC' ? 'lecture' : 'enrolled';
+                    
                     const event = utils.sessionToEvent(
                         session, 
                         course, 
                         group, 
                         weekStart, 
                         this.courseColors.get(course.CourseID),
-                        true
+                        eventState
                     );
                     events.push(event);
                 });
@@ -562,15 +605,12 @@ class ClassSwitcherApp {
                     <div class="course-filter-title">${course.CourseCode}</div>
                     ${hasChanges ? `<div class="course-filter-change-indicator">${changeText}</div>` : ''}
                 </div>
+                <div class="course-filter-name">${course.CourseName}</div>
                 <div class="course-filter-controls">
-                    <div class="course-filter-toggle">
-                        <button class="toggle-my ${showMode === 'my' ? 'active' : ''}" 
-                                data-course-id="${course.CourseID}" 
-                                data-mode="my">My</button>
-                        <button class="toggle-all ${showMode === 'all' ? 'active' : ''}" 
-                                data-course-id="${course.CourseID}" 
-                                data-mode="all">All</button>
-                    </div>
+                    <button class="course-filter-toggle-btn ${showMode === 'all' ? 'show-all' : 'show-my'}" 
+                            data-course-id="${course.CourseID}">
+                        ${showMode === 'my' ? 'My Sessions' : 'All Sessions'}
+                    </button>
                 </div>
                 <div class="course-filter-info">Available: ${availableGroups.length} groups</div>
             `;
@@ -584,14 +624,14 @@ class ClassSwitcherApp {
                 this.loadWeek(this.currentTerm, this.currentWeek);
             });
             
-            filterItem.querySelectorAll('.course-filter-toggle button').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const courseId = e.target.dataset.courseId;
-                    const mode = e.target.dataset.mode;
-                    this.planningState.setAlternativeMode(courseId, mode);
-                    this.renderPlanningSidebar(); // Re-render to update active state
-                    this.loadWeek(this.currentTerm, this.currentWeek);
-                });
+            const toggleBtn = filterItem.querySelector('.course-filter-toggle-btn');
+            toggleBtn.addEventListener('click', (e) => {
+                const courseId = e.target.dataset.courseId;
+                const currentMode = this.planningState.showAlternatives.get(courseId) || 'my';
+                const newMode = currentMode === 'my' ? 'all' : 'my';
+                this.planningState.setAlternativeMode(courseId, newMode);
+                this.renderPlanningSidebar(); // Re-render to update button text
+                this.loadWeek(this.currentTerm, this.currentWeek);
             });
         });
     }
@@ -716,7 +756,7 @@ class ClassSwitcherApp {
         
         // Only allow clicking on tutorials/seminars, not lectures
         if (props.groupType === 'LEC') {
-            this.showEventDetails(props);
+            this.showEventDetails(props, info);
             return;
         }
         
@@ -743,7 +783,7 @@ class ClassSwitcherApp {
         
         // If clicking on enrolled event, just show details
         if (props.eventState === 'enrolled') {
-            this.showEventDetails(props);
+            this.showEventDetails(props, info);
             return;
         }
         
@@ -766,20 +806,81 @@ class ClassSwitcherApp {
     /**
      * Show event details in an alert
      */
-    showEventDetails(props) {
-        const status = props.eventState === 'enrolled' ? 'Enrolled' :
-                      props.eventState === 'selected' ? 'Selected (staged)' :
-                      props.eventState === 'alternative' ? 'Available alternative' :
-                      'Lecture';
+    showEventDetails(props, clickEvent = null) {
+        // Format time
+        const startTime = utils.getTimeString(clickEvent.event.start);
+        const endTime = utils.getTimeString(clickEvent.event.end);
+        const timeDisplay = `${startTime} - ${endTime}`;
         
-        alert(
-            `${props.courseName}\n` +
-            `${props.groupType} Group ${props.groupNumber}\n\n` +
-            `Status: ${status}\n` +
-            `Instructor: ${props.instructor || 'TBA'}\n` +
-            `Location: ${props.location}\n` +
-            `Week ${props.weekNumber}`
-        );
+        // Populate modal
+        this.modalElements.courseName.textContent = props.courseName;
+        this.modalElements.courseCode.textContent = props.courseCode;
+        this.modalElements.groupInfo.textContent = `${props.groupType} Group ${props.groupNumber}`;
+        this.modalElements.time.textContent = timeDisplay;
+        this.modalElements.instructor.textContent = props.instructor || 'TBA';
+        this.modalElements.location.textContent = props.location;
+        
+        // Position modal near the clicked event
+        if (clickEvent && clickEvent.jsEvent) {
+            this.positionModal(clickEvent.jsEvent);
+        } else {
+            // Fallback to center if no click event
+            this.modal.style.top = '50%';
+            this.modal.style.left = '50%';
+            this.modal.style.transform = 'translate(-50%, -50%)';
+        }
+        
+        // Show modal with fade-in animation
+        this.modal.classList.remove('hidden', 'fade-out');
+        this.modal.classList.add('fade-in');
+    }
+    
+    /**
+     * Position modal near the clicked element
+     */
+    positionModal(event) {
+        const clickX = event.clientX;
+        const clickY = event.clientY;
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+        const modalWidth = 400; // max-width from CSS
+        const modalHeight = 300; // approximate height
+        
+        let left = clickX + 15; // 15px offset from cursor
+        let top = clickY;
+        
+        // Adjust if modal would go off right edge
+        if (left + modalWidth > windowWidth) {
+            left = clickX - modalWidth - 15;
+        }
+        
+        // Adjust if modal would go off bottom edge
+        if (top + modalHeight > windowHeight) {
+            top = windowHeight - modalHeight - 20;
+        }
+        
+        // Ensure modal doesn't go off top or left edges
+        left = Math.max(10, left);
+        top = Math.max(10, top);
+        
+        this.modal.style.left = `${left}px`;
+        this.modal.style.top = `${top}px`;
+        this.modal.style.transform = 'none';
+    }
+    
+    /**
+     * Hide the event details modal
+     */
+    hideModal() {
+        // Start fade-out animation
+        this.modal.classList.remove('fade-in');
+        this.modal.classList.add('fade-out');
+        
+        // Hide modal after animation completes (200ms)
+        setTimeout(() => {
+            this.modal.classList.add('hidden');
+            this.modal.classList.remove('fade-out');
+        }, 200);
     }
 }
 
