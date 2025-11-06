@@ -6,6 +6,7 @@ import { CONFIG } from './config.js';
 import * as utils from './utils.js';
 import { PlanningState } from './planningState.js';
 import { detectConflicts } from './conflictDetector.js';
+import { StorageManager } from './storage.js';
 
 class ClassSwitcherApp {
     constructor() {
@@ -19,6 +20,7 @@ class ClassSwitcherApp {
         this.groups = [];
         this.sessions = {}; // Now an object: { GroupID: { Term: [sessions] } }
         this.enrollment = [];
+        this.originalEnrollment = []; // Keep original for reference
         
         // Course color mapping
         this.courseColors = new Map();
@@ -32,6 +34,12 @@ class ClassSwitcherApp {
         // Modal elements
         this.modal = null;
         this.modalElements = {};
+        
+        // Storage manager
+        this.storage = new StorageManager();
+        
+        // Debounced save function to avoid excessive localStorage writes
+        this._debouncedSave = utils.debounce(() => this._savePlanningState(), 300);
     }
 
     /**
@@ -42,8 +50,11 @@ class ClassSwitcherApp {
             // Load all data
             await this.loadData();
             
-            // Assign colors to courses
-            this.assignCourseColors();
+            // Apply enrollment overrides from localStorage
+            this.applyEnrollmentOverrides();
+            
+            // Assign and load colors
+            this.loadOrAssignCourseColors();
             
             // Detect current week and term
             this.detectCurrentWeekAndTerm();
@@ -54,8 +65,15 @@ class ClassSwitcherApp {
             // Initialize modal
             this.initializeModal();
             
-            // Render sidebar
-            this.renderSidebar();
+            // Load saved mode and planning state
+            this.restoreAppState();
+            
+            // Render appropriate sidebar based on mode
+            if (this.planningState.isPlanning()) {
+                // Planning sidebar already rendered in restoreAppState()
+            } else {
+                this.renderSidebar();
+            }
             
             // Set up event listeners
             this.setupEventListeners();
@@ -81,6 +99,9 @@ class ClassSwitcherApp {
                 utils.loadJSON(CONFIG.DATA_PATHS.enrollment)
             ]);
             
+            // Keep a copy of original enrollment
+            this.originalEnrollment = JSON.parse(JSON.stringify(this.enrollment));
+            
             console.log('Data loaded successfully:', {
                 courses: this.courses.length,
                 groups: this.groups.length,
@@ -91,6 +112,58 @@ class ClassSwitcherApp {
             console.error('Error loading data:', error);
             throw error;
         }
+    }
+
+    /**
+     * Apply enrollment overrides from localStorage
+     */
+    applyEnrollmentOverrides() {
+        const overrides = this.storage.loadEnrollmentOverrides();
+        
+        if (Object.keys(overrides).length === 0) {
+            console.log('No enrollment overrides found in localStorage');
+            return;
+        }
+        
+        console.log('Applying enrollment overrides:', overrides);
+        
+        // Apply each override
+        Object.entries(overrides).forEach(([courseId, groupChanges]) => {
+            const enrollmentEntry = this.enrollment.find(e => e.CourseID === courseId);
+            if (!enrollmentEntry) {
+                console.warn(`Course ${courseId} not found in enrollment`);
+                return;
+            }
+            
+            // Apply each group type change
+            Object.entries(groupChanges).forEach(([groupType, newGroupId]) => {
+                if (enrollmentEntry.EnrolledGroups[groupType]) {
+                    console.log(`Override: ${courseId} ${groupType}: ${enrollmentEntry.EnrolledGroups[groupType]} → ${newGroupId}`);
+                    enrollmentEntry.EnrolledGroups[groupType] = newGroupId;
+                }
+            });
+        });
+    }
+
+    /**
+     * Load saved colors or assign new ones
+     */
+    loadOrAssignCourseColors() {
+        // Try to load saved colors first
+        const savedColors = this.storage.loadCourseColors();
+        
+        if (savedColors && savedColors.size > 0) {
+            console.log('Loaded saved course colors from localStorage');
+            this.courseColors = savedColors;
+        } else {
+            console.log('Generating new course colors');
+            this.assignCourseColors();
+            // Save the newly generated colors
+            this.storage.saveCourseColors(this.courseColors);
+        }
+        
+        // Inject CSS styles
+        this.injectDynamicStyles();
     }
 
     /**
@@ -161,6 +234,40 @@ class ClassSwitcherApp {
         }
         
         console.log(`Detected current term: ${this.currentTerm}, Week ${this.currentWeek}`);
+    }
+
+    /**
+     * Restore app state from localStorage
+     */
+    restoreAppState() {
+        const savedMode = this.storage.loadMode();
+        
+        if (savedMode === 'planning') {
+            const savedPlanningState = this.storage.loadPlanningState();
+            
+            if (savedPlanningState) {
+                console.log('Restoring planning mode state');
+                
+                // Enter planning mode first
+                const enrolledCourses = this.getEnrolledCoursesForTerm(this.currentTerm);
+                this.planningState.enterPlanningMode(enrolledCourses);
+                
+                // Restore only visibility and toggle preferences (NOT staged changes)
+                this.planningState.visibleCourses = new Set(savedPlanningState.visibleCourses);
+                this.planningState.showAlternatives = new Map(Object.entries(savedPlanningState.showAlternatives));
+                
+                // Update UI
+                this.updatePlanningModeUI();
+                this.renderPlanningSidebar();
+                
+                console.log('Planning preferences restored:', {
+                    visibleCourses: this.planningState.visibleCourses.size
+                });
+            } else {
+                // Planning mode was saved but no state - enter fresh
+                this.enterPlanningMode();
+            }
+        }
     }
 
     /**
@@ -511,6 +618,22 @@ class ClassSwitcherApp {
         const enrolledCourses = this.getEnrolledCoursesForTerm(this.currentTerm);
         this.planningState.enterPlanningMode(enrolledCourses);
         
+        // Try to restore previous planning preferences from localStorage
+        const savedPlanningState = this.storage.loadPlanningState();
+        if (savedPlanningState) {
+            // Restore only visibility and toggle preferences (NOT staged changes)
+            if (savedPlanningState.visibleCourses) {
+                this.planningState.visibleCourses = new Set(savedPlanningState.visibleCourses);
+            }
+            if (savedPlanningState.showAlternatives) {
+                this.planningState.showAlternatives = new Map(Object.entries(savedPlanningState.showAlternatives));
+            }
+            console.log('Restored planning preferences from localStorage');
+        }
+        
+        // Save mode to localStorage (but don't save planning state yet - no changes made)
+        this.storage.saveMode('planning');
+        
         // Update UI
         this.updatePlanningModeUI();
         this.renderPlanningSidebar();
@@ -524,13 +647,20 @@ class ClassSwitcherApp {
      * @param {string} action - 'cancel', 'save', or 'apply'
      */
     exitPlanningMode(action) {
+        // Save preferences (visibility & toggles) to localStorage BEFORE exiting
+        // This preserves user preferences for next time they enter planning mode
+        this._savePlanningState();
+        
         const changes = this.planningState.exitPlanningMode(action);
         
-        if (action === 'save' && changes && changes.size > 0) {
-            // Store changes for later (could save to localStorage)
-            console.log('Changes saved:', changes);
-            alert(`${changes.size} change(s) saved for later.`);
+        if ((action === 'save' || action === 'apply') && changes && changes.size > 0) {
+            // Apply changes to enrollment and save to localStorage
+            this.applyChangesToEnrollment(changes);
+            console.log('Changes applied:', changes);
         }
+        
+        // Save mode to localStorage
+        this.storage.saveMode('viewing');
         
         // Update UI
         this.updatePlanningModeUI();
@@ -560,14 +690,70 @@ class ClassSwitcherApp {
             return;
         }
         
-        // In a real application, this would make API calls to update enrollment
-        console.log('Applying changes:', changes);
+        // Apply changes to enrollment and save
+        this.applyChangesToEnrollment(changes);
         
-        // Simulate success
-        alert(`Successfully applied ${changes.size} change(s)!\n\n(In production, this would update your enrollment in the school portal)`);
+        // Clear staged changes
+        this.planningState.stagedChanges.clear();
+        this.savePlanningStateToStorage();
         
-        // Exit planning mode
-        this.exitPlanningMode('apply');
+        // Reload to show applied changes
+        this.renderPlanningSidebar();
+        this.loadWeek(this.currentTerm, this.currentWeek);
+        
+        alert(`Successfully applied ${changes.size} change(s)!`);
+    }
+    
+    /**
+     * Apply changes to enrollment data and save to localStorage
+     * @param {Map} changes - Map of changes from planning state
+     */
+    applyChangesToEnrollment(changes) {
+        const overrides = this.storage.loadEnrollmentOverrides();
+        
+        // Process each change
+        changes.forEach((change, key) => {
+            const { courseId, groupType, to } = change;
+            
+            // Update enrollment in memory
+            const enrollmentEntry = this.enrollment.find(e => e.CourseID === courseId);
+            if (enrollmentEntry) {
+                enrollmentEntry.EnrolledGroups[groupType] = to;
+            }
+            
+            // Update overrides object
+            if (!overrides[courseId]) {
+                overrides[courseId] = {};
+            }
+            overrides[courseId][groupType] = to;
+        });
+        
+        // Save overrides to localStorage
+        this.storage.saveEnrollmentOverrides(overrides);
+        console.log('Enrollment overrides saved:', overrides);
+    }
+    
+    /**
+     * Save current planning state to localStorage (private method)
+     * Only saves visibility and toggle preferences (NOT staged changes)
+     * @private
+     */
+    _savePlanningState() {
+        this.storage.savePlanningState({
+            visibleCourses: this.planningState.visibleCourses,
+            showAlternatives: this.planningState.showAlternatives
+        });
+        console.log('Planning preferences saved to localStorage:', {
+            visibleCourses: Array.from(this.planningState.visibleCourses),
+            showAlternatives: Object.fromEntries(this.planningState.showAlternatives)
+        });
+    }
+    
+    /**
+     * Save planning state (debounced public method)
+     */
+    savePlanningStateToStorage() {
+        this._debouncedSave();
     }
     
     /**
@@ -675,6 +861,7 @@ class ClassSwitcherApp {
             const checkbox = filterItem.querySelector('.course-filter-checkbox');
             checkbox.addEventListener('change', (e) => {
                 this.planningState.toggleCourseVisibility(course.CourseID);
+                this.savePlanningStateToStorage();
                 this.loadWeek(this.currentTerm, this.currentWeek);
             });
             
@@ -684,6 +871,7 @@ class ClassSwitcherApp {
                 const courseId = toggleSwitch.dataset.courseId;
                 const newMode = e.target.checked ? 'all' : 'my';
                 this.planningState.setAlternativeMode(courseId, newMode);
+                this.savePlanningStateToStorage();
                 this.renderPlanningSidebar(); // Re-render to update toggle state
                 this.loadWeek(this.currentTerm, this.currentWeek);
             });
@@ -832,6 +1020,9 @@ class ClassSwitcherApp {
                 enrolledGroupId  // Set back to enrolled group
             );
             
+            // Save state
+            this.savePlanningStateToStorage();
+            
             // Reload calendar and sidebar with full rerender
             this.renderPlanningSidebar();
             this.loadWeek(this.currentTerm, this.currentWeek);
@@ -852,6 +1043,9 @@ class ClassSwitcherApp {
                 enrolledGroupId,
                 props.groupId
             );
+            
+            // Save state
+            this.savePlanningStateToStorage();
             
             // Reload calendar and sidebar with full rerender
             this.renderPlanningSidebar();
