@@ -5,8 +5,8 @@
 import { CONFIG } from './config.js';
 import * as utils from './utils.js';
 import { PlanningState } from './planningState.js';
-import { detectConflicts } from './conflictDetector.js';
 import { StorageManager } from './storage.js';
+import { SidebarManager } from './sidebarManager.js';
 
 class ClassSwitcherApp {
     constructor() {
@@ -18,7 +18,7 @@ class ClassSwitcherApp {
         // Data storage
         this.courses = [];
         this.groups = [];
-        this.sessions = {}; // Now an object: { GroupID: { Term: [sessions] } }
+        this.sessions = {};
         this.enrollment = [];
         this.originalEnrollment = []; // Keep original for reference
         
@@ -26,10 +26,7 @@ class ClassSwitcherApp {
         this.courseColors = new Map();
         
         // Planning mode state
-        this.planningState = new PlanningState();
-        
-        // Conflict tracking
-        this.conflictingEventIds = new Set();
+        this.planningState = new PlanningState(this);
         
         // Modal elements
         this.modal = null;
@@ -38,8 +35,17 @@ class ClassSwitcherApp {
         // Storage manager
         this.storage = new StorageManager();
         
+        // Sidebar manager
+        this.sidebarManager = new SidebarManager(this);
+        
         // Debounced save function to avoid excessive localStorage writes
-        this._debouncedSave = utils.debounce(() => this._savePlanningState(), 300);
+        this._debouncedSavePlanningState = utils.debounce(() => {
+            this.storage.savePlanningState(this.planningState.getPreferences());
+            console.log('Planning preferences saved to localStorage:', {
+                visibleCourses: Array.from(this.planningState.visibleCourses),
+                showAlternatives: Object.fromEntries(this.planningState.showAlternatives)
+            });
+        }, 300);
     }
 
     /**
@@ -72,7 +78,7 @@ class ClassSwitcherApp {
             if (this.planningState.isPlanning()) {
                 // Planning sidebar already rendered in restoreAppState()
             } else {
-                this.renderSidebar();
+                this.sidebarManager.renderViewingSidebar();
             }
             
             // Set up event listeners
@@ -146,7 +152,7 @@ class ClassSwitcherApp {
     }
 
     /**
-     * Load saved colors or assign new ones
+     * Load saved colors or assign new ones and inject CSS styles
      */
     loadOrAssignCourseColors() {
         // Try to load saved colors first
@@ -157,40 +163,25 @@ class ClassSwitcherApp {
             this.courseColors = savedColors;
         } else {
             console.log('Generating new course colors');
-            this.assignCourseColors();
+            // Assign colors to each course
+            const total = this.courses.length;
+            this.courses.forEach((course, index) => {
+                const color = utils.generateCourseColor(index, total);
+                const borderColor = utils.generateBorderColor(color);
+                
+                // Store both background and border colors
+                this.courseColors.set(course.CourseID, {
+                    background: color,
+                    border: borderColor,
+                    index: index
+                });
+            });
+            
             // Save the newly generated colors
             this.storage.saveCourseColors(this.courseColors);
         }
         
-        // Inject CSS styles
-        this.injectDynamicStyles();
-    }
-
-    /**
-     * Assign colors to each course
-     */
-    assignCourseColors() {
-        const total = this.courses.length;
-        this.courses.forEach((course, index) => {
-            const color = utils.generateCourseColor(index, total);
-            const borderColor = utils.generateBorderColor(color);
-            
-            // Store both background and border colors
-            this.courseColors.set(course.CourseID, {
-                background: color,
-                border: borderColor,
-                index: index
-            });
-        });
-        
-        // Add dynamic CSS rules for these colors
-        this.injectDynamicStyles();
-    }
-
-    /**
-     * Inject dynamic CSS styles for course colors
-     */
-    injectDynamicStyles() {
+        // Inject dynamic CSS styles
         // Remove existing dynamic styles if any
         const existingStyle = document.getElementById('dynamic-course-colors');
         if (existingStyle) {
@@ -202,15 +193,15 @@ class ClassSwitcherApp {
         styleEl.id = 'dynamic-course-colors';
         
         let css = '';
-        this.courseColors.forEach((colorData, courseId) => {
+        this.courseColors.forEach((colorData) => {
             const className = `course-color-${colorData.index}`;
             css += `
-.${className} {
-    background-color: ${colorData.background};
-    border-color: ${colorData.border};
-    color: white;
-}
-`;
+        .${className} {
+            background-color: ${colorData.background};
+            border-color: ${colorData.border};
+            color: white;
+        }
+        `;
         });
         
         styleEl.textContent = css;
@@ -253,12 +244,11 @@ class ClassSwitcherApp {
                 this.planningState.enterPlanningMode(enrolledCourses);
                 
                 // Restore only visibility and toggle preferences (NOT staged changes)
-                this.planningState.visibleCourses = new Set(savedPlanningState.visibleCourses);
-                this.planningState.showAlternatives = new Map(Object.entries(savedPlanningState.showAlternatives));
+                this.planningState.restorePreferences(savedPlanningState);
                 
                 // Update UI
                 this.updatePlanningModeUI();
-                this.renderPlanningSidebar();
+                this.sidebarManager.renderPlanningSidebar();
                 
                 console.log('Planning preferences restored:', {
                     visibleCourses: this.planningState.visibleCourses.size
@@ -363,7 +353,11 @@ class ClassSwitcherApp {
      */
     handleEventClick(info) {
         if (this.planningState.isPlanning()) {
-            this.handlePlanningEventClick(info);
+            this.planningState.handleEventClick(
+                info,
+                (props, clickInfo) => this.showEventDetails(props, clickInfo),
+                () => this.reloadPlanningView()
+            );
         } else {
             const props = info.event.extendedProps;
             this.showEventDetails(props, info);
@@ -371,58 +365,12 @@ class ClassSwitcherApp {
     }
 
     /**
-     * Render sidebar with enrolled courses
+     * Reload planning view (calendar and sidebar)
      */
-    renderSidebar() {
-        const container = document.getElementById('enrolledCoursesList');
-        container.innerHTML = '';
-        
-        // Get enrolled courses for current term
-        const enrolledCourses = this.getEnrolledCoursesForTerm(this.currentTerm);
-        
-        enrolledCourses.forEach(course => {
-            const enrollment = this.enrollment.find(e => e.CourseID === course.CourseID);
-            if (!enrollment) return;
-            
-            const colorData = this.courseColors.get(course.CourseID);
-            const colorClass = `course-color-${colorData.index}`;
-            const courseCard = document.createElement('div');
-            courseCard.className = 'course-card';
-            
-            // Build enrolled groups display (exclude lectures)
-            let groupsHTML = '';
-            Object.entries(enrollment.EnrolledGroups).forEach(([type, groupId]) => {
-                // Skip lectures in the display
-                if (type === 'LEC') return;
-                
-                const group = this.groups.find(g => g.GroupID === groupId);
-                if (group) {
-                    const typeLabel = type === 'CLA' ? 'Class' : 
-                                     type === 'SEM' ? 'Seminar' : type;
-                    groupsHTML += `<div class="course-card-detail">${typeLabel}: Group ${group.GroupNumber}</div>`;
-                }
-            });
-            
-            courseCard.innerHTML = `
-                <div class="course-card-header">
-                    <div class="course-color-dot ${colorClass}"></div>
-                    <div class="course-card-title">${course.CourseCode}</div>
-                </div>
-                <div class="course-card-name">${course.CourseName}</div>
-                ${groupsHTML}
-            `;
-            
-            container.appendChild(courseCard);
-        });
-    }
-
-    /**
-     * Get enrolled courses for a specific term
-     */
-    getEnrolledCoursesForTerm(termCode) {
-        return this.courses.filter(course => {
-            return course.Terms.includes(termCode);
-        });
+    reloadPlanningView() {
+        this._debouncedSavePlanningState();
+        this.sidebarManager.renderPlanningSidebar();
+        this.loadWeek(this.currentTerm, this.currentWeek);
     }
 
     /**
@@ -441,27 +389,9 @@ class ClassSwitcherApp {
         // Get events for this week based on mode
         let events;
         if (this.planningState.isPlanning()) {
-            events = this.getEventsForPlanningMode(termCode, weekNumber, start);
+            events = this.planningState.getEventsForPlanningMode(termCode, weekNumber, start);
         } else {
             events = this.getEventsForWeek(termCode, weekNumber, start);
-        }
-        
-        // Detect conflicts in planning mode
-        if (this.planningState.isPlanning()) {
-            this.conflictingEventIds = detectConflicts(events);
-            
-            // Mark conflicting events
-            events.forEach(event => {
-                if (this.conflictingEventIds.has(event.id)) {
-                    // Ensure classNames is an array before pushing
-                    if (!Array.isArray(event.classNames)) {
-                        event.classNames = [];
-                    }
-                    event.classNames.push('event-conflict');
-                }
-            });
-        } else {
-            this.conflictingEventIds.clear();
         }
         
         // Update calendar events - full rerender
@@ -470,6 +400,15 @@ class ClassSwitcherApp {
         
         // Update UI
         this.updateNavigationUI(start, end);
+    }
+
+    /**
+     * Get enrolled courses for a specific term
+     */
+    getEnrolledCoursesForTerm(termCode) {
+        return this.courses.filter(course => {
+            return course.Terms.includes(termCode);
+        });
     }
 
     /**
@@ -621,13 +560,7 @@ class ClassSwitcherApp {
         // Try to restore previous planning preferences from localStorage
         const savedPlanningState = this.storage.loadPlanningState();
         if (savedPlanningState) {
-            // Restore only visibility and toggle preferences (NOT staged changes)
-            if (savedPlanningState.visibleCourses) {
-                this.planningState.visibleCourses = new Set(savedPlanningState.visibleCourses);
-            }
-            if (savedPlanningState.showAlternatives) {
-                this.planningState.showAlternatives = new Map(Object.entries(savedPlanningState.showAlternatives));
-            }
+            this.planningState.restorePreferences(savedPlanningState);
             console.log('Restored planning preferences from localStorage');
         }
         
@@ -636,7 +569,7 @@ class ClassSwitcherApp {
         
         // Update UI
         this.updatePlanningModeUI();
-        this.renderPlanningSidebar();
+        this.sidebarManager.renderPlanningSidebar();
         
         // Reload calendar with alternatives
         this.loadWeek(this.currentTerm, this.currentWeek);
@@ -649,7 +582,8 @@ class ClassSwitcherApp {
     exitPlanningMode(action) {
         // Save preferences (visibility & toggles) to localStorage BEFORE exiting
         // This preserves user preferences for next time they enter planning mode
-        this._savePlanningState();
+        this.storage.savePlanningState(this.planningState.getPreferences());
+        console.log('Planning preferences saved to localStorage');
         
         const changes = this.planningState.exitPlanningMode(action);
         
@@ -664,7 +598,7 @@ class ClassSwitcherApp {
         
         // Update UI
         this.updatePlanningModeUI();
-        this.renderSidebar();
+        this.sidebarManager.renderViewingSidebar();
         
         // Reload calendar in viewing mode
         this.loadWeek(this.currentTerm, this.currentWeek);
@@ -674,34 +608,23 @@ class ClassSwitcherApp {
      * Apply staged changes (in a real app, this would call backend API)
      */
     applyChanges() {
-        // Check for conflicts first
-        if (this.conflictingEventIds.size > 0) {
-            const confirmApply = confirm(
-                `You have ${this.conflictingEventIds.size / 2} scheduling conflict(s). ` +
-                `Are you sure you want to apply these changes?`
-            );
-            if (!confirmApply) return;
-        }
+        const result = this.planningState.applyChanges((changes) => {
+            this.applyChangesToEnrollment(changes);
+        });
         
-        const changes = this.planningState.stagedChanges;
-        
-        if (changes.size === 0) {
-            alert('No changes to apply.');
+        if (!result.success) {
+            if (result.message !== 'Application cancelled') {
+                alert(result.message);
+            }
             return;
         }
         
-        // Apply changes to enrollment and save
-        this.applyChangesToEnrollment(changes);
-        
-        // Clear staged changes
-        this.planningState.stagedChanges.clear();
-        this.savePlanningStateToStorage();
-        
-        // Reload to show applied changes
-        this.renderPlanningSidebar();
+        // Save state and reload
+        this._debouncedSavePlanningState();
+        this.sidebarManager.renderPlanningSidebar();
         this.loadWeek(this.currentTerm, this.currentWeek);
         
-        alert(`Successfully applied ${changes.size} change(s)!`);
+        alert(result.message);
     }
     
     /**
@@ -734,37 +657,12 @@ class ClassSwitcherApp {
     }
     
     /**
-     * Save current planning state to localStorage (private method)
-     * Only saves visibility and toggle preferences (NOT staged changes)
-     * @private
-     */
-    _savePlanningState() {
-        this.storage.savePlanningState({
-            visibleCourses: this.planningState.visibleCourses,
-            showAlternatives: this.planningState.showAlternatives
-        });
-        console.log('Planning preferences saved to localStorage:', {
-            visibleCourses: Array.from(this.planningState.visibleCourses),
-            showAlternatives: Object.fromEntries(this.planningState.showAlternatives)
-        });
-    }
-    
-    /**
-     * Save planning state (debounced public method)
-     */
-    savePlanningStateToStorage() {
-        this._debouncedSave();
-    }
-    
-    /**
      * Update UI elements for planning mode
      */
     updatePlanningModeUI() {
         const header = document.querySelector('header');
         const toggleBtn = document.getElementById('planningModeToggle');
         const planningActions = document.getElementById('planningActions');
-        const viewingSidebar = document.getElementById('viewingSidebar');
-        const planningSidebar = document.getElementById('planningSidebar');
         
         if (this.planningState.isPlanning()) {
             // Planning mode ON
@@ -773,8 +671,7 @@ class ClassSwitcherApp {
             toggleBtn.classList.add('bg-amber-500', 'text-white');
             toggleBtn.textContent = '🔧 Planning Mode';
             planningActions.classList.remove('hidden');
-            viewingSidebar.classList.add('hidden');
-            planningSidebar.classList.remove('hidden');
+            this.sidebarManager.updateSidebarVisibility(true);
         } else {
             // Viewing mode ON
             header.classList.remove('planning-mode-header');
@@ -782,280 +679,12 @@ class ClassSwitcherApp {
             toggleBtn.classList.add('bg-gray-200', 'text-gray-700');
             toggleBtn.textContent = 'Planning Mode';
             planningActions.classList.add('hidden');
-            viewingSidebar.classList.remove('hidden');
-            planningSidebar.classList.add('hidden');
+            this.sidebarManager.updateSidebarVisibility(false);
         }
     }
     
     /**
-     * Render planning mode sidebar with course filters
-     */
-    renderPlanningSidebar() {
-        const container = document.getElementById('courseFiltersList');
-        container.innerHTML = '';
-        
-        const enrolledCourses = this.getEnrolledCoursesForTerm(this.currentTerm);
-        
-        enrolledCourses.forEach(course => {
-            const enrollment = this.enrollment.find(e => e.CourseID === course.CourseID);
-            if (!enrollment) return;
-            
-            const colorData = this.courseColors.get(course.CourseID);
-            const colorClass = `course-color-${colorData.index}`;
-            const isVisible = this.planningState.visibleCourses.has(course.CourseID);
-            const hasChanges = this.planningState.hasChanges(course.CourseID);
-            const showMode = this.planningState.showAlternatives.get(course.CourseID) || 'my';
-            
-            // Get tutorial/seminar groups (not lectures)
-            const tutorialTypes = Object.keys(enrollment.EnrolledGroups).filter(type => type !== 'LEC');
-            
-            const filterItem = document.createElement('div');
-            filterItem.className = 'course-filter-item';
-            
-            // Build change indicator
-            let changeText = '';
-            if (hasChanges) {
-                const changes = this.planningState.getChangesForCourse(course.CourseID);
-                const changeDescriptions = changes.map(ch => {
-                    const fromGroup = this.groups.find(g => g.GroupID === ch.from);
-                    const toGroup = this.groups.find(g => g.GroupID === ch.to);
-                    return `${ch.groupType}${fromGroup?.GroupNumber}→${toGroup?.GroupNumber}`;
-                });
-                changeText = ` (${changeDescriptions.join(', ')})`;
-            }
-            
-            // Count available groups (tutorials/seminars only)
-            const availableGroups = this.groups.filter(g => 
-                g.CourseID === course.CourseID && g.Type !== 'LEC'
-            );
-            
-            filterItem.innerHTML = `
-                <div class="course-filter-header">
-                    <input type="checkbox" 
-                           class="course-filter-checkbox" 
-                           data-course-id="${course.CourseID}"
-                           ${isVisible ? 'checked' : ''}>
-                    <div class="course-color-dot ${colorClass}"></div>
-                    <div class="course-filter-title">${course.CourseCode}</div>
-                    ${hasChanges ? `<div class="course-filter-change-indicator">${changeText}</div>` : ''}
-                </div>
-                <div class="course-filter-name">${course.CourseName}</div>
-                <div class="course-filter-controls">
-                    <div class="toggle-switch-container">
-                        <span class="toggle-label ${showMode === 'my' ? 'active' : ''}">My Sessions</span>
-                        <label class="toggle-switch" data-course-id="${course.CourseID}">
-                            <input type="checkbox" 
-                                   class="toggle-input" 
-                                   ${showMode === 'all' ? 'checked' : ''}>
-                            <span class="toggle-slider"></span>
-                        </label>
-                        <span class="toggle-label ${showMode === 'all' ? 'active' : ''}">All Sessions</span>
-                    </div>
-                </div>
-                <div class="course-filter-info">Available: ${availableGroups.length} groups</div>
-            `;
-            
-            container.appendChild(filterItem);
-            
-            // Add event listeners
-            const checkbox = filterItem.querySelector('.course-filter-checkbox');
-            checkbox.addEventListener('change', (e) => {
-                this.planningState.toggleCourseVisibility(course.CourseID);
-                this.savePlanningStateToStorage();
-                this.loadWeek(this.currentTerm, this.currentWeek);
-            });
-            
-            const toggleSwitch = filterItem.querySelector('.toggle-switch');
-            const toggleInput = filterItem.querySelector('.toggle-input');
-            toggleInput.addEventListener('change', (e) => {
-                const courseId = toggleSwitch.dataset.courseId;
-                const newMode = e.target.checked ? 'all' : 'my';
-                this.planningState.setAlternativeMode(courseId, newMode);
-                this.savePlanningStateToStorage();
-                this.renderPlanningSidebar(); // Re-render to update toggle state
-                this.loadWeek(this.currentTerm, this.currentWeek);
-            });
-        });
-    }
-    
-    /**
-     * Get events for planning mode (includes alternatives)
-     */
-    getEventsForPlanningMode(termCode, weekNumber, weekStart) {
-        const events = [];
-        const enrolledCourses = this.getEnrolledCoursesForTerm(termCode);
-        
-        enrolledCourses.forEach(course => {
-            // Skip if course is hidden
-            if (!this.planningState.visibleCourses.has(course.CourseID)) {
-                return;
-            }
-            
-            const enrollment = this.enrollment.find(e => e.CourseID === course.CourseID);
-            if (!enrollment) return;
-            
-            const colorData = this.courseColors.get(course.CourseID);
-            const colorClass = `course-color-${colorData.index}`;
-            
-            const showMode = this.planningState.showAlternatives.get(course.CourseID) || 'my';
-            
-            // Add all enrolled lectures (always show)
-            Object.entries(enrollment.EnrolledGroups).forEach(([groupType, groupId]) => {
-                if (groupType === 'LEC') {
-                    const group = this.groups.find(g => g.GroupID === groupId);
-                    if (!group) return;
-                    
-                    const groupSessions = this.sessions[groupId]?.[termCode];
-                    if (!groupSessions) return;
-                    
-                    const weekSessions = groupSessions.filter(s => s.Week === weekNumber);
-                    weekSessions.forEach(session => {
-                        const event = utils.sessionToEvent(
-                            session, course, group, weekStart,
-                            colorClass,
-                            'lecture'
-                        );
-                        events.push(event);
-                    });
-                }
-            });
-            
-            // Add tutorials/seminars based on mode
-            const tutorialTypes = Object.keys(enrollment.EnrolledGroups).filter(t => t !== 'LEC');
-            
-            tutorialTypes.forEach(groupType => {
-                const enrolledGroupId = enrollment.EnrolledGroups[groupType];
-                const selectedGroupId = this.planningState.getSelectedGroup(
-                    course.CourseID, groupType, enrolledGroupId
-                );
-                
-                if (showMode === 'my') {
-                    // Show only enrolled and selected
-                    const groupsToShow = new Set([enrolledGroupId, selectedGroupId]);
-                    
-                    groupsToShow.forEach(groupId => {
-                        const group = this.groups.find(g => g.GroupID === groupId);
-                        if (!group) return;
-                        
-                        const groupSessions = this.sessions[groupId]?.[termCode];
-                        if (!groupSessions) return;
-                        
-                        const weekSessions = groupSessions.filter(s => s.Week === weekNumber);
-                        weekSessions.forEach(session => {
-                            let eventState;
-                            if (groupId === selectedGroupId && groupId !== enrolledGroupId) {
-                                eventState = 'selected';
-                            } else {
-                                eventState = 'enrolled';
-                            }
-                            
-                            const event = utils.sessionToEvent(
-                                session, course, group, weekStart,
-                                colorClass,
-                                eventState
-                            );
-                            events.push(event);
-                        });
-                    });
-                } else {
-                    // Show all available groups
-                    const allGroups = this.groups.filter(g => 
-                        g.CourseID === course.CourseID && g.Type === groupType
-                    );
-                    
-                    allGroups.forEach(group => {
-                        const groupSessions = this.sessions[group.GroupID]?.[termCode];
-                        if (!groupSessions) return;
-                        
-                        const weekSessions = groupSessions.filter(s => s.Week === weekNumber);
-                        weekSessions.forEach(session => {
-                            let eventState;
-                            if (group.GroupID === selectedGroupId && group.GroupID !== enrolledGroupId) {
-                                eventState = 'selected';
-                            } else if (group.GroupID === enrolledGroupId) {
-                                eventState = 'enrolled';
-                            } else {
-                                eventState = 'alternative';
-                            }
-                            
-                            const event = utils.sessionToEvent(
-                                session, course, group, weekStart,
-                                colorClass,
-                                eventState
-                            );
-                            events.push(event);
-                        });
-                    });
-                }
-            });
-        });
-        
-        return events;
-    }
-    
-    /**
-     * Handle event click in planning mode
-     */
-    handlePlanningEventClick(info) {
-        const props = info.event.extendedProps;
-        
-        // Only allow clicking on tutorials/seminars, not lectures
-        if (props.groupType === 'LEC') {
-            this.showEventDetails(props, info);
-            return;
-        }
-        
-        // Find enrollment for this course
-        const enrollment = this.enrollment.find(e => e.CourseID === props.courseId);
-        if (!enrollment) return;
-        
-        const enrolledGroupId = enrollment.EnrolledGroups[props.groupType];
-        
-        // If clicking on selected event, de-select it (revert to enrolled)
-        if (props.eventState === 'selected') {
-            this.planningState.selectTutorialGroup(
-                props.courseId,
-                props.groupType,
-                enrolledGroupId,
-                enrolledGroupId  // Set back to enrolled group
-            );
-            
-            // Save state
-            this.savePlanningStateToStorage();
-            
-            // Reload calendar and sidebar with full rerender
-            this.renderPlanningSidebar();
-            this.loadWeek(this.currentTerm, this.currentWeek);
-            return;
-        }
-        
-        // If clicking on enrolled event, just show details
-        if (props.eventState === 'enrolled') {
-            this.showEventDetails(props, info);
-            return;
-        }
-        
-        // If clicking on alternative event, select it
-        if (props.eventState === 'alternative') {
-            this.planningState.selectTutorialGroup(
-                props.courseId,
-                props.groupType,
-                enrolledGroupId,
-                props.groupId
-            );
-            
-            // Save state
-            this.savePlanningStateToStorage();
-            
-            // Reload calendar and sidebar with full rerender
-            this.renderPlanningSidebar();
-            this.loadWeek(this.currentTerm, this.currentWeek);
-            return;
-        }
-    }
-    
-    /**
-     * Show event details in an alert
+     * Show event details in modal
      */
     showEventDetails(props, clickEvent = null) {
         // Format time
@@ -1073,7 +702,34 @@ class ClassSwitcherApp {
         
         // Position modal near the clicked event
         if (clickEvent && clickEvent.jsEvent) {
-            this.positionModal(clickEvent.jsEvent);
+            const event = clickEvent.jsEvent;
+            const clickX = event.clientX;
+            const clickY = event.clientY;
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            const modalWidth = 400; // max-width from CSS
+            const modalHeight = 300; // approximate height
+            
+            let left = clickX + 15; // 15px offset from cursor
+            let top = clickY;
+            
+            // Adjust if modal would go off right edge
+            if (left + modalWidth > windowWidth) {
+                left = clickX - modalWidth - 15;
+            }
+            
+            // Adjust if modal would go off bottom edge
+            if (top + modalHeight > windowHeight) {
+                top = windowHeight - modalHeight - 20;
+            }
+            
+            // Ensure modal doesn't go off top or left edges
+            left = Math.max(10, left);
+            top = Math.max(10, top);
+            
+            this.modal.style.left = `${left}px`;
+            this.modal.style.top = `${top}px`;
+            this.modal.style.transform = 'none';
         } else {
             // Fallback to center if no click event
             this.modal.style.top = '50%';
@@ -1084,39 +740,6 @@ class ClassSwitcherApp {
         // Show modal with fade-in animation
         this.modal.classList.remove('hidden', 'fade-out');
         this.modal.classList.add('fade-in');
-    }
-    
-    /**
-     * Position modal near the clicked element
-     */
-    positionModal(event) {
-        const clickX = event.clientX;
-        const clickY = event.clientY;
-        const windowWidth = window.innerWidth;
-        const windowHeight = window.innerHeight;
-        const modalWidth = 400; // max-width from CSS
-        const modalHeight = 300; // approximate height
-        
-        let left = clickX + 15; // 15px offset from cursor
-        let top = clickY;
-        
-        // Adjust if modal would go off right edge
-        if (left + modalWidth > windowWidth) {
-            left = clickX - modalWidth - 15;
-        }
-        
-        // Adjust if modal would go off bottom edge
-        if (top + modalHeight > windowHeight) {
-            top = windowHeight - modalHeight - 20;
-        }
-        
-        // Ensure modal doesn't go off top or left edges
-        left = Math.max(10, left);
-        top = Math.max(10, top);
-        
-        this.modal.style.left = `${left}px`;
-        this.modal.style.top = `${top}px`;
-        this.modal.style.transform = 'none';
     }
     
     /**

@@ -25,16 +25,6 @@ export const CONFIG = {
         }
     },
 
-    // Course Colors (cycling through neutral palette)
-    COURSE_COLORS: [
-        'course-color-1', // Blue
-        'course-color-2', // Amber
-        'course-color-3', // Green
-        'course-color-4', // Purple
-        'course-color-5', // Red
-        'course-color-6'  // Cyan
-    ],
-
     // Calendar Configuration
     CALENDAR: {
         weekStart: 1, // Monday

@@ -2,12 +2,18 @@
 // Planning Mode State Management
 // ======================================
 
+import { detectConflicts } from './conflictDetector.js';
+import * as utils from './utils.js';
+
 /**
- * Manages the state for Planning Mode
- * Tracks user selections, visibility, and staged changes
+ * Manages the state and logic for Planning Mode
+ * Tracks user selections, visibility, staged changes, and event generation
  */
 export class PlanningState {
-    constructor() {
+    constructor(app) {
+        // Reference to main app for accessing data
+        this.app = app;
+        
         // Current mode: 'viewing' or 'planning'
         this.mode = 'viewing';
         
@@ -19,6 +25,9 @@ export class PlanningState {
         
         // Show alternatives mode: { courseId: 'my' | 'all' }
         this.showAlternatives = new Map();
+        
+        // Conflict tracking
+        this.conflictingEventIds = new Set();
     }
 
     /**
@@ -36,12 +45,13 @@ export class PlanningState {
         
         // Clear any previous staged changes
         this.stagedChanges.clear();
+        this.conflictingEventIds.clear();
     }
 
     /**
      * Exit planning mode and return to viewing mode
      * @param {string} action - 'cancel', 'save', or 'apply'
-     * @returns {Map} - The staged changes if action is 'save' or 'apply'
+     * @returns {Map|null} - The staged changes if action is 'save' or 'apply'
      */
     exitPlanningMode(action) {
         const changes = action !== 'cancel' ? new Map(this.stagedChanges) : null;
@@ -49,12 +59,37 @@ export class PlanningState {
         this.mode = 'viewing';
         this.visibleCourses.clear();
         this.showAlternatives.clear();
+        this.conflictingEventIds.clear();
         
         if (action === 'cancel') {
             this.stagedChanges.clear();
         }
         
         return changes;
+    }
+
+    /**
+     * Restore preferences from saved state (not staged changes)
+     * @param {Object} savedState - Saved planning preferences
+     */
+    restorePreferences(savedState) {
+        if (savedState.visibleCourses) {
+            this.visibleCourses = new Set(savedState.visibleCourses);
+        }
+        if (savedState.showAlternatives) {
+            this.showAlternatives = new Map(Object.entries(savedState.showAlternatives));
+        }
+    }
+
+    /**
+     * Get current preferences (for saving)
+     * @returns {Object} - Preferences object
+     */
+    getPreferences() {
+        return {
+            visibleCourses: this.visibleCourses,
+            showAlternatives: this.showAlternatives
+        };
     }
 
     /**
@@ -117,20 +152,6 @@ export class PlanningState {
     }
 
     /**
-     * Check if a course has staged changes
-     * @param {string} courseId
-     * @returns {boolean}
-     */
-    hasChanges(courseId) {
-        for (const [key, change] of this.stagedChanges) {
-            if (change.courseId === courseId) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
      * Get all staged changes for a course
      * @param {string} courseId
      * @returns {Array} - Array of change objects
@@ -160,4 +181,252 @@ export class PlanningState {
     getChangeCount() {
         return this.stagedChanges.size;
     }
+
+    /**
+     * Generate events for planning mode (includes alternatives)
+     * @param {string} termCode - Term code
+     * @param {number} weekNumber - Week number
+     * @param {Date} weekStart - Start date of the week
+     * @returns {Array} - Array of calendar events
+     */
+    getEventsForPlanningMode(termCode, weekNumber, weekStart) {
+        const events = [];
+        const enrolledCourses = this.app.getEnrolledCoursesForTerm(termCode);
+        
+        enrolledCourses.forEach(course => {
+            // Skip if course is hidden
+            if (!this.visibleCourses.has(course.CourseID)) {
+                return;
+            }
+            
+            const enrollment = this.app.enrollment.find(e => e.CourseID === course.CourseID);
+            if (!enrollment) return;
+            
+            const colorData = this.app.courseColors.get(course.CourseID);
+            const colorClass = `course-color-${colorData.index}`;
+            
+            const showMode = this.showAlternatives.get(course.CourseID) || 'my';
+            
+            // Add all enrolled lectures (always show)
+            this._addLectureEvents(events, course, enrollment, termCode, weekNumber, weekStart, colorClass);
+            
+            // Add tutorials/seminars based on mode
+            const tutorialTypes = Object.keys(enrollment.EnrolledGroups).filter(t => t !== 'LEC');
+            
+            tutorialTypes.forEach(groupType => {
+                const enrolledGroupId = enrollment.EnrolledGroups[groupType];
+                const selectedGroupId = this.getSelectedGroup(
+                    course.CourseID, groupType, enrolledGroupId
+                );
+                
+                if (showMode === 'my') {
+                    this._addMySessionsEvents(
+                        events, course, groupType, enrolledGroupId, selectedGroupId,
+                        termCode, weekNumber, weekStart, colorClass
+                    );
+                } else {
+                    this._addAllSessionsEvents(
+                        events, course, groupType, enrolledGroupId, selectedGroupId,
+                        termCode, weekNumber, weekStart, colorClass
+                    );
+                }
+            });
+        });
+        
+        // Detect and mark conflicts
+        this.conflictingEventIds = detectConflicts(events);
+        events.forEach(event => {
+            if (this.conflictingEventIds.has(event.id)) {
+                if (!Array.isArray(event.classNames)) {
+                    event.classNames = [];
+                }
+                event.classNames.push('event-conflict');
+            }
+        });
+        
+        return events;
+    }
+
+    /**
+     * Add lecture events
+     * @private
+     */
+    _addLectureEvents(events, course, enrollment, termCode, weekNumber, weekStart, colorClass) {
+        Object.entries(enrollment.EnrolledGroups).forEach(([groupType, groupId]) => {
+            if (groupType !== 'LEC') return;
+            
+            const group = this.app.groups.find(g => g.GroupID === groupId);
+            if (!group) return;
+            
+            const groupSessions = this.app.sessions[groupId]?.[termCode];
+            if (!groupSessions) return;
+            
+            const weekSessions = groupSessions.filter(s => s.Week === weekNumber);
+            weekSessions.forEach(session => {
+                const event = utils.sessionToEvent(
+                    session, course, group, weekStart,
+                    colorClass,
+                    'lecture'
+                );
+                events.push(event);
+            });
+        });
+    }
+
+    /**
+     * Add "my sessions" events (enrolled + selected)
+     * @private
+     */
+    _addMySessionsEvents(events, course, groupType, enrolledGroupId, selectedGroupId, 
+                         termCode, weekNumber, weekStart, colorClass) {
+        const groupsToShow = new Set([enrolledGroupId, selectedGroupId]);
+        
+        groupsToShow.forEach(groupId => {
+            const group = this.app.groups.find(g => g.GroupID === groupId);
+            if (!group) return;
+            
+            const groupSessions = this.app.sessions[groupId]?.[termCode];
+            if (!groupSessions) return;
+            
+            const weekSessions = groupSessions.filter(s => s.Week === weekNumber);
+            weekSessions.forEach(session => {
+                let eventState;
+                if (groupId === selectedGroupId && groupId !== enrolledGroupId) {
+                    eventState = 'selected';
+                } else {
+                    eventState = 'enrolled';
+                }
+                
+                const event = utils.sessionToEvent(
+                    session, course, group, weekStart,
+                    colorClass,
+                    eventState
+                );
+                events.push(event);
+            });
+        });
+    }
+
+    /**
+     * Add "all sessions" events (all available groups)
+     * @private
+     */
+    _addAllSessionsEvents(events, course, groupType, enrolledGroupId, selectedGroupId,
+                          termCode, weekNumber, weekStart, colorClass) {
+        const allGroups = this.app.groups.filter(g => 
+            g.CourseID === course.CourseID && g.Type === groupType
+        );
+        
+        allGroups.forEach(group => {
+            const groupSessions = this.app.sessions[group.GroupID]?.[termCode];
+            if (!groupSessions) return;
+            
+            const weekSessions = groupSessions.filter(s => s.Week === weekNumber);
+            weekSessions.forEach(session => {
+                let eventState;
+                if (group.GroupID === selectedGroupId && group.GroupID !== enrolledGroupId) {
+                    eventState = 'selected';
+                } else if (group.GroupID === enrolledGroupId) {
+                    eventState = 'enrolled';
+                } else {
+                    eventState = 'alternative';
+                }
+                
+                const event = utils.sessionToEvent(
+                    session, course, group, weekStart,
+                    colorClass,
+                    eventState
+                );
+                events.push(event);
+            });
+        });
+    }
+
+    /**
+     * Handle event click in planning mode
+     * @param {Object} info - FullCalendar event click info
+     * @param {Function} showDetailsCallback - Callback to show event details
+     * @param {Function} reloadCallback - Callback to reload calendar/sidebar
+     */
+    handleEventClick(info, showDetailsCallback, reloadCallback) {
+        const props = info.event.extendedProps;
+        
+        // Only allow clicking on tutorials/seminars, not lectures
+        if (props.groupType === 'LEC') {
+            showDetailsCallback(props, info);
+            return;
+        }
+        
+        // Find enrollment for this course
+        const enrollment = this.app.enrollment.find(e => e.CourseID === props.courseId);
+        if (!enrollment) return;
+        
+        const enrolledGroupId = enrollment.EnrolledGroups[props.groupType];
+        
+        // If clicking on selected event, de-select it (revert to enrolled)
+        if (props.eventState === 'selected') {
+            this.selectTutorialGroup(
+                props.courseId,
+                props.groupType,
+                enrolledGroupId,
+                enrolledGroupId  // Set back to enrolled group
+            );
+            reloadCallback();
+            return;
+        }
+        
+        // If clicking on enrolled event, just show details
+        if (props.eventState === 'enrolled') {
+            showDetailsCallback(props, info);
+            return;
+        }
+        
+        // If clicking on alternative event, select it
+        if (props.eventState === 'alternative') {
+            this.selectTutorialGroup(
+                props.courseId,
+                props.groupType,
+                enrolledGroupId,
+                props.groupId
+            );
+            reloadCallback();
+            return;
+        }
+    }
+
+    /**
+     * Validate and apply changes
+     * @param {Function} applyCallback - Callback to apply changes to enrollment
+     * @returns {Object} - Result object with success status and message
+     */
+    applyChanges(applyCallback) {
+        // Check for conflicts first
+        if (this.conflictingEventIds.size > 0) {
+            const confirmApply = confirm(
+                `You have ${this.conflictingEventIds.size / 2} scheduling conflict(s). ` +
+                `Are you sure you want to apply these changes?`
+            );
+            if (!confirmApply) {
+                return { success: false, message: 'Application cancelled' };
+            }
+        }
+        
+        if (this.stagedChanges.size === 0) {
+            return { success: false, message: 'No changes to apply' };
+        }
+        
+        // Apply changes through callback
+        applyCallback(this.stagedChanges);
+        
+        // Clear staged changes
+        const changeCount = this.stagedChanges.size;
+        this.stagedChanges.clear();
+        
+        return { 
+            success: true, 
+            message: `Successfully applied ${changeCount} change(s)!`,
+            changeCount
+        };
+    }
 }
+
