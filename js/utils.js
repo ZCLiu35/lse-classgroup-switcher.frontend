@@ -5,6 +5,58 @@
 import { CONFIG } from './config.js';
 
 /**
+ * Generate a color for a course based on its index
+ * Uses a predefined color palette that cycles for unlimited courses
+ * @param {number} index - Course index
+ * @param {number} total - Total number of courses
+ * @returns {string} HSL color string
+ */
+export function generateCourseColor(index, total) {
+    // Curated color palette with good contrast and visual distinction
+    // Using specific hues that work well together (avoiding reds to prevent conflict with error indicators)
+    const colorPalette = [
+        { h: 210, s: 75, l: 45 },  // Blue
+        { h: 270, s: 65, l: 48 },  // Purple
+        { h: 30,  s: 75, l: 45 },  // Orange
+        { h: 180, s: 60, l: 40 },  // Cyan/Teal
+        { h: 300, s: 70, l: 45 },  // Magenta
+        { h: 200, s: 70, l: 42 },  // Deep Blue
+        { h: 250, s: 65, l: 45 },  // Indigo
+        { h: 40,  s: 70, l: 45 },  // Amber
+        { h: 190, s: 65, l: 42 },  // Dark Cyan
+        { h: 280, s: 68, l: 46 },  // Violet
+        { h: 220, s: 70, l: 44 },  // Royal Blue
+        { h: 170, s: 60, l: 42 },  // Turquoise
+    ];
+    
+    // Cycle through the palette for any number of courses
+    const paletteIndex = index % colorPalette.length;
+    const color = colorPalette[paletteIndex];
+    
+    // Add slight variation for courses beyond the first cycle
+    const cycle = Math.floor(index / colorPalette.length);
+    const lightnessAdjust = (cycle % 2) * 3; // Alternate between 0 and 3
+    
+    return `hsl(${color.h}, ${color.s}%, ${color.l + lightnessAdjust}%)`;
+}
+
+/**
+ * Generate a darker border color from the main color
+ * @param {string} hslColor - HSL color string
+ * @returns {string} Darker HSL color string
+ */
+export function generateBorderColor(hslColor) {
+    // Extract HSL values and darken
+    const match = hslColor.match(/hsl\((\d+),\s*(\d+)%,\s*(\d+)%\)/);
+    if (match) {
+        const [, h, s, l] = match;
+        const darkerL = Math.max(0, parseInt(l) - 12);
+        return `hsl(${h}, ${s}%, ${darkerL}%)`;
+    }
+    return hslColor;
+}
+
+/**
  * Convert week number to date range
  * @param {string} termCode - Term code (AT, WT, ST)
  * @param {number} weekNumber - Week number (1-11)

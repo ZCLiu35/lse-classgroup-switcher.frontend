@@ -97,10 +97,51 @@ class ClassSwitcherApp {
      * Assign colors to each course
      */
     assignCourseColors() {
+        const total = this.courses.length;
         this.courses.forEach((course, index) => {
-            const colorClass = CONFIG.COURSE_COLORS[index % CONFIG.COURSE_COLORS.length];
-            this.courseColors.set(course.CourseID, colorClass);
+            const color = utils.generateCourseColor(index, total);
+            const borderColor = utils.generateBorderColor(color);
+            
+            // Store both background and border colors
+            this.courseColors.set(course.CourseID, {
+                background: color,
+                border: borderColor,
+                index: index
+            });
         });
+        
+        // Add dynamic CSS rules for these colors
+        this.injectDynamicStyles();
+    }
+
+    /**
+     * Inject dynamic CSS styles for course colors
+     */
+    injectDynamicStyles() {
+        // Remove existing dynamic styles if any
+        const existingStyle = document.getElementById('dynamic-course-colors');
+        if (existingStyle) {
+            existingStyle.remove();
+        }
+
+        // Create new style element
+        const styleEl = document.createElement('style');
+        styleEl.id = 'dynamic-course-colors';
+        
+        let css = '';
+        this.courseColors.forEach((colorData, courseId) => {
+            const className = `course-color-${colorData.index}`;
+            css += `
+.${className} {
+    background-color: ${colorData.background};
+    border-color: ${colorData.border};
+    color: white;
+}
+`;
+        });
+        
+        styleEl.textContent = css;
+        document.head.appendChild(styleEl);
     }
 
     /**
@@ -236,17 +277,20 @@ class ClassSwitcherApp {
             const enrollment = this.enrollment.find(e => e.CourseID === course.CourseID);
             if (!enrollment) return;
             
-            const colorClass = this.courseColors.get(course.CourseID);
+            const colorData = this.courseColors.get(course.CourseID);
+            const colorClass = `course-color-${colorData.index}`;
             const courseCard = document.createElement('div');
             courseCard.className = 'course-card';
             
-            // Build enrolled groups display
+            // Build enrolled groups display (exclude lectures)
             let groupsHTML = '';
             Object.entries(enrollment.EnrolledGroups).forEach(([type, groupId]) => {
+                // Skip lectures in the display
+                if (type === 'LEC') return;
+                
                 const group = this.groups.find(g => g.GroupID === groupId);
                 if (group) {
-                    const typeLabel = type === 'LEC' ? 'Lecture' : 
-                                     type === 'CLA' ? 'Class' : 
+                    const typeLabel = type === 'CLA' ? 'Class' : 
                                      type === 'SEM' ? 'Seminar' : type;
                     groupsHTML += `<div class="course-card-detail">${typeLabel}: Group ${group.GroupNumber}</div>`;
                 }
@@ -351,12 +395,15 @@ class ClassSwitcherApp {
                     // Determine event state based on group type
                     const eventState = group.Type === 'LEC' ? 'lecture' : 'enrolled';
                     
+                    const colorData = this.courseColors.get(course.CourseID);
+                    const colorClass = `course-color-${colorData.index}`;
+                    
                     const event = utils.sessionToEvent(
                         session, 
                         course, 
                         group, 
                         weekStart, 
-                        this.courseColors.get(course.CourseID),
+                        colorClass,
                         eventState
                     );
                     events.push(event);
@@ -567,7 +614,8 @@ class ClassSwitcherApp {
             const enrollment = this.enrollment.find(e => e.CourseID === course.CourseID);
             if (!enrollment) return;
             
-            const colorClass = this.courseColors.get(course.CourseID);
+            const colorData = this.courseColors.get(course.CourseID);
+            const colorClass = `course-color-${colorData.index}`;
             const isVisible = this.planningState.visibleCourses.has(course.CourseID);
             const hasChanges = this.planningState.hasChanges(course.CourseID);
             const showMode = this.planningState.showAlternatives.get(course.CourseID) || 'my';
@@ -607,10 +655,16 @@ class ClassSwitcherApp {
                 </div>
                 <div class="course-filter-name">${course.CourseName}</div>
                 <div class="course-filter-controls">
-                    <button class="course-filter-toggle-btn ${showMode === 'all' ? 'show-all' : 'show-my'}" 
-                            data-course-id="${course.CourseID}">
-                        ${showMode === 'my' ? 'My Sessions' : 'All Sessions'}
-                    </button>
+                    <div class="toggle-switch-container">
+                        <span class="toggle-label ${showMode === 'my' ? 'active' : ''}">My Sessions</span>
+                        <label class="toggle-switch" data-course-id="${course.CourseID}">
+                            <input type="checkbox" 
+                                   class="toggle-input" 
+                                   ${showMode === 'all' ? 'checked' : ''}>
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <span class="toggle-label ${showMode === 'all' ? 'active' : ''}">All Sessions</span>
+                    </div>
                 </div>
                 <div class="course-filter-info">Available: ${availableGroups.length} groups</div>
             `;
@@ -624,13 +678,13 @@ class ClassSwitcherApp {
                 this.loadWeek(this.currentTerm, this.currentWeek);
             });
             
-            const toggleBtn = filterItem.querySelector('.course-filter-toggle-btn');
-            toggleBtn.addEventListener('click', (e) => {
-                const courseId = e.target.dataset.courseId;
-                const currentMode = this.planningState.showAlternatives.get(courseId) || 'my';
-                const newMode = currentMode === 'my' ? 'all' : 'my';
+            const toggleSwitch = filterItem.querySelector('.toggle-switch');
+            const toggleInput = filterItem.querySelector('.toggle-input');
+            toggleInput.addEventListener('change', (e) => {
+                const courseId = toggleSwitch.dataset.courseId;
+                const newMode = e.target.checked ? 'all' : 'my';
                 this.planningState.setAlternativeMode(courseId, newMode);
-                this.renderPlanningSidebar(); // Re-render to update button text
+                this.renderPlanningSidebar(); // Re-render to update toggle state
                 this.loadWeek(this.currentTerm, this.currentWeek);
             });
         });
@@ -652,6 +706,9 @@ class ClassSwitcherApp {
             const enrollment = this.enrollment.find(e => e.CourseID === course.CourseID);
             if (!enrollment) return;
             
+            const colorData = this.courseColors.get(course.CourseID);
+            const colorClass = `course-color-${colorData.index}`;
+            
             const showMode = this.planningState.showAlternatives.get(course.CourseID) || 'my';
             
             // Add all enrolled lectures (always show)
@@ -667,7 +724,7 @@ class ClassSwitcherApp {
                     weekSessions.forEach(session => {
                         const event = utils.sessionToEvent(
                             session, course, group, weekStart,
-                            this.courseColors.get(course.CourseID),
+                            colorClass,
                             'lecture'
                         );
                         events.push(event);
@@ -706,7 +763,7 @@ class ClassSwitcherApp {
                             
                             const event = utils.sessionToEvent(
                                 session, course, group, weekStart,
-                                this.courseColors.get(course.CourseID),
+                                colorClass,
                                 eventState
                             );
                             events.push(event);
@@ -735,7 +792,7 @@ class ClassSwitcherApp {
                             
                             const event = utils.sessionToEvent(
                                 session, course, group, weekStart,
-                                this.courseColors.get(course.CourseID),
+                                colorClass,
                                 eventState
                             );
                             events.push(event);
