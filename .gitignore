@@ -18,4 +18,4 @@ dist/
 build/
 
 # Data files
-data/*.csv
+*.csv

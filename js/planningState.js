@@ -39,8 +39,8 @@ export class PlanningState {
         
         // Initialize all courses as visible
         enrolledCourses.forEach(course => {
-            this.visibleCourses.add(course.CourseID);
-            this.showAlternatives.set(course.CourseID, 'my'); // Default to 'my' view
+            this.visibleCourses.add(course.CourseCode);
+            this.showAlternatives.set(course.CourseCode, 'my'); // Default to 'my' view
         });
         
         // Clear any previous staged changes
@@ -195,17 +195,17 @@ export class PlanningState {
         
         enrolledCourses.forEach(course => {
             // Skip if course is hidden
-            if (!this.visibleCourses.has(course.CourseID)) {
+            if (!this.visibleCourses.has(course.CourseCode)) {
                 return;
             }
             
-            const enrollment = this.app.enrollment[course.CourseID];
+            const enrollment = this.app.enrollment[course.CourseCode];
             if (!enrollment) return;
             
-            const colorData = this.app.courseColors.get(course.CourseID);
+            const colorData = this.app.courseColors.get(course.CourseCode);
             const colorClass = `course-color-${colorData.index}`;
             
-            const showMode = this.showAlternatives.get(course.CourseID) || 'my';
+            const showMode = this.showAlternatives.get(course.CourseCode) || 'my';
             
             // Add all enrolled lectures (always show)
             this._addLectureEvents(events, course, enrollment, termCode, weekNumber, weekStart, colorClass);
@@ -216,7 +216,7 @@ export class PlanningState {
             tutorialTypes.forEach(groupType => {
                 const enrolledGroupId = enrollment[groupType];
                 const selectedGroupId = this.getSelectedGroup(
-                    course.CourseID, groupType, enrolledGroupId
+                    course.CourseCode, groupType, enrolledGroupId
                 );
                 
                 if (showMode === 'my') {

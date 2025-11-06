@@ -194,7 +194,7 @@ export function sessionToEvent(session, course, group, weekStart, courseColor, e
     const groupDisplay = group.Type === 'LEC' ? 'Lec' : `${group.Type}-G${group.GroupNumber}`;
     
     return {
-        id: `${course.CourseID}-${group.GroupID}-${session.Week}`,
+        id: `${course.CourseCode}-${group.GroupID}-${session.Week}`,
         title: `${course.CourseCode}\n${groupDisplay}\n${session.Room}`,
         start: startDateTime,
         end: endDateTime,
@@ -202,7 +202,7 @@ export function sessionToEvent(session, course, group, weekStart, courseColor, e
         extendedProps: {
             courseCode: course.CourseCode,
             courseName: course.CourseName,
-            courseId: course.CourseID,
+            courseId: course.CourseCode,
             groupId: group.GroupID,
             groupType: group.Type,
             groupNumber: group.GroupNumber,

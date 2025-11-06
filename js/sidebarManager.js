@@ -23,10 +23,10 @@ export class SidebarManager {
         const enrolledCourses = this.app.getEnrolledCoursesForTerm(this.app.currentTerm);
         
         enrolledCourses.forEach(course => {
-            const enrollment = this.app.enrollment[course.CourseID];
+            const enrollment = this.app.enrollment[course.CourseCode];
             if (!enrollment) return;
             
-            const colorData = this.app.courseColors.get(course.CourseID);
+            const colorData = this.app.courseColors.get(course.CourseCode);
             const colorClass = `course-color-${colorData.index}`;
             const courseCard = document.createElement('div');
             courseCard.className = 'course-card';
@@ -68,14 +68,14 @@ export class SidebarManager {
         const enrolledCourses = this.app.getEnrolledCoursesForTerm(this.app.currentTerm);
         
         enrolledCourses.forEach(course => {
-            const enrollment = this.app.enrollment[course.CourseID];
+            const enrollment = this.app.enrollment[course.CourseCode];
             if (!enrollment) return;
             
-            const colorData = this.app.courseColors.get(course.CourseID);
+            const colorData = this.app.courseColors.get(course.CourseCode);
             const colorClass = `course-color-${colorData.index}`;
-            const isVisible = this.app.planningState.visibleCourses.has(course.CourseID);
-            const changes = this.app.planningState.getChangesForCourse(course.CourseID);
-            const showMode = this.app.planningState.showAlternatives.get(course.CourseID) || 'my';
+            const isVisible = this.app.planningState.visibleCourses.has(course.CourseCode);
+            const changes = this.app.planningState.getChangesForCourse(course.CourseCode);
+            const showMode = this.app.planningState.showAlternatives.get(course.CourseCode) || 'my';
             
             // Get tutorial/seminar groups (not lectures)
             const tutorialTypes = Object.keys(enrollment).filter(type => type !== 'LEC');
@@ -96,14 +96,14 @@ export class SidebarManager {
             
             // Count available groups (tutorials/seminars only)
             const availableGroups = this.app.groups.filter(g => 
-                g.CourseCode === course.CourseID && g.Type !== 'LEC'
+                g.CourseCode === course.CourseCode && g.Type !== 'LEC'
             );
             
             filterItem.innerHTML = `
                 <div class="course-filter-header">
                     <input type="checkbox" 
                            class="course-filter-checkbox" 
-                           data-course-id="${course.CourseID}"
+                           data-course-id="${course.CourseCode}"
                            ${isVisible ? 'checked' : ''}>
                     <div class="course-color-dot ${colorClass}"></div>
                     <div class="course-filter-title">${course.CourseCode}</div>
@@ -113,7 +113,7 @@ export class SidebarManager {
                 <div class="course-filter-controls">
                     <div class="toggle-switch-container">
                         <span class="toggle-label ${showMode === 'my' ? 'active' : ''}">My Sessions</span>
-                        <label class="toggle-switch" data-course-id="${course.CourseID}">
+                        <label class="toggle-switch" data-course-id="${course.CourseCode}">
                             <input type="checkbox" 
                                    class="toggle-input" 
                                    ${showMode === 'all' ? 'checked' : ''}>
@@ -128,7 +128,7 @@ export class SidebarManager {
             container.appendChild(filterItem);
             
             // Add event listeners for this filter item
-            this._attachPlanningFilterListeners(filterItem, course.CourseID);
+            this._attachPlanningFilterListeners(filterItem, course.CourseCode);
         });
     }
 

@@ -1,6 +1,5 @@
 [
   {
-    "CourseID": "EC313",
     "CourseCode": "EC313",
     "CourseName": "Industrial Economics",
     "Terms": [
@@ -10,7 +9,6 @@
     ]
   },
   {
-    "CourseID": "EC321",
     "CourseCode": "EC321",
     "CourseName": "Monetary Economics and Aggregate Fluctuations",
     "Terms": [
@@ -20,7 +18,6 @@
     ]
   },
   {
-    "CourseID": "EC333",
     "CourseCode": "EC333",
     "CourseName": "Problems in Applied Econometrics",
     "Terms": [
@@ -30,7 +27,6 @@
     ]
   },
   {
-    "CourseID": "FM321",
     "CourseCode": "FM321",
     "CourseName": "Risk Management and Modelling",
     "Terms": [
@@ -38,7 +34,6 @@
     ]
   },
   {
-    "CourseID": "FM322",
     "CourseCode": "FM322",
     "CourseName": "Derivatives",
     "Terms": [
@@ -46,7 +41,6 @@
     ]
   },
   {
-    "CourseID": "ST310",
     "CourseCode": "ST310",
     "CourseName": "Machine Learning",
     "Terms": [
@@ -54,7 +48,6 @@
     ]
   },
   {
-    "CourseID": "ST311",
     "CourseCode": "ST311",
     "CourseName": "Artificial Intelligence",
     "Terms": [
