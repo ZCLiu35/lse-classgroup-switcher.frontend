@@ -10,6 +10,16 @@
     ]
   },
   {
+    "CourseID": "EC321",
+    "CourseCode": "EC321",
+    "CourseName": "Monetary Economics and Aggregate Fluctuations",
+    "Terms": [
+      "AT",
+      "ST",
+      "WT"
+    ]
+  },
+  {
     "CourseID": "EC333",
     "CourseCode": "EC333",
     "CourseName": "Problems in Applied Econometrics",

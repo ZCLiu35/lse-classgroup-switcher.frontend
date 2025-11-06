@@ -2,6 +2,8 @@
 // Sidebar Manager - Handles sidebar rendering and interactions
 // ======================================
 
+import * as utils from './utils.js';
+
 /**
  * Manages sidebar rendering and interactions for both viewing and planning modes
  */
@@ -21,7 +23,7 @@ export class SidebarManager {
         const enrolledCourses = this.app.getEnrolledCoursesForTerm(this.app.currentTerm);
         
         enrolledCourses.forEach(course => {
-            const enrollment = this.app.enrollment.find(e => e.CourseID === course.CourseID);
+            const enrollment = this.app.enrollment[course.CourseID];
             if (!enrollment) return;
             
             const colorData = this.app.courseColors.get(course.CourseID);
@@ -31,7 +33,7 @@ export class SidebarManager {
             
             // Build enrolled groups display (exclude lectures)
             let groupsHTML = '';
-            Object.entries(enrollment.EnrolledGroups).forEach(([type, groupId]) => {
+            Object.entries(enrollment).forEach(([type, groupId]) => {
                 // Skip lectures in the display
                 if (type === 'LEC') return;
                 
@@ -66,7 +68,7 @@ export class SidebarManager {
         const enrolledCourses = this.app.getEnrolledCoursesForTerm(this.app.currentTerm);
         
         enrolledCourses.forEach(course => {
-            const enrollment = this.app.enrollment.find(e => e.CourseID === course.CourseID);
+            const enrollment = this.app.enrollment[course.CourseID];
             if (!enrollment) return;
             
             const colorData = this.app.courseColors.get(course.CourseID);
@@ -76,7 +78,7 @@ export class SidebarManager {
             const showMode = this.app.planningState.showAlternatives.get(course.CourseID) || 'my';
             
             // Get tutorial/seminar groups (not lectures)
-            const tutorialTypes = Object.keys(enrollment.EnrolledGroups).filter(type => type !== 'LEC');
+            const tutorialTypes = Object.keys(enrollment).filter(type => type !== 'LEC');
             
             const filterItem = document.createElement('div');
             filterItem.className = 'course-filter-item';
@@ -94,7 +96,7 @@ export class SidebarManager {
             
             // Count available groups (tutorials/seminars only)
             const availableGroups = this.app.groups.filter(g => 
-                g.CourseID === course.CourseID && g.Type !== 'LEC'
+                g.CourseCode === course.CourseID && g.Type !== 'LEC'
             );
             
             filterItem.innerHTML = `

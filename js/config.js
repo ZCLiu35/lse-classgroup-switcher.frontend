@@ -43,7 +43,6 @@ export const CONFIG = {
     // Data File Paths
     DATA_PATHS: {
         courses: 'data/courses.json',
-        groups: 'data/groups.json',
         sessions: 'data/sessions.json',
         enrollment: 'data/enrollment.json'
     },

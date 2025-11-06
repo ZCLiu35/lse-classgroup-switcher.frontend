@@ -17,7 +17,7 @@ class ClassSwitcherApp {
         
         // Data storage
         this.courses = [];
-        this.groups = [];
+        this.groups = [];  // Will be extracted from sessions
         this.sessions = {};
         this.enrollment = [];
         this.originalEnrollment = []; // Keep original for reference
@@ -98,12 +98,20 @@ class ClassSwitcherApp {
      */
     async loadData() {
         try {
-            [this.courses, this.groups, this.sessions, this.enrollment] = await Promise.all([
+            [this.courses, this.sessions, this.enrollment] = await Promise.all([
                 utils.loadJSON(CONFIG.DATA_PATHS.courses),
-                utils.loadJSON(CONFIG.DATA_PATHS.groups),
                 utils.loadJSON(CONFIG.DATA_PATHS.sessions),
                 utils.loadJSON(CONFIG.DATA_PATHS.enrollment)
             ]);
+            
+            // Extract groups from sessions data
+            this.groups = Object.entries(this.sessions).map(([groupId, data]) => ({
+                GroupID: groupId,
+                CourseCode: data.CourseCode,
+                CourseName: data.CourseName,
+                Type: data.Type,
+                GroupNumber: data.GroupNumber
+            }));
             
             // Keep a copy of original enrollment
             this.originalEnrollment = JSON.parse(JSON.stringify(this.enrollment));
@@ -135,7 +143,7 @@ class ClassSwitcherApp {
         
         // Apply each override
         Object.entries(overrides).forEach(([courseId, groupChanges]) => {
-            const enrollmentEntry = this.enrollment.find(e => e.CourseID === courseId);
+            const enrollmentEntry = this.enrollment[courseId];
             if (!enrollmentEntry) {
                 console.warn(`Course ${courseId} not found in enrollment`);
                 return;
@@ -143,9 +151,10 @@ class ClassSwitcherApp {
             
             // Apply each group type change
             Object.entries(groupChanges).forEach(([groupType, newGroupId]) => {
-                if (enrollmentEntry.EnrolledGroups[groupType]) {
-                    console.log(`Override: ${courseId} ${groupType}: ${enrollmentEntry.EnrolledGroups[groupType]} → ${newGroupId}`);
-                    enrollmentEntry.EnrolledGroups[groupType] = newGroupId;
+                if (enrollmentEntry[groupType] !== undefined) {
+                    const oldGroupId = enrollmentEntry[groupType];
+                    console.log(`Override: ${courseId} ${groupType}: ${oldGroupId} → ${newGroupId}`);
+                    enrollmentEntry[groupType] = newGroupId;
                 }
             });
         });
@@ -421,16 +430,16 @@ class ClassSwitcherApp {
         const enrolledCourses = this.getEnrolledCoursesForTerm(termCode);
         
         enrolledCourses.forEach(course => {
-            const enrollment = this.enrollment.find(e => e.CourseID === course.CourseID);
+            const enrollment = this.enrollment[course.CourseID];
             if (!enrollment) return;
             
             // Process all enrolled groups for this course
-            Object.entries(enrollment.EnrolledGroups).forEach(([groupType, groupId]) => {
+            Object.entries(enrollment).forEach(([groupType, groupId]) => {
                 const group = this.groups.find(g => g.GroupID === groupId);
                 if (!group) return;
                 
                 // Get sessions for this group and term (direct lookup, no filtering!)
-                const groupSessions = this.sessions[groupId]?.[termCode];
+                const groupSessions = this.sessions[groupId]?.Sessions?.[termCode];
                 if (!groupSessions) return;
                 
                 // Filter sessions for this specific week
@@ -639,12 +648,12 @@ class ClassSwitcherApp {
             const { courseId, groupType, to } = change;
             
             // Update enrollment in memory
-            const enrollmentEntry = this.enrollment.find(e => e.CourseID === courseId);
+            const enrollmentEntry = this.enrollment[courseId];
             if (enrollmentEntry) {
-                enrollmentEntry.EnrolledGroups[groupType] = to;
+                enrollmentEntry[groupType] = to;
             }
             
-            // Update overrides object
+            // Update overrides object (store group IDs for consistency)
             if (!overrides[courseId]) {
                 overrides[courseId] = {};
             }

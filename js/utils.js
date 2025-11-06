@@ -163,7 +163,7 @@ export function getTimeString(date) {
  * Convert session to FullCalendar event format
  * @param {Object} session - Session object from sessions.json (Week, Day, StartTime, EndTime, Room)
  * @param {Object} course - Course object from courses.json
- * @param {Object} group - Group object from groups.json
+ * @param {Object} group - Group object (extracted from sessions.json)
  * @param {Date} weekStart - Start date of the week
  * @param {string} courseColor - CSS class for course color
  * @param {string} eventState - Event state: 'enrolled', 'selected', 'alternative', 'lecture'
@@ -206,7 +206,7 @@ export function sessionToEvent(session, course, group, weekStart, courseColor, e
             groupId: group.GroupID,
             groupType: group.Type,
             groupNumber: group.GroupNumber,
-            instructor: group.Teacher,
+            instructor: session.Teacher,
             location: session.Room,
             weekNumber: session.Week,
             eventState: eventState
@@ -245,3 +245,5 @@ export function debounce(func, wait) {
         timeout = setTimeout(() => func(...args), wait);
     };
 }
+
+

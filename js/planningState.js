@@ -199,7 +199,7 @@ export class PlanningState {
                 return;
             }
             
-            const enrollment = this.app.enrollment.find(e => e.CourseID === course.CourseID);
+            const enrollment = this.app.enrollment[course.CourseID];
             if (!enrollment) return;
             
             const colorData = this.app.courseColors.get(course.CourseID);
@@ -211,10 +211,10 @@ export class PlanningState {
             this._addLectureEvents(events, course, enrollment, termCode, weekNumber, weekStart, colorClass);
             
             // Add tutorials/seminars based on mode
-            const tutorialTypes = Object.keys(enrollment.EnrolledGroups).filter(t => t !== 'LEC');
+            const tutorialTypes = Object.keys(enrollment).filter(t => t !== 'LEC');
             
             tutorialTypes.forEach(groupType => {
-                const enrolledGroupId = enrollment.EnrolledGroups[groupType];
+                const enrolledGroupId = enrollment[groupType];
                 const selectedGroupId = this.getSelectedGroup(
                     course.CourseID, groupType, enrolledGroupId
                 );
@@ -252,13 +252,13 @@ export class PlanningState {
      * @private
      */
     _addLectureEvents(events, course, enrollment, termCode, weekNumber, weekStart, colorClass) {
-        Object.entries(enrollment.EnrolledGroups).forEach(([groupType, groupId]) => {
+        Object.entries(enrollment).forEach(([groupType, groupId]) => {
             if (groupType !== 'LEC') return;
             
             const group = this.app.groups.find(g => g.GroupID === groupId);
             if (!group) return;
             
-            const groupSessions = this.app.sessions[groupId]?.[termCode];
+            const groupSessions = this.app.sessions[groupId]?.Sessions?.[termCode];
             if (!groupSessions) return;
             
             const weekSessions = groupSessions.filter(s => s.Week === weekNumber);
@@ -285,7 +285,7 @@ export class PlanningState {
             const group = this.app.groups.find(g => g.GroupID === groupId);
             if (!group) return;
             
-            const groupSessions = this.app.sessions[groupId]?.[termCode];
+            const groupSessions = this.app.sessions[groupId]?.Sessions?.[termCode];
             if (!groupSessions) return;
             
             const weekSessions = groupSessions.filter(s => s.Week === weekNumber);
@@ -314,11 +314,11 @@ export class PlanningState {
     _addAllSessionsEvents(events, course, groupType, enrolledGroupId, selectedGroupId,
                           termCode, weekNumber, weekStart, colorClass) {
         const allGroups = this.app.groups.filter(g => 
-            g.CourseID === course.CourseID && g.Type === groupType
+            g.CourseCode === course.CourseID && g.Type === groupType
         );
         
         allGroups.forEach(group => {
-            const groupSessions = this.app.sessions[group.GroupID]?.[termCode];
+            const groupSessions = this.app.sessions[group.GroupID]?.Sessions?.[termCode];
             if (!groupSessions) return;
             
             const weekSessions = groupSessions.filter(s => s.Week === weekNumber);
@@ -358,10 +358,10 @@ export class PlanningState {
         }
         
         // Find enrollment for this course
-        const enrollment = this.app.enrollment.find(e => e.CourseID === props.courseId);
+        const enrollment = this.app.enrollment[props.courseId];
         if (!enrollment) return;
         
-        const enrolledGroupId = enrollment.EnrolledGroups[props.groupType];
+        const enrolledGroupId = enrollment[props.groupType];
         
         // If clicking on selected event, de-select it (revert to enrolled)
         if (props.eventState === 'selected') {

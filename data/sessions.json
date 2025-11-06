@@ -1,2944 +1,4414 @@
 {
   "EC313/CLASS/01": {
-    "AT": [
-      {
-        "Week": 2,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 3,
-        "Day": "Fri",
-        "StartTime": "14:00",
-        "EndTime": "15:00",
-        "Room": "SAL.G.09"
-      },
-      {
-        "Week": 4,
-        "Day": "Fri",
-        "StartTime": "14:00",
-        "EndTime": "15:00",
-        "Room": "SAL.G.09"
-      },
-      {
-        "Week": 5,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 6,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 7,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 8,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 9,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 10,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 11,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:00",
-        "Room": "SAL.G.06"
-      }
-    ],
-    "WT": [
-      {
-        "Week": 2,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 3,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 4,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 5,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 7,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 8,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 9,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 10,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 11,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:00",
-        "Room": "SAL.G.06"
-      }
-    ],
-    "ST": [
-      {
-        "Week": 1,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:00",
-        "Room": "SAL.G.06"
-      }
-    ]
+    "CourseCode": "EC313",
+    "CourseName": "Industrial Economics",
+    "Type": "CLA",
+    "GroupNumber": 1,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 2,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 3,
+          "Day": "Fri",
+          "StartTime": "14:00",
+          "EndTime": "15:00",
+          "Room": "SAL.G.09",
+          "Teacher": "HARNISCH, MICHELLE"
+        },
+        {
+          "Week": 4,
+          "Day": "Fri",
+          "StartTime": "14:00",
+          "EndTime": "15:00",
+          "Room": "SAL.G.09",
+          "Teacher": "HARNISCH, MICHELLE"
+        },
+        {
+          "Week": 5,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 6,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 7,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 8,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 9,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 10,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 11,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        }
+      ],
+      "WT": [
+        {
+          "Week": 2,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 3,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 4,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 5,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 7,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 8,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 9,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 10,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 11,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        }
+      ],
+      "ST": [
+        {
+          "Week": 1,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        }
+      ]
+    }
   },
   "EC313/CLASS/02": {
-    "AT": [
-      {
-        "Week": 2,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 3,
-        "Day": "Fri",
-        "StartTime": "15:00",
-        "EndTime": "16:00",
-        "Room": "PAR.1.02"
-      },
-      {
-        "Week": 4,
-        "Day": "Fri",
-        "StartTime": "15:00",
-        "EndTime": "16:00",
-        "Room": "PAR.1.02"
-      },
-      {
-        "Week": 5,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 6,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 7,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 8,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 9,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 10,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 11,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:00",
-        "Room": "SAL.G.06"
-      }
-    ],
-    "WT": [
-      {
-        "Week": 2,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 3,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 4,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 5,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 7,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 8,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 9,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 10,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 11,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:00",
-        "Room": "SAL.G.06"
-      }
-    ],
-    "ST": [
-      {
-        "Week": 1,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:00",
-        "Room": "SAL.G.06"
-      }
-    ]
+    "CourseCode": "EC313",
+    "CourseName": "Industrial Economics",
+    "Type": "CLA",
+    "GroupNumber": 2,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 2,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 3,
+          "Day": "Fri",
+          "StartTime": "15:00",
+          "EndTime": "16:00",
+          "Room": "PAR.1.02",
+          "Teacher": "HARNISCH, MICHELLE"
+        },
+        {
+          "Week": 4,
+          "Day": "Fri",
+          "StartTime": "15:00",
+          "EndTime": "16:00",
+          "Room": "PAR.1.02",
+          "Teacher": "HARNISCH, MICHELLE"
+        },
+        {
+          "Week": 5,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 6,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 7,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 8,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 9,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 10,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 11,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        }
+      ],
+      "WT": [
+        {
+          "Week": 2,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 3,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 4,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 5,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 7,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 8,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 9,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 10,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 11,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        }
+      ],
+      "ST": [
+        {
+          "Week": 1,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        }
+      ]
+    }
   },
   "EC313/CLASS/03": {
-    "AT": [
-      {
-        "Week": 2,
-        "Day": "Fri",
-        "StartTime": "11:00",
-        "EndTime": "12:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 3,
-        "Day": "Fri",
-        "StartTime": "16:00",
-        "EndTime": "17:00",
-        "Room": "PAR.1.02"
-      },
-      {
-        "Week": 4,
-        "Day": "Fri",
-        "StartTime": "16:00",
-        "EndTime": "17:00",
-        "Room": "PAR.1.02"
-      },
-      {
-        "Week": 5,
-        "Day": "Fri",
-        "StartTime": "11:00",
-        "EndTime": "12:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 6,
-        "Day": "Fri",
-        "StartTime": "11:00",
-        "EndTime": "12:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 7,
-        "Day": "Fri",
-        "StartTime": "11:00",
-        "EndTime": "12:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 8,
-        "Day": "Fri",
-        "StartTime": "11:00",
-        "EndTime": "12:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 9,
-        "Day": "Fri",
-        "StartTime": "11:00",
-        "EndTime": "12:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 10,
-        "Day": "Fri",
-        "StartTime": "11:00",
-        "EndTime": "12:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 11,
-        "Day": "Fri",
-        "StartTime": "11:00",
-        "EndTime": "12:00",
-        "Room": "SAL.G.06"
-      }
-    ],
-    "WT": [
-      {
-        "Week": 2,
-        "Day": "Fri",
-        "StartTime": "11:00",
-        "EndTime": "12:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 3,
-        "Day": "Fri",
-        "StartTime": "11:00",
-        "EndTime": "12:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 4,
-        "Day": "Fri",
-        "StartTime": "11:00",
-        "EndTime": "12:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 5,
-        "Day": "Fri",
-        "StartTime": "11:00",
-        "EndTime": "12:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 7,
-        "Day": "Fri",
-        "StartTime": "11:00",
-        "EndTime": "12:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 8,
-        "Day": "Fri",
-        "StartTime": "11:00",
-        "EndTime": "12:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 9,
-        "Day": "Fri",
-        "StartTime": "11:00",
-        "EndTime": "12:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 10,
-        "Day": "Fri",
-        "StartTime": "11:00",
-        "EndTime": "12:00",
-        "Room": "SAL.G.06"
-      },
-      {
-        "Week": 11,
-        "Day": "Fri",
-        "StartTime": "11:00",
-        "EndTime": "12:00",
-        "Room": "SAL.G.06"
-      }
-    ],
-    "ST": [
-      {
-        "Week": 1,
-        "Day": "Fri",
-        "StartTime": "11:00",
-        "EndTime": "12:00",
-        "Room": "SAL.G.06"
-      }
-    ]
+    "CourseCode": "EC313",
+    "CourseName": "Industrial Economics",
+    "Type": "CLA",
+    "GroupNumber": 3,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 2,
+          "Day": "Fri",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 3,
+          "Day": "Fri",
+          "StartTime": "16:00",
+          "EndTime": "17:00",
+          "Room": "PAR.1.02",
+          "Teacher": "HARNISCH, MICHELLE"
+        },
+        {
+          "Week": 4,
+          "Day": "Fri",
+          "StartTime": "16:00",
+          "EndTime": "17:00",
+          "Room": "PAR.1.02",
+          "Teacher": "HARNISCH, MICHELLE"
+        },
+        {
+          "Week": 5,
+          "Day": "Fri",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 6,
+          "Day": "Fri",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 7,
+          "Day": "Fri",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 8,
+          "Day": "Fri",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 9,
+          "Day": "Fri",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 10,
+          "Day": "Fri",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 11,
+          "Day": "Fri",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        }
+      ],
+      "WT": [
+        {
+          "Week": 2,
+          "Day": "Fri",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 3,
+          "Day": "Fri",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 4,
+          "Day": "Fri",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 5,
+          "Day": "Fri",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 7,
+          "Day": "Fri",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 8,
+          "Day": "Fri",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 9,
+          "Day": "Fri",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 10,
+          "Day": "Fri",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        },
+        {
+          "Week": 11,
+          "Day": "Fri",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        }
+      ],
+      "ST": [
+        {
+          "Week": 1,
+          "Day": "Fri",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.G.06",
+          "Teacher": "FAN, MS LIN"
+        }
+      ]
+    }
   },
   "EC313/CLASS/04": {
-    "AT": [
-      {
-        "Week": 2,
-        "Day": "Fri",
-        "StartTime": "13:00",
-        "EndTime": "14:00",
-        "Room": "SAL.B.13"
-      },
-      {
-        "Week": 3,
-        "Day": "Fri",
-        "StartTime": "13:00",
-        "EndTime": "14:00",
-        "Room": "SAL.B.13"
-      },
-      {
-        "Week": 4,
-        "Day": "Fri",
-        "StartTime": "13:00",
-        "EndTime": "14:00",
-        "Room": "SAL.B.13"
-      },
-      {
-        "Week": 5,
-        "Day": "Fri",
-        "StartTime": "13:00",
-        "EndTime": "14:00",
-        "Room": "SAL.B.13"
-      },
-      {
-        "Week": 6,
-        "Day": "Fri",
-        "StartTime": "13:00",
-        "EndTime": "14:00",
-        "Room": "SAL.B.13"
-      },
-      {
-        "Week": 7,
-        "Day": "Fri",
-        "StartTime": "13:00",
-        "EndTime": "14:00",
-        "Room": "SAL.B.13"
-      },
-      {
-        "Week": 8,
-        "Day": "Fri",
-        "StartTime": "13:00",
-        "EndTime": "14:00",
-        "Room": "SAL.B.13"
-      },
-      {
-        "Week": 9,
-        "Day": "Fri",
-        "StartTime": "13:00",
-        "EndTime": "14:00",
-        "Room": "SAL.B.13"
-      },
-      {
-        "Week": 10,
-        "Day": "Fri",
-        "StartTime": "13:00",
-        "EndTime": "14:00",
-        "Room": "SAL.B.13"
-      },
-      {
-        "Week": 11,
-        "Day": "Fri",
-        "StartTime": "13:00",
-        "EndTime": "14:00",
-        "Room": "SAL.B.13"
-      }
-    ],
-    "WT": [
-      {
-        "Week": 2,
-        "Day": "Fri",
-        "StartTime": "13:00",
-        "EndTime": "14:00",
-        "Room": "PAR.2.03"
-      },
-      {
-        "Week": 3,
-        "Day": "Fri",
-        "StartTime": "13:00",
-        "EndTime": "14:00",
-        "Room": "PAR.2.03"
-      },
-      {
-        "Week": 4,
-        "Day": "Fri",
-        "StartTime": "13:00",
-        "EndTime": "14:00",
-        "Room": "PAR.2.03"
-      },
-      {
-        "Week": 5,
-        "Day": "Fri",
-        "StartTime": "13:00",
-        "EndTime": "14:00",
-        "Room": "PAR.2.03"
-      },
-      {
-        "Week": 6,
-        "Day": "Fri",
-        "StartTime": "13:00",
-        "EndTime": "14:00",
-        "Room": "PAR.2.03"
-      },
-      {
-        "Week": 7,
-        "Day": "Fri",
-        "StartTime": "13:00",
-        "EndTime": "14:00",
-        "Room": "PAR.2.03"
-      },
-      {
-        "Week": 8,
-        "Day": "Fri",
-        "StartTime": "13:00",
-        "EndTime": "14:00",
-        "Room": "PAR.2.03"
-      },
-      {
-        "Week": 9,
-        "Day": "Fri",
-        "StartTime": "13:00",
-        "EndTime": "14:00",
-        "Room": "PAR.2.03"
-      },
-      {
-        "Week": 10,
-        "Day": "Fri",
-        "StartTime": "13:00",
-        "EndTime": "14:00",
-        "Room": "PAR.2.03"
-      },
-      {
-        "Week": 11,
-        "Day": "Fri",
-        "StartTime": "13:00",
-        "EndTime": "14:00",
-        "Room": "PAR.2.03"
-      }
-    ],
-    "ST": [
-      {
-        "Week": 1,
-        "Day": "Fri",
-        "StartTime": "13:00",
-        "EndTime": "14:00",
-        "Room": "OLD.1.16"
-      }
-    ]
+    "CourseCode": "EC313",
+    "CourseName": "Industrial Economics",
+    "Type": "CLA",
+    "GroupNumber": 4,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 2,
+          "Day": "Fri",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.B.13",
+          "Teacher": ""
+        },
+        {
+          "Week": 3,
+          "Day": "Fri",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.B.13",
+          "Teacher": "HARNISCH, MICHELLE"
+        },
+        {
+          "Week": 4,
+          "Day": "Fri",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.B.13",
+          "Teacher": "HARNISCH, MICHELLE"
+        },
+        {
+          "Week": 5,
+          "Day": "Fri",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.B.13",
+          "Teacher": ""
+        },
+        {
+          "Week": 6,
+          "Day": "Fri",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.B.13",
+          "Teacher": ""
+        },
+        {
+          "Week": 7,
+          "Day": "Fri",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.B.13",
+          "Teacher": ""
+        },
+        {
+          "Week": 8,
+          "Day": "Fri",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.B.13",
+          "Teacher": ""
+        },
+        {
+          "Week": 9,
+          "Day": "Fri",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.B.13",
+          "Teacher": ""
+        },
+        {
+          "Week": 10,
+          "Day": "Fri",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.B.13",
+          "Teacher": ""
+        },
+        {
+          "Week": 11,
+          "Day": "Fri",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.B.13",
+          "Teacher": ""
+        }
+      ],
+      "WT": [
+        {
+          "Week": 2,
+          "Day": "Fri",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "PAR.2.03",
+          "Teacher": ""
+        },
+        {
+          "Week": 3,
+          "Day": "Fri",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "PAR.2.03",
+          "Teacher": ""
+        },
+        {
+          "Week": 4,
+          "Day": "Fri",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "PAR.2.03",
+          "Teacher": ""
+        },
+        {
+          "Week": 5,
+          "Day": "Fri",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "PAR.2.03",
+          "Teacher": ""
+        },
+        {
+          "Week": 6,
+          "Day": "Fri",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "PAR.2.03",
+          "Teacher": ""
+        },
+        {
+          "Week": 7,
+          "Day": "Fri",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "PAR.2.03",
+          "Teacher": ""
+        },
+        {
+          "Week": 8,
+          "Day": "Fri",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "PAR.2.03",
+          "Teacher": ""
+        },
+        {
+          "Week": 9,
+          "Day": "Fri",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "PAR.2.03",
+          "Teacher": ""
+        },
+        {
+          "Week": 10,
+          "Day": "Fri",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "PAR.2.03",
+          "Teacher": ""
+        },
+        {
+          "Week": 11,
+          "Day": "Fri",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "PAR.2.03",
+          "Teacher": ""
+        }
+      ],
+      "ST": [
+        {
+          "Week": 1,
+          "Day": "Fri",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "OLD.1.16",
+          "Teacher": ""
+        }
+      ]
+    }
   },
   "EC313/LECTURE/01": {
-    "AT": [
-      {
-        "Week": 1,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.2.04"
-      },
-      {
-        "Week": 2,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.2.04"
-      },
-      {
-        "Week": 3,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.2.04"
-      },
-      {
-        "Week": 4,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.2.04"
-      },
-      {
-        "Week": 5,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.2.04"
-      },
-      {
-        "Week": 6,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.LG.01"
-      },
-      {
-        "Week": 7,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.2.04"
-      },
-      {
-        "Week": 8,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.2.04"
-      },
-      {
-        "Week": 9,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.2.04"
-      },
-      {
-        "Week": 10,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.2.04"
-      },
-      {
-        "Week": 11,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.2.04"
-      }
-    ],
-    "WT": [
-      {
-        "Week": 1,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.LG.09"
-      },
-      {
-        "Week": 2,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.LG.09"
-      },
-      {
-        "Week": 3,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.LG.09"
-      },
-      {
-        "Week": 4,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.LG.09"
-      },
-      {
-        "Week": 5,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.LG.09"
-      },
-      {
-        "Week": 7,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.LG.09"
-      },
-      {
-        "Week": 8,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.LG.09"
-      },
-      {
-        "Week": 9,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.LG.09"
-      },
-      {
-        "Week": 10,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.LG.09"
-      },
-      {
-        "Week": 11,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.LG.09"
-      }
-    ],
-    "ST": [
-      {
-        "Week": 1,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CBG.2.01"
-      }
-    ]
+    "CourseCode": "EC313",
+    "CourseName": "Industrial Economics",
+    "Type": "LEC",
+    "GroupNumber": 1,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 1,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.2.04",
+          "Teacher": "SILVA JUNIOR, DR DANIEL"
+        },
+        {
+          "Week": 2,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.2.04",
+          "Teacher": "SILVA JUNIOR, DR DANIEL"
+        },
+        {
+          "Week": 3,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.2.04",
+          "Teacher": "SILVA JUNIOR, DR DANIEL"
+        },
+        {
+          "Week": 4,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.2.04",
+          "Teacher": "SILVA JUNIOR, DR DANIEL"
+        },
+        {
+          "Week": 5,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.2.04",
+          "Teacher": "SILVA JUNIOR, DR DANIEL"
+        },
+        {
+          "Week": 6,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.LG.01",
+          "Teacher": "SILVA JUNIOR, DR DANIEL"
+        },
+        {
+          "Week": 7,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.2.04",
+          "Teacher": "SILVA JUNIOR, DR DANIEL"
+        },
+        {
+          "Week": 8,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.2.04",
+          "Teacher": "SILVA JUNIOR, DR DANIEL"
+        },
+        {
+          "Week": 9,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.2.04",
+          "Teacher": "SILVA JUNIOR, DR DANIEL"
+        },
+        {
+          "Week": 10,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.2.04",
+          "Teacher": "SILVA JUNIOR, DR DANIEL"
+        },
+        {
+          "Week": 11,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.2.04",
+          "Teacher": "SILVA JUNIOR, DR DANIEL"
+        }
+      ],
+      "WT": [
+        {
+          "Week": 1,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.LG.09",
+          "Teacher": "PESENDORFER, PROF MARTIN"
+        },
+        {
+          "Week": 2,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.LG.09",
+          "Teacher": "PESENDORFER, PROF MARTIN"
+        },
+        {
+          "Week": 3,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.LG.09",
+          "Teacher": "PESENDORFER, PROF MARTIN"
+        },
+        {
+          "Week": 4,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.LG.09",
+          "Teacher": "PESENDORFER, PROF MARTIN"
+        },
+        {
+          "Week": 5,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.LG.09",
+          "Teacher": "PESENDORFER, PROF MARTIN"
+        },
+        {
+          "Week": 7,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.LG.09",
+          "Teacher": "PESENDORFER, PROF MARTIN"
+        },
+        {
+          "Week": 8,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.LG.09",
+          "Teacher": "PESENDORFER, PROF MARTIN"
+        },
+        {
+          "Week": 9,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.LG.09",
+          "Teacher": "PESENDORFER, PROF MARTIN"
+        },
+        {
+          "Week": 10,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.LG.09",
+          "Teacher": "PESENDORFER, PROF MARTIN"
+        },
+        {
+          "Week": 11,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.LG.09",
+          "Teacher": "PESENDORFER, PROF MARTIN"
+        }
+      ],
+      "ST": [
+        {
+          "Week": 1,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CBG.2.01",
+          "Teacher": "PESENDORFER, PROF MARTIN"
+        }
+      ]
+    }
+  },
+  "EC321/CLASS/01": {
+    "CourseCode": "EC321",
+    "CourseName": "Monetary Economics and Aggregate Fluctuations",
+    "Type": "CLA",
+    "GroupNumber": 1,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 3,
+          "Day": "Tue",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "CLM.2.06",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 3,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "FAW.1.04",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 5,
+          "Day": "Tue",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "CLM.2.06",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 5,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.LG.11",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 6,
+          "Day": "Tue",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "CLM.2.06",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 7,
+          "Day": "Tue",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "CLM.2.06",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 8,
+          "Day": "Tue",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "CLM.2.06",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 9,
+          "Day": "Tue",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "CLM.2.06",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 10,
+          "Day": "Tue",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "CLM.2.06",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 11,
+          "Day": "Tue",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "CLM.2.06",
+          "Teacher": "DING, MR SITONG"
+        }
+      ],
+      "WT": [
+        {
+          "Week": 2,
+          "Day": "Tue",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 3,
+          "Day": "Tue",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 4,
+          "Day": "Tue",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 5,
+          "Day": "Tue",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 7,
+          "Day": "Tue",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 8,
+          "Day": "Tue",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 9,
+          "Day": "Tue",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 10,
+          "Day": "Tue",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 11,
+          "Day": "Tue",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        }
+      ],
+      "ST": [
+        {
+          "Week": 1,
+          "Day": "Tue",
+          "StartTime": "09:00",
+          "EndTime": "10:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        }
+      ]
+    }
+  },
+  "EC321/CLASS/02": {
+    "CourseCode": "EC321",
+    "CourseName": "Monetary Economics and Aggregate Fluctuations",
+    "Type": "CLA",
+    "GroupNumber": 2,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 3,
+          "Day": "Tue",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "CLM.2.06",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 3,
+          "Day": "Thu",
+          "StartTime": "17:00",
+          "EndTime": "18:00",
+          "Room": "FAW.3.02",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 5,
+          "Day": "Tue",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "CLM.2.06",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 5,
+          "Day": "Thu",
+          "StartTime": "17:00",
+          "EndTime": "18:00",
+          "Room": "CKK.1.14",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 6,
+          "Day": "Tue",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "CLM.2.06",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 7,
+          "Day": "Tue",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "CLM.2.06",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 8,
+          "Day": "Tue",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "CLM.2.06",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 9,
+          "Day": "Tue",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "CLM.2.06",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 10,
+          "Day": "Tue",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "CLM.2.06",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 11,
+          "Day": "Tue",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "CLM.2.06",
+          "Teacher": "DING, MR SITONG"
+        }
+      ],
+      "WT": [
+        {
+          "Week": 2,
+          "Day": "Tue",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 3,
+          "Day": "Tue",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 4,
+          "Day": "Tue",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 5,
+          "Day": "Tue",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 7,
+          "Day": "Tue",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 8,
+          "Day": "Tue",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 9,
+          "Day": "Tue",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 10,
+          "Day": "Tue",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 11,
+          "Day": "Tue",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        }
+      ],
+      "ST": [
+        {
+          "Week": 1,
+          "Day": "Tue",
+          "StartTime": "10:00",
+          "EndTime": "11:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        }
+      ]
+    }
+  },
+  "EC321/CLASS/03": {
+    "CourseCode": "EC321",
+    "CourseName": "Monetary Economics and Aggregate Fluctuations",
+    "Type": "CLA",
+    "GroupNumber": 3,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 3,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "CLM.2.06",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 3,
+          "Day": "Thu",
+          "StartTime": "15:00",
+          "EndTime": "16:00",
+          "Room": "FAW.1.04",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 5,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "CLM.2.06",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 5,
+          "Day": "Thu",
+          "StartTime": "16:00",
+          "EndTime": "17:00",
+          "Room": "CKK.1.14",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 6,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "CLM.2.06",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 7,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "CLM.2.06",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 8,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "CLM.2.06",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 9,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "CLM.2.06",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 10,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "CLM.2.06",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 11,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "CLM.2.06",
+          "Teacher": "DING, MR SITONG"
+        }
+      ],
+      "WT": [
+        {
+          "Week": 2,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 3,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 4,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 5,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 7,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 8,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 9,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 10,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 11,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        }
+      ],
+      "ST": [
+        {
+          "Week": 1,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:00",
+          "Room": "SAL.LG.10",
+          "Teacher": "DING, MR SITONG"
+        }
+      ]
+    }
+  },
+  "EC321/CLASS/04": {
+    "CourseCode": "EC321",
+    "CourseName": "Monetary Economics and Aggregate Fluctuations",
+    "Type": "CLA",
+    "GroupNumber": 4,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 3,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.LG.11",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 3,
+          "Day": "Thu",
+          "StartTime": "16:00",
+          "EndTime": "17:00",
+          "Room": "FAW.3.02",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 5,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.LG.11",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 5,
+          "Day": "Thu",
+          "StartTime": "12:00",
+          "EndTime": "13:00",
+          "Room": "SAL.LG.11",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 6,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.LG.11",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 7,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.LG.11",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 8,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.LG.11",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 9,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.LG.11",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 10,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.LG.11",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 11,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.LG.11",
+          "Teacher": "DING, MR SITONG"
+        }
+      ],
+      "WT": [
+        {
+          "Week": 2,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.LG.11",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 3,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.LG.11",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 4,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.LG.11",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 5,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.LG.11",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 7,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.LG.11",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 8,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.LG.11",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 9,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.LG.11",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 10,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.LG.11",
+          "Teacher": "DING, MR SITONG"
+        },
+        {
+          "Week": 11,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.LG.11",
+          "Teacher": "DING, MR SITONG"
+        }
+      ],
+      "ST": [
+        {
+          "Week": 1,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "14:00",
+          "Room": "SAL.LG.11",
+          "Teacher": "DING, MR SITONG"
+        }
+      ]
+    }
+  },
+  "EC321/LECTURE/01": {
+    "CourseCode": "EC321",
+    "CourseName": "Monetary Economics and Aggregate Fluctuations",
+    "Type": "LEC",
+    "GroupNumber": 1,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 1,
+          "Day": "Tue",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "CBG.G.01",
+          "Teacher": "SHEEDY, DR KEVIN"
+        },
+        {
+          "Week": 2,
+          "Day": "Tue",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "CBG.G.01",
+          "Teacher": "SHEEDY, DR KEVIN"
+        },
+        {
+          "Week": 3,
+          "Day": "Tue",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "CBG.G.01",
+          "Teacher": "SHEEDY, DR KEVIN"
+        },
+        {
+          "Week": 4,
+          "Day": "Tue",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "CBG.G.01",
+          "Teacher": "SHEEDY, DR KEVIN"
+        },
+        {
+          "Week": 5,
+          "Day": "Tue",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "CBG.G.01",
+          "Teacher": "SHEEDY, DR KEVIN"
+        },
+        {
+          "Week": 6,
+          "Day": "Tue",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "CKK.LG.09",
+          "Teacher": "SHEEDY, DR KEVIN"
+        },
+        {
+          "Week": 7,
+          "Day": "Tue",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "CBG.G.01",
+          "Teacher": "SHEEDY, DR KEVIN"
+        },
+        {
+          "Week": 8,
+          "Day": "Tue",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "CBG.G.01",
+          "Teacher": "SHEEDY, DR KEVIN"
+        },
+        {
+          "Week": 9,
+          "Day": "Tue",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "CBG.G.01",
+          "Teacher": "SHEEDY, DR KEVIN"
+        },
+        {
+          "Week": 10,
+          "Day": "Tue",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "CBG.G.01",
+          "Teacher": "SHEEDY, DR KEVIN"
+        }
+      ],
+      "WT": [
+        {
+          "Week": 1,
+          "Day": "Tue",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "CBG.G.01",
+          "Teacher": "MCLEAY, MICHAEL"
+        },
+        {
+          "Week": 2,
+          "Day": "Tue",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "CBG.G.01",
+          "Teacher": "MCLEAY, MICHAEL"
+        },
+        {
+          "Week": 3,
+          "Day": "Tue",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "CBG.G.01",
+          "Teacher": "MCLEAY, MICHAEL"
+        },
+        {
+          "Week": 4,
+          "Day": "Tue",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "CBG.G.01",
+          "Teacher": "MCLEAY, MICHAEL"
+        },
+        {
+          "Week": 5,
+          "Day": "Tue",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "CBG.G.01",
+          "Teacher": "MCLEAY, MICHAEL"
+        },
+        {
+          "Week": 7,
+          "Day": "Tue",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "CBG.G.01",
+          "Teacher": "MCLEAY, MICHAEL"
+        },
+        {
+          "Week": 8,
+          "Day": "Tue",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "CBG.G.01",
+          "Teacher": "MCLEAY, MICHAEL"
+        },
+        {
+          "Week": 9,
+          "Day": "Tue",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "CBG.G.01",
+          "Teacher": "MCLEAY, MICHAEL"
+        },
+        {
+          "Week": 10,
+          "Day": "Tue",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "CBG.G.01",
+          "Teacher": "MCLEAY, MICHAEL"
+        },
+        {
+          "Week": 11,
+          "Day": "Tue",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "CBG.G.01",
+          "Teacher": "MCLEAY, MICHAEL"
+        }
+      ],
+      "ST": [
+        {
+          "Week": 1,
+          "Day": "Tue",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "CKK.LG.01",
+          "Teacher": "SHEEDY, DR KEVIN"
+        },
+        {
+          "Week": 1,
+          "Day": "Tue",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "CBG.G.01",
+          "Teacher": "MCLEAY, MICHAEL"
+        }
+      ]
+    }
   },
   "EC333/CLASS/01": {
-    "AT": [
-      {
-        "Week": 2,
-        "Day": "Mon",
-        "StartTime": "15:00",
-        "EndTime": "16:00",
-        "Room": "SAL.B.11"
-      },
-      {
-        "Week": 3,
-        "Day": "Mon",
-        "StartTime": "15:00",
-        "EndTime": "16:00",
-        "Room": "SAL.B.11"
-      },
-      {
-        "Week": 4,
-        "Day": "Mon",
-        "StartTime": "15:00",
-        "EndTime": "16:00",
-        "Room": "SAL.B.11"
-      },
-      {
-        "Week": 5,
-        "Day": "Mon",
-        "StartTime": "15:00",
-        "EndTime": "16:00",
-        "Room": "SAL.B.11"
-      },
-      {
-        "Week": 6,
-        "Day": "Mon",
-        "StartTime": "15:00",
-        "EndTime": "16:00",
-        "Room": "SAL.B.11"
-      },
-      {
-        "Week": 7,
-        "Day": "Mon",
-        "StartTime": "15:00",
-        "EndTime": "16:00",
-        "Room": "SAL.B.11"
-      },
-      {
-        "Week": 8,
-        "Day": "Mon",
-        "StartTime": "15:00",
-        "EndTime": "16:00",
-        "Room": "SAL.B.11"
-      },
-      {
-        "Week": 9,
-        "Day": "Mon",
-        "StartTime": "15:00",
-        "EndTime": "16:00",
-        "Room": "SAL.B.11"
-      },
-      {
-        "Week": 10,
-        "Day": "Mon",
-        "StartTime": "15:00",
-        "EndTime": "16:00",
-        "Room": "SAL.B.11"
-      },
-      {
-        "Week": 11,
-        "Day": "Mon",
-        "StartTime": "15:00",
-        "EndTime": "16:00",
-        "Room": "SAL.B.11"
-      }
-    ],
-    "WT": [
-      {
-        "Week": 2,
-        "Day": "Tue",
-        "StartTime": "15:00",
-        "EndTime": "16:00",
-        "Room": "SAL.G.17"
-      },
-      {
-        "Week": 3,
-        "Day": "Tue",
-        "StartTime": "15:00",
-        "EndTime": "16:00",
-        "Room": "SAL.G.17"
-      },
-      {
-        "Week": 4,
-        "Day": "Tue",
-        "StartTime": "15:00",
-        "EndTime": "16:00",
-        "Room": "SAL.G.17"
-      },
-      {
-        "Week": 5,
-        "Day": "Tue",
-        "StartTime": "15:00",
-        "EndTime": "16:00",
-        "Room": "SAL.G.17"
-      },
-      {
-        "Week": 7,
-        "Day": "Tue",
-        "StartTime": "15:00",
-        "EndTime": "16:00",
-        "Room": "SAL.G.17"
-      },
-      {
-        "Week": 8,
-        "Day": "Tue",
-        "StartTime": "15:00",
-        "EndTime": "16:00",
-        "Room": "SAL.G.17"
-      },
-      {
-        "Week": 9,
-        "Day": "Tue",
-        "StartTime": "15:00",
-        "EndTime": "16:00",
-        "Room": "SAL.G.17"
-      },
-      {
-        "Week": 10,
-        "Day": "Tue",
-        "StartTime": "15:00",
-        "EndTime": "16:00",
-        "Room": "SAL.G.17"
-      },
-      {
-        "Week": 11,
-        "Day": "Tue",
-        "StartTime": "15:00",
-        "EndTime": "16:00",
-        "Room": "SAL.G.17"
-      }
-    ],
-    "ST": [
-      {
-        "Week": 1,
-        "Day": "Tue",
-        "StartTime": "15:00",
-        "EndTime": "16:00",
-        "Room": "SAL.G.24"
-      }
-    ]
+    "CourseCode": "EC333",
+    "CourseName": "Problems in Applied Econometrics",
+    "Type": "CLA",
+    "GroupNumber": 1,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 2,
+          "Day": "Mon",
+          "StartTime": "15:00",
+          "EndTime": "16:00",
+          "Room": "SAL.B.11",
+          "Teacher": "INNOCENTE GOMES DE OLIVEIRA, ISABELA"
+        },
+        {
+          "Week": 3,
+          "Day": "Mon",
+          "StartTime": "15:00",
+          "EndTime": "16:00",
+          "Room": "SAL.B.11",
+          "Teacher": "INNOCENTE GOMES DE OLIVEIRA, ISABELA"
+        },
+        {
+          "Week": 4,
+          "Day": "Mon",
+          "StartTime": "15:00",
+          "EndTime": "16:00",
+          "Room": "SAL.B.11",
+          "Teacher": "INNOCENTE GOMES DE OLIVEIRA, ISABELA"
+        },
+        {
+          "Week": 5,
+          "Day": "Mon",
+          "StartTime": "15:00",
+          "EndTime": "16:00",
+          "Room": "SAL.B.11",
+          "Teacher": "INNOCENTE GOMES DE OLIVEIRA, ISABELA"
+        },
+        {
+          "Week": 6,
+          "Day": "Mon",
+          "StartTime": "15:00",
+          "EndTime": "16:00",
+          "Room": "SAL.B.11",
+          "Teacher": "INNOCENTE GOMES DE OLIVEIRA, ISABELA"
+        },
+        {
+          "Week": 7,
+          "Day": "Mon",
+          "StartTime": "15:00",
+          "EndTime": "16:00",
+          "Room": "SAL.B.11",
+          "Teacher": "INNOCENTE GOMES DE OLIVEIRA, ISABELA"
+        },
+        {
+          "Week": 8,
+          "Day": "Mon",
+          "StartTime": "15:00",
+          "EndTime": "16:00",
+          "Room": "SAL.B.11",
+          "Teacher": "INNOCENTE GOMES DE OLIVEIRA, ISABELA"
+        },
+        {
+          "Week": 9,
+          "Day": "Mon",
+          "StartTime": "15:00",
+          "EndTime": "16:00",
+          "Room": "SAL.B.11",
+          "Teacher": "INNOCENTE GOMES DE OLIVEIRA, ISABELA"
+        },
+        {
+          "Week": 10,
+          "Day": "Mon",
+          "StartTime": "15:00",
+          "EndTime": "16:00",
+          "Room": "SAL.B.11",
+          "Teacher": "INNOCENTE GOMES DE OLIVEIRA, ISABELA"
+        },
+        {
+          "Week": 11,
+          "Day": "Mon",
+          "StartTime": "15:00",
+          "EndTime": "16:00",
+          "Room": "SAL.B.11",
+          "Teacher": "INNOCENTE GOMES DE OLIVEIRA, ISABELA"
+        }
+      ],
+      "WT": [
+        {
+          "Week": 2,
+          "Day": "Tue",
+          "StartTime": "15:00",
+          "EndTime": "16:00",
+          "Room": "SAL.G.17",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        },
+        {
+          "Week": 3,
+          "Day": "Tue",
+          "StartTime": "15:00",
+          "EndTime": "16:00",
+          "Room": "SAL.G.17",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        },
+        {
+          "Week": 4,
+          "Day": "Tue",
+          "StartTime": "15:00",
+          "EndTime": "16:00",
+          "Room": "SAL.G.17",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        },
+        {
+          "Week": 5,
+          "Day": "Tue",
+          "StartTime": "15:00",
+          "EndTime": "16:00",
+          "Room": "SAL.G.17",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        },
+        {
+          "Week": 7,
+          "Day": "Tue",
+          "StartTime": "15:00",
+          "EndTime": "16:00",
+          "Room": "SAL.G.17",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        },
+        {
+          "Week": 8,
+          "Day": "Tue",
+          "StartTime": "15:00",
+          "EndTime": "16:00",
+          "Room": "SAL.G.17",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        },
+        {
+          "Week": 9,
+          "Day": "Tue",
+          "StartTime": "15:00",
+          "EndTime": "16:00",
+          "Room": "SAL.G.17",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        },
+        {
+          "Week": 10,
+          "Day": "Tue",
+          "StartTime": "15:00",
+          "EndTime": "16:00",
+          "Room": "SAL.G.17",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        },
+        {
+          "Week": 11,
+          "Day": "Tue",
+          "StartTime": "15:00",
+          "EndTime": "16:00",
+          "Room": "SAL.G.17",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        }
+      ],
+      "ST": [
+        {
+          "Week": 1,
+          "Day": "Tue",
+          "StartTime": "15:00",
+          "EndTime": "16:00",
+          "Room": "SAL.G.24",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        }
+      ]
+    }
   },
   "EC333/CLASS/02": {
-    "AT": [
-      {
-        "Week": 2,
-        "Day": "Mon",
-        "StartTime": "16:00",
-        "EndTime": "17:00",
-        "Room": "SAL.B.11"
-      },
-      {
-        "Week": 3,
-        "Day": "Mon",
-        "StartTime": "16:00",
-        "EndTime": "17:00",
-        "Room": "SAL.B.11"
-      },
-      {
-        "Week": 4,
-        "Day": "Mon",
-        "StartTime": "16:00",
-        "EndTime": "17:00",
-        "Room": "SAL.B.11"
-      },
-      {
-        "Week": 5,
-        "Day": "Mon",
-        "StartTime": "16:00",
-        "EndTime": "17:00",
-        "Room": "SAL.B.11"
-      },
-      {
-        "Week": 6,
-        "Day": "Mon",
-        "StartTime": "16:00",
-        "EndTime": "17:00",
-        "Room": "SAL.B.11"
-      },
-      {
-        "Week": 7,
-        "Day": "Mon",
-        "StartTime": "16:00",
-        "EndTime": "17:00",
-        "Room": "SAL.B.11"
-      },
-      {
-        "Week": 8,
-        "Day": "Mon",
-        "StartTime": "16:00",
-        "EndTime": "17:00",
-        "Room": "SAL.B.11"
-      },
-      {
-        "Week": 9,
-        "Day": "Mon",
-        "StartTime": "16:00",
-        "EndTime": "17:00",
-        "Room": "SAL.B.11"
-      },
-      {
-        "Week": 10,
-        "Day": "Mon",
-        "StartTime": "16:00",
-        "EndTime": "17:00",
-        "Room": "SAL.B.11"
-      },
-      {
-        "Week": 11,
-        "Day": "Mon",
-        "StartTime": "16:00",
-        "EndTime": "17:00",
-        "Room": "SAL.B.11"
-      }
-    ],
-    "WT": [
-      {
-        "Week": 2,
-        "Day": "Tue",
-        "StartTime": "16:00",
-        "EndTime": "17:00",
-        "Room": "SAL.G.17"
-      },
-      {
-        "Week": 3,
-        "Day": "Tue",
-        "StartTime": "16:00",
-        "EndTime": "17:00",
-        "Room": "SAL.G.17"
-      },
-      {
-        "Week": 4,
-        "Day": "Tue",
-        "StartTime": "16:00",
-        "EndTime": "17:00",
-        "Room": "SAL.G.17"
-      },
-      {
-        "Week": 5,
-        "Day": "Tue",
-        "StartTime": "16:00",
-        "EndTime": "17:00",
-        "Room": "SAL.G.17"
-      },
-      {
-        "Week": 7,
-        "Day": "Tue",
-        "StartTime": "16:00",
-        "EndTime": "17:00",
-        "Room": "SAL.G.17"
-      },
-      {
-        "Week": 8,
-        "Day": "Tue",
-        "StartTime": "16:00",
-        "EndTime": "17:00",
-        "Room": "SAL.G.17"
-      },
-      {
-        "Week": 9,
-        "Day": "Tue",
-        "StartTime": "16:00",
-        "EndTime": "17:00",
-        "Room": "SAL.G.17"
-      },
-      {
-        "Week": 10,
-        "Day": "Tue",
-        "StartTime": "16:00",
-        "EndTime": "17:00",
-        "Room": "SAL.G.17"
-      },
-      {
-        "Week": 11,
-        "Day": "Tue",
-        "StartTime": "16:00",
-        "EndTime": "17:00",
-        "Room": "SAL.G.17"
-      }
-    ],
-    "ST": [
-      {
-        "Week": 1,
-        "Day": "Tue",
-        "StartTime": "16:00",
-        "EndTime": "17:00",
-        "Room": "SAL.G.24"
-      }
-    ]
+    "CourseCode": "EC333",
+    "CourseName": "Problems in Applied Econometrics",
+    "Type": "CLA",
+    "GroupNumber": 2,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 2,
+          "Day": "Mon",
+          "StartTime": "16:00",
+          "EndTime": "17:00",
+          "Room": "SAL.B.11",
+          "Teacher": "INNOCENTE GOMES DE OLIVEIRA, ISABELA"
+        },
+        {
+          "Week": 3,
+          "Day": "Mon",
+          "StartTime": "16:00",
+          "EndTime": "17:00",
+          "Room": "SAL.B.11",
+          "Teacher": "INNOCENTE GOMES DE OLIVEIRA, ISABELA"
+        },
+        {
+          "Week": 4,
+          "Day": "Mon",
+          "StartTime": "16:00",
+          "EndTime": "17:00",
+          "Room": "SAL.B.11",
+          "Teacher": "INNOCENTE GOMES DE OLIVEIRA, ISABELA"
+        },
+        {
+          "Week": 5,
+          "Day": "Mon",
+          "StartTime": "16:00",
+          "EndTime": "17:00",
+          "Room": "SAL.B.11",
+          "Teacher": "INNOCENTE GOMES DE OLIVEIRA, ISABELA"
+        },
+        {
+          "Week": 6,
+          "Day": "Mon",
+          "StartTime": "16:00",
+          "EndTime": "17:00",
+          "Room": "SAL.B.11",
+          "Teacher": "INNOCENTE GOMES DE OLIVEIRA, ISABELA"
+        },
+        {
+          "Week": 7,
+          "Day": "Mon",
+          "StartTime": "16:00",
+          "EndTime": "17:00",
+          "Room": "SAL.B.11",
+          "Teacher": "INNOCENTE GOMES DE OLIVEIRA, ISABELA"
+        },
+        {
+          "Week": 8,
+          "Day": "Mon",
+          "StartTime": "16:00",
+          "EndTime": "17:00",
+          "Room": "SAL.B.11",
+          "Teacher": "INNOCENTE GOMES DE OLIVEIRA, ISABELA"
+        },
+        {
+          "Week": 9,
+          "Day": "Mon",
+          "StartTime": "16:00",
+          "EndTime": "17:00",
+          "Room": "SAL.B.11",
+          "Teacher": "INNOCENTE GOMES DE OLIVEIRA, ISABELA"
+        },
+        {
+          "Week": 10,
+          "Day": "Mon",
+          "StartTime": "16:00",
+          "EndTime": "17:00",
+          "Room": "SAL.B.11",
+          "Teacher": "INNOCENTE GOMES DE OLIVEIRA, ISABELA"
+        },
+        {
+          "Week": 11,
+          "Day": "Mon",
+          "StartTime": "16:00",
+          "EndTime": "17:00",
+          "Room": "SAL.B.11",
+          "Teacher": "INNOCENTE GOMES DE OLIVEIRA, ISABELA"
+        }
+      ],
+      "WT": [
+        {
+          "Week": 2,
+          "Day": "Tue",
+          "StartTime": "16:00",
+          "EndTime": "17:00",
+          "Room": "SAL.G.17",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        },
+        {
+          "Week": 3,
+          "Day": "Tue",
+          "StartTime": "16:00",
+          "EndTime": "17:00",
+          "Room": "SAL.G.17",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        },
+        {
+          "Week": 4,
+          "Day": "Tue",
+          "StartTime": "16:00",
+          "EndTime": "17:00",
+          "Room": "SAL.G.17",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        },
+        {
+          "Week": 5,
+          "Day": "Tue",
+          "StartTime": "16:00",
+          "EndTime": "17:00",
+          "Room": "SAL.G.17",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        },
+        {
+          "Week": 7,
+          "Day": "Tue",
+          "StartTime": "16:00",
+          "EndTime": "17:00",
+          "Room": "SAL.G.17",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        },
+        {
+          "Week": 8,
+          "Day": "Tue",
+          "StartTime": "16:00",
+          "EndTime": "17:00",
+          "Room": "SAL.G.17",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        },
+        {
+          "Week": 9,
+          "Day": "Tue",
+          "StartTime": "16:00",
+          "EndTime": "17:00",
+          "Room": "SAL.G.17",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        },
+        {
+          "Week": 10,
+          "Day": "Tue",
+          "StartTime": "16:00",
+          "EndTime": "17:00",
+          "Room": "SAL.G.17",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        },
+        {
+          "Week": 11,
+          "Day": "Tue",
+          "StartTime": "16:00",
+          "EndTime": "17:00",
+          "Room": "SAL.G.17",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        }
+      ],
+      "ST": [
+        {
+          "Week": 1,
+          "Day": "Tue",
+          "StartTime": "16:00",
+          "EndTime": "17:00",
+          "Room": "SAL.G.24",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        }
+      ]
+    }
   },
   "EC333/LECTURE/01": {
-    "AT": [
-      {
-        "Week": 1,
-        "Day": "Tue",
-        "StartTime": "15:30",
-        "EndTime": "17:00",
-        "Room": "SAL.B.09"
-      },
-      {
-        "Week": 2,
-        "Day": "Tue",
-        "StartTime": "15:30",
-        "EndTime": "17:00",
-        "Room": "CKK.2.04"
-      },
-      {
-        "Week": 3,
-        "Day": "Tue",
-        "StartTime": "15:30",
-        "EndTime": "17:00",
-        "Room": "CKK.2.04"
-      },
-      {
-        "Week": 4,
-        "Day": "Tue",
-        "StartTime": "15:30",
-        "EndTime": "17:00",
-        "Room": "CKK.2.04"
-      },
-      {
-        "Week": 5,
-        "Day": "Tue",
-        "StartTime": "15:30",
-        "EndTime": "17:00",
-        "Room": "CKK.2.04"
-      },
-      {
-        "Week": 6,
-        "Day": "Tue",
-        "StartTime": "15:30",
-        "EndTime": "17:00",
-        "Room": "CKK.LG.01"
-      },
-      {
-        "Week": 7,
-        "Day": "Tue",
-        "StartTime": "15:30",
-        "EndTime": "17:00",
-        "Room": "CKK.2.04"
-      },
-      {
-        "Week": 8,
-        "Day": "Tue",
-        "StartTime": "15:30",
-        "EndTime": "17:00",
-        "Room": "CKK.2.04"
-      },
-      {
-        "Week": 9,
-        "Day": "Tue",
-        "StartTime": "15:30",
-        "EndTime": "17:00",
-        "Room": "CKK.2.04"
-      },
-      {
-        "Week": 10,
-        "Day": "Tue",
-        "StartTime": "15:30",
-        "EndTime": "17:00",
-        "Room": "CKK.2.04"
-      },
-      {
-        "Week": 11,
-        "Day": "Tue",
-        "StartTime": "15:30",
-        "EndTime": "17:00",
-        "Room": "CKK.2.04"
-      }
-    ],
-    "WT": [
-      {
-        "Week": 1,
-        "Day": "Tue",
-        "StartTime": "11:00",
-        "EndTime": "12:30",
-        "Room": "SAL.G.20"
-      },
-      {
-        "Week": 2,
-        "Day": "Tue",
-        "StartTime": "11:00",
-        "EndTime": "12:30",
-        "Room": "SAL.G.20"
-      },
-      {
-        "Week": 3,
-        "Day": "Tue",
-        "StartTime": "11:00",
-        "EndTime": "12:30",
-        "Room": "SAL.G.20"
-      },
-      {
-        "Week": 4,
-        "Day": "Tue",
-        "StartTime": "11:00",
-        "EndTime": "12:30",
-        "Room": "SAL.G.20"
-      },
-      {
-        "Week": 5,
-        "Day": "Tue",
-        "StartTime": "11:00",
-        "EndTime": "12:30",
-        "Room": "SAL.G.20"
-      },
-      {
-        "Week": 7,
-        "Day": "Tue",
-        "StartTime": "11:00",
-        "EndTime": "12:30",
-        "Room": "SAL.G.20"
-      },
-      {
-        "Week": 8,
-        "Day": "Tue",
-        "StartTime": "11:00",
-        "EndTime": "12:30",
-        "Room": "SAL.G.20"
-      },
-      {
-        "Week": 9,
-        "Day": "Tue",
-        "StartTime": "11:00",
-        "EndTime": "12:30",
-        "Room": "SAL.G.20"
-      },
-      {
-        "Week": 10,
-        "Day": "Tue",
-        "StartTime": "11:00",
-        "EndTime": "12:30",
-        "Room": "SAL.G.20"
-      },
-      {
-        "Week": 11,
-        "Day": "Tue",
-        "StartTime": "11:00",
-        "EndTime": "12:30",
-        "Room": "SAL.G.20"
-      }
-    ],
-    "ST": [
-      {
-        "Week": 1,
-        "Day": "Tue",
-        "StartTime": "11:00",
-        "EndTime": "12:30",
-        "Room": "SAL.G.20"
-      }
-    ]
+    "CourseCode": "EC333",
+    "CourseName": "Problems in Applied Econometrics",
+    "Type": "LEC",
+    "GroupNumber": 1,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 1,
+          "Day": "Tue",
+          "StartTime": "15:30",
+          "EndTime": "17:00",
+          "Room": "SAL.B.09",
+          "Teacher": "SCHANKERMAN, PROF MARK"
+        },
+        {
+          "Week": 2,
+          "Day": "Tue",
+          "StartTime": "15:30",
+          "EndTime": "17:00",
+          "Room": "CKK.2.04",
+          "Teacher": "SCHANKERMAN, PROF MARK"
+        },
+        {
+          "Week": 3,
+          "Day": "Tue",
+          "StartTime": "15:30",
+          "EndTime": "17:00",
+          "Room": "CKK.2.04",
+          "Teacher": "SCHANKERMAN, PROF MARK"
+        },
+        {
+          "Week": 4,
+          "Day": "Tue",
+          "StartTime": "15:30",
+          "EndTime": "17:00",
+          "Room": "CKK.2.04",
+          "Teacher": "SCHANKERMAN, PROF MARK"
+        },
+        {
+          "Week": 5,
+          "Day": "Tue",
+          "StartTime": "15:30",
+          "EndTime": "17:00",
+          "Room": "CKK.2.04",
+          "Teacher": "SCHANKERMAN, PROF MARK"
+        },
+        {
+          "Week": 6,
+          "Day": "Tue",
+          "StartTime": "15:30",
+          "EndTime": "17:00",
+          "Room": "CKK.LG.01",
+          "Teacher": "SCHANKERMAN, PROF MARK"
+        },
+        {
+          "Week": 7,
+          "Day": "Tue",
+          "StartTime": "15:30",
+          "EndTime": "17:00",
+          "Room": "CKK.2.04",
+          "Teacher": "SCHANKERMAN, PROF MARK"
+        },
+        {
+          "Week": 8,
+          "Day": "Tue",
+          "StartTime": "15:30",
+          "EndTime": "17:00",
+          "Room": "CKK.2.04",
+          "Teacher": "SCHANKERMAN, PROF MARK"
+        },
+        {
+          "Week": 9,
+          "Day": "Tue",
+          "StartTime": "15:30",
+          "EndTime": "17:00",
+          "Room": "CKK.2.04",
+          "Teacher": "SCHANKERMAN, PROF MARK"
+        },
+        {
+          "Week": 10,
+          "Day": "Tue",
+          "StartTime": "15:30",
+          "EndTime": "17:00",
+          "Room": "CKK.2.04",
+          "Teacher": "SCHANKERMAN, PROF MARK"
+        },
+        {
+          "Week": 11,
+          "Day": "Tue",
+          "StartTime": "15:30",
+          "EndTime": "17:00",
+          "Room": "CKK.2.04",
+          "Teacher": "SCHANKERMAN, PROF MARK"
+        }
+      ],
+      "WT": [
+        {
+          "Week": 1,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:30",
+          "Room": "SAL.G.20",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        },
+        {
+          "Week": 2,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:30",
+          "Room": "SAL.G.20",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        },
+        {
+          "Week": 3,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:30",
+          "Room": "SAL.G.20",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        },
+        {
+          "Week": 4,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:30",
+          "Room": "SAL.G.20",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        },
+        {
+          "Week": 5,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:30",
+          "Room": "SAL.G.20",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        },
+        {
+          "Week": 7,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:30",
+          "Room": "SAL.G.20",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        },
+        {
+          "Week": 8,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:30",
+          "Room": "SAL.G.20",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        },
+        {
+          "Week": 9,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:30",
+          "Room": "SAL.G.20",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        },
+        {
+          "Week": 10,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:30",
+          "Room": "SAL.G.20",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        },
+        {
+          "Week": 11,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:30",
+          "Room": "SAL.G.20",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        }
+      ],
+      "ST": [
+        {
+          "Week": 1,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "12:30",
+          "Room": "SAL.G.20",
+          "Teacher": "SCHIRALDI, DR PASQUALE"
+        }
+      ]
+    }
   },
   "FM321/LECTURE/01": {
-    "AT": [
-      {
-        "Week": 1,
-        "Day": "Tue",
-        "StartTime": "11:00",
-        "EndTime": "13:00",
-        "Room": "CLM.G.02"
-      },
-      {
-        "Week": 2,
-        "Day": "Tue",
-        "StartTime": "11:00",
-        "EndTime": "13:00",
-        "Room": "CLM.G.02"
-      },
-      {
-        "Week": 3,
-        "Day": "Tue",
-        "StartTime": "11:00",
-        "EndTime": "13:00",
-        "Room": "CLM.G.02"
-      },
-      {
-        "Week": 4,
-        "Day": "Tue",
-        "StartTime": "11:00",
-        "EndTime": "13:00",
-        "Room": "CLM.G.02"
-      },
-      {
-        "Week": 5,
-        "Day": "Tue",
-        "StartTime": "11:00",
-        "EndTime": "13:00",
-        "Room": "CLM.G.02"
-      },
-      {
-        "Week": 7,
-        "Day": "Tue",
-        "StartTime": "11:00",
-        "EndTime": "13:00",
-        "Room": "CLM.G.02"
-      },
-      {
-        "Week": 8,
-        "Day": "Tue",
-        "StartTime": "11:00",
-        "EndTime": "13:00",
-        "Room": "CLM.G.02"
-      },
-      {
-        "Week": 9,
-        "Day": "Tue",
-        "StartTime": "11:00",
-        "EndTime": "13:00",
-        "Room": "CLM.G.02"
-      },
-      {
-        "Week": 10,
-        "Day": "Tue",
-        "StartTime": "11:00",
-        "EndTime": "13:00",
-        "Room": "CLM.G.02"
-      },
-      {
-        "Week": 11,
-        "Day": "Tue",
-        "StartTime": "11:00",
-        "EndTime": "13:00",
-        "Room": "CLM.G.02"
-      }
-    ]
+    "CourseCode": "FM321",
+    "CourseName": "Risk Management and Modelling",
+    "Type": "LEC",
+    "GroupNumber": 1,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 1,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "13:00",
+          "Room": "CLM.G.02",
+          "Teacher": "DANIELSSON, DR JON"
+        },
+        {
+          "Week": 2,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "13:00",
+          "Room": "CLM.G.02",
+          "Teacher": "DANIELSSON, DR JON"
+        },
+        {
+          "Week": 3,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "13:00",
+          "Room": "CLM.G.02",
+          "Teacher": "DANIELSSON, DR JON"
+        },
+        {
+          "Week": 4,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "13:00",
+          "Room": "CLM.G.02",
+          "Teacher": "DANIELSSON, DR JON"
+        },
+        {
+          "Week": 5,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "13:00",
+          "Room": "CLM.G.02",
+          "Teacher": "DANIELSSON, DR JON"
+        },
+        {
+          "Week": 7,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "13:00",
+          "Room": "CLM.G.02",
+          "Teacher": "DANIELSSON, DR JON"
+        },
+        {
+          "Week": 8,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "13:00",
+          "Room": "CLM.G.02",
+          "Teacher": "DANIELSSON, DR JON"
+        },
+        {
+          "Week": 9,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "13:00",
+          "Room": "CLM.G.02",
+          "Teacher": "DANIELSSON, DR JON"
+        },
+        {
+          "Week": 10,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "13:00",
+          "Room": "CLM.G.02",
+          "Teacher": "DANIELSSON, DR JON"
+        },
+        {
+          "Week": 11,
+          "Day": "Tue",
+          "StartTime": "11:00",
+          "EndTime": "13:00",
+          "Room": "CLM.G.02",
+          "Teacher": "DANIELSSON, DR JON"
+        }
+      ]
+    }
   },
   "FM321/SEMINAR/01": {
-    "AT": [
-      {
-        "Week": 2,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:30",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 3,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:30",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 4,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:30",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 5,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:30",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 6,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:30",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 7,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:30",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 8,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:30",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 9,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:30",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 10,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:30",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 11,
-        "Day": "Fri",
-        "StartTime": "10:00",
-        "EndTime": "11:30",
-        "Room": "MAR.1.09"
-      }
-    ]
+    "CourseCode": "FM321",
+    "CourseName": "Risk Management and Modelling",
+    "Type": "SEM",
+    "GroupNumber": 1,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 2,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:30",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 3,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:30",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 4,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:30",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 5,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:30",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 6,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:30",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 7,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:30",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 8,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:30",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 9,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:30",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 10,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:30",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 11,
+          "Day": "Fri",
+          "StartTime": "10:00",
+          "EndTime": "11:30",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        }
+      ]
+    }
   },
   "FM321/SEMINAR/02": {
-    "AT": [
-      {
-        "Week": 2,
-        "Day": "Fri",
-        "StartTime": "11:30",
-        "EndTime": "13:00",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 3,
-        "Day": "Fri",
-        "StartTime": "11:30",
-        "EndTime": "13:00",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 4,
-        "Day": "Fri",
-        "StartTime": "11:30",
-        "EndTime": "13:00",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 5,
-        "Day": "Fri",
-        "StartTime": "11:30",
-        "EndTime": "13:00",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 6,
-        "Day": "Fri",
-        "StartTime": "11:30",
-        "EndTime": "13:00",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 7,
-        "Day": "Fri",
-        "StartTime": "11:30",
-        "EndTime": "13:00",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 8,
-        "Day": "Fri",
-        "StartTime": "11:30",
-        "EndTime": "13:00",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 9,
-        "Day": "Fri",
-        "StartTime": "11:30",
-        "EndTime": "13:00",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 10,
-        "Day": "Fri",
-        "StartTime": "11:30",
-        "EndTime": "13:00",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 11,
-        "Day": "Fri",
-        "StartTime": "11:30",
-        "EndTime": "13:00",
-        "Room": "MAR.1.09"
-      }
-    ]
+    "CourseCode": "FM321",
+    "CourseName": "Risk Management and Modelling",
+    "Type": "SEM",
+    "GroupNumber": 2,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 2,
+          "Day": "Fri",
+          "StartTime": "11:30",
+          "EndTime": "13:00",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 3,
+          "Day": "Fri",
+          "StartTime": "11:30",
+          "EndTime": "13:00",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 4,
+          "Day": "Fri",
+          "StartTime": "11:30",
+          "EndTime": "13:00",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 5,
+          "Day": "Fri",
+          "StartTime": "11:30",
+          "EndTime": "13:00",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 6,
+          "Day": "Fri",
+          "StartTime": "11:30",
+          "EndTime": "13:00",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 7,
+          "Day": "Fri",
+          "StartTime": "11:30",
+          "EndTime": "13:00",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 8,
+          "Day": "Fri",
+          "StartTime": "11:30",
+          "EndTime": "13:00",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 9,
+          "Day": "Fri",
+          "StartTime": "11:30",
+          "EndTime": "13:00",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 10,
+          "Day": "Fri",
+          "StartTime": "11:30",
+          "EndTime": "13:00",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 11,
+          "Day": "Fri",
+          "StartTime": "11:30",
+          "EndTime": "13:00",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        }
+      ]
+    }
   },
   "FM321/SEMINAR/03": {
-    "AT": [
-      {
-        "Week": 2,
-        "Day": "Fri",
-        "StartTime": "14:00",
-        "EndTime": "15:30",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 3,
-        "Day": "Fri",
-        "StartTime": "14:00",
-        "EndTime": "15:30",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 4,
-        "Day": "Fri",
-        "StartTime": "14:00",
-        "EndTime": "15:30",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 5,
-        "Day": "Fri",
-        "StartTime": "14:00",
-        "EndTime": "15:30",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 6,
-        "Day": "Fri",
-        "StartTime": "14:00",
-        "EndTime": "15:30",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 7,
-        "Day": "Fri",
-        "StartTime": "14:00",
-        "EndTime": "15:30",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 8,
-        "Day": "Fri",
-        "StartTime": "14:00",
-        "EndTime": "15:30",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 9,
-        "Day": "Fri",
-        "StartTime": "14:00",
-        "EndTime": "15:30",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 10,
-        "Day": "Fri",
-        "StartTime": "14:00",
-        "EndTime": "15:30",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 11,
-        "Day": "Fri",
-        "StartTime": "14:00",
-        "EndTime": "15:30",
-        "Room": "MAR.1.09"
-      }
-    ]
+    "CourseCode": "FM321",
+    "CourseName": "Risk Management and Modelling",
+    "Type": "SEM",
+    "GroupNumber": 3,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 2,
+          "Day": "Fri",
+          "StartTime": "14:00",
+          "EndTime": "15:30",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 3,
+          "Day": "Fri",
+          "StartTime": "14:00",
+          "EndTime": "15:30",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 4,
+          "Day": "Fri",
+          "StartTime": "14:00",
+          "EndTime": "15:30",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 5,
+          "Day": "Fri",
+          "StartTime": "14:00",
+          "EndTime": "15:30",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 6,
+          "Day": "Fri",
+          "StartTime": "14:00",
+          "EndTime": "15:30",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 7,
+          "Day": "Fri",
+          "StartTime": "14:00",
+          "EndTime": "15:30",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 8,
+          "Day": "Fri",
+          "StartTime": "14:00",
+          "EndTime": "15:30",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 9,
+          "Day": "Fri",
+          "StartTime": "14:00",
+          "EndTime": "15:30",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 10,
+          "Day": "Fri",
+          "StartTime": "14:00",
+          "EndTime": "15:30",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        },
+        {
+          "Week": 11,
+          "Day": "Fri",
+          "StartTime": "14:00",
+          "EndTime": "15:30",
+          "Room": "MAR.1.09",
+          "Teacher": "FRUET-DIAS, DR GUSTAVO"
+        }
+      ]
+    }
   },
   "FM321/SEMINAR/04": {
-    "AT": [
-      {
-        "Week": 2,
-        "Day": "Tue",
-        "StartTime": "17:30",
-        "EndTime": "19:00",
-        "Room": "SAL.LG.18"
-      },
-      {
-        "Week": 3,
-        "Day": "Tue",
-        "StartTime": "17:30",
-        "EndTime": "19:00",
-        "Room": "SAL.LG.18"
-      },
-      {
-        "Week": 4,
-        "Day": "Tue",
-        "StartTime": "17:30",
-        "EndTime": "19:00",
-        "Room": "SAL.LG.18"
-      },
-      {
-        "Week": 5,
-        "Day": "Tue",
-        "StartTime": "17:30",
-        "EndTime": "19:00",
-        "Room": "SAL.LG.18"
-      },
-      {
-        "Week": 6,
-        "Day": "Tue",
-        "StartTime": "17:30",
-        "EndTime": "19:00",
-        "Room": "SAL.LG.18"
-      },
-      {
-        "Week": 7,
-        "Day": "Mon",
-        "StartTime": "17:30",
-        "EndTime": "19:00",
-        "Room": "SAL.LG.18"
-      },
-      {
-        "Week": 8,
-        "Day": "Tue",
-        "StartTime": "17:30",
-        "EndTime": "19:00",
-        "Room": "SAL.LG.18"
-      },
-      {
-        "Week": 9,
-        "Day": "Mon",
-        "StartTime": "17:30",
-        "EndTime": "19:00",
-        "Room": "SAL.LG.18"
-      },
-      {
-        "Week": 10,
-        "Day": "Mon",
-        "StartTime": "17:30",
-        "EndTime": "19:00",
-        "Room": "SAL.LG.18"
-      },
-      {
-        "Week": 11,
-        "Day": "Mon",
-        "StartTime": "17:30",
-        "EndTime": "19:00",
-        "Room": "SAL.LG.18"
-      }
-    ]
+    "CourseCode": "FM321",
+    "CourseName": "Risk Management and Modelling",
+    "Type": "SEM",
+    "GroupNumber": 4,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 2,
+          "Day": "Tue",
+          "StartTime": "17:30",
+          "EndTime": "19:00",
+          "Room": "SAL.LG.18",
+          "Teacher": "PELLICIOLI, DR ALBERTO"
+        },
+        {
+          "Week": 3,
+          "Day": "Tue",
+          "StartTime": "17:30",
+          "EndTime": "19:00",
+          "Room": "SAL.LG.18",
+          "Teacher": "PELLICIOLI, DR ALBERTO"
+        },
+        {
+          "Week": 4,
+          "Day": "Tue",
+          "StartTime": "17:30",
+          "EndTime": "19:00",
+          "Room": "SAL.LG.18",
+          "Teacher": "PELLICIOLI, DR ALBERTO"
+        },
+        {
+          "Week": 5,
+          "Day": "Tue",
+          "StartTime": "17:30",
+          "EndTime": "19:00",
+          "Room": "SAL.LG.18",
+          "Teacher": "PELLICIOLI, DR ALBERTO"
+        },
+        {
+          "Week": 6,
+          "Day": "Tue",
+          "StartTime": "17:30",
+          "EndTime": "19:00",
+          "Room": "SAL.LG.18",
+          "Teacher": "PELLICIOLI, DR ALBERTO"
+        },
+        {
+          "Week": 7,
+          "Day": "Mon",
+          "StartTime": "17:30",
+          "EndTime": "19:00",
+          "Room": "SAL.LG.18",
+          "Teacher": "PELLICIOLI, DR ALBERTO"
+        },
+        {
+          "Week": 8,
+          "Day": "Tue",
+          "StartTime": "17:30",
+          "EndTime": "19:00",
+          "Room": "SAL.LG.18",
+          "Teacher": "PELLICIOLI, DR ALBERTO"
+        },
+        {
+          "Week": 9,
+          "Day": "Mon",
+          "StartTime": "17:30",
+          "EndTime": "19:00",
+          "Room": "SAL.LG.18",
+          "Teacher": "BODRATO, DR GUIDOGIORGIO"
+        },
+        {
+          "Week": 10,
+          "Day": "Mon",
+          "StartTime": "17:30",
+          "EndTime": "19:00",
+          "Room": "SAL.LG.18",
+          "Teacher": "PELLICIOLI, DR ALBERTO"
+        },
+        {
+          "Week": 11,
+          "Day": "Mon",
+          "StartTime": "17:30",
+          "EndTime": "19:00",
+          "Room": "SAL.LG.18",
+          "Teacher": "PELLICIOLI, DR ALBERTO"
+        }
+      ]
+    }
   },
   "FM321/SEMINAR/05": {
-    "AT": [
-      {
-        "Week": 2,
-        "Day": "Tue",
-        "StartTime": "16:00",
-        "EndTime": "17:30",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 3,
-        "Day": "Tue",
-        "StartTime": "16:00",
-        "EndTime": "17:30",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 4,
-        "Day": "Tue",
-        "StartTime": "16:00",
-        "EndTime": "17:30",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 5,
-        "Day": "Tue",
-        "StartTime": "16:00",
-        "EndTime": "17:30",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 6,
-        "Day": "Tue",
-        "StartTime": "16:00",
-        "EndTime": "17:30",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 7,
-        "Day": "Tue",
-        "StartTime": "16:00",
-        "EndTime": "17:30",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 8,
-        "Day": "Tue",
-        "StartTime": "16:00",
-        "EndTime": "17:30",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 9,
-        "Day": "Tue",
-        "StartTime": "16:00",
-        "EndTime": "17:30",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 10,
-        "Day": "Tue",
-        "StartTime": "16:00",
-        "EndTime": "17:30",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 11,
-        "Day": "Tue",
-        "StartTime": "16:00",
-        "EndTime": "17:30",
-        "Room": "SAL.LG.03"
-      }
-    ]
+    "CourseCode": "FM321",
+    "CourseName": "Risk Management and Modelling (UBFI only)",
+    "Type": "SEM",
+    "GroupNumber": 5,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 2,
+          "Day": "Tue",
+          "StartTime": "16:00",
+          "EndTime": "17:30",
+          "Room": "SAL.LG.03",
+          "Teacher": "BODRATO, DR GUIDOGIORGIO"
+        },
+        {
+          "Week": 3,
+          "Day": "Tue",
+          "StartTime": "16:00",
+          "EndTime": "17:30",
+          "Room": "SAL.LG.03",
+          "Teacher": "BODRATO, DR GUIDOGIORGIO"
+        },
+        {
+          "Week": 4,
+          "Day": "Tue",
+          "StartTime": "16:00",
+          "EndTime": "17:30",
+          "Room": "SAL.LG.03",
+          "Teacher": "BODRATO, DR GUIDOGIORGIO"
+        },
+        {
+          "Week": 5,
+          "Day": "Tue",
+          "StartTime": "16:00",
+          "EndTime": "17:30",
+          "Room": "SAL.LG.03",
+          "Teacher": "BODRATO, DR GUIDOGIORGIO"
+        },
+        {
+          "Week": 6,
+          "Day": "Tue",
+          "StartTime": "16:00",
+          "EndTime": "17:30",
+          "Room": "SAL.LG.03",
+          "Teacher": "BODRATO, DR GUIDOGIORGIO"
+        },
+        {
+          "Week": 7,
+          "Day": "Tue",
+          "StartTime": "16:00",
+          "EndTime": "17:30",
+          "Room": "SAL.LG.03",
+          "Teacher": "PELLICIOLI, DR ALBERTO"
+        },
+        {
+          "Week": 8,
+          "Day": "Tue",
+          "StartTime": "16:00",
+          "EndTime": "17:30",
+          "Room": "SAL.LG.03",
+          "Teacher": "BODRATO, DR GUIDOGIORGIO"
+        },
+        {
+          "Week": 9,
+          "Day": "Tue",
+          "StartTime": "16:00",
+          "EndTime": "17:30",
+          "Room": "SAL.LG.03",
+          "Teacher": "BODRATO, DR GUIDOGIORGIO"
+        },
+        {
+          "Week": 10,
+          "Day": "Tue",
+          "StartTime": "16:00",
+          "EndTime": "17:30",
+          "Room": "SAL.LG.03",
+          "Teacher": "PELLICIOLI, DR ALBERTO"
+        },
+        {
+          "Week": 11,
+          "Day": "Tue",
+          "StartTime": "16:00",
+          "EndTime": "17:30",
+          "Room": "SAL.LG.03",
+          "Teacher": "PELLICIOLI, DR ALBERTO"
+        }
+      ]
+    }
   },
   "FM321/SEMINAR/06": {
-    "AT": [
-      {
-        "Week": 2,
-        "Day": "Tue",
-        "StartTime": "17:30",
-        "EndTime": "19:00",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 3,
-        "Day": "Tue",
-        "StartTime": "17:30",
-        "EndTime": "19:00",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 4,
-        "Day": "Tue",
-        "StartTime": "17:30",
-        "EndTime": "19:00",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 5,
-        "Day": "Tue",
-        "StartTime": "17:30",
-        "EndTime": "19:00",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 6,
-        "Day": "Tue",
-        "StartTime": "17:30",
-        "EndTime": "19:00",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 7,
-        "Day": "Tue",
-        "StartTime": "17:30",
-        "EndTime": "19:00",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 8,
-        "Day": "Tue",
-        "StartTime": "17:30",
-        "EndTime": "19:00",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 9,
-        "Day": "Tue",
-        "StartTime": "17:30",
-        "EndTime": "19:00",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 10,
-        "Day": "Tue",
-        "StartTime": "17:30",
-        "EndTime": "19:00",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 11,
-        "Day": "Tue",
-        "StartTime": "17:30",
-        "EndTime": "19:00",
-        "Room": "SAL.LG.03"
-      }
-    ]
+    "CourseCode": "FM321",
+    "CourseName": "Risk Management and Modelling (UBFI only)",
+    "Type": "SEM",
+    "GroupNumber": 6,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 2,
+          "Day": "Tue",
+          "StartTime": "17:30",
+          "EndTime": "19:00",
+          "Room": "SAL.LG.03",
+          "Teacher": "BODRATO, DR GUIDOGIORGIO"
+        },
+        {
+          "Week": 3,
+          "Day": "Tue",
+          "StartTime": "17:30",
+          "EndTime": "19:00",
+          "Room": "SAL.LG.03",
+          "Teacher": "BODRATO, DR GUIDOGIORGIO"
+        },
+        {
+          "Week": 4,
+          "Day": "Tue",
+          "StartTime": "17:30",
+          "EndTime": "19:00",
+          "Room": "SAL.LG.03",
+          "Teacher": "BODRATO, DR GUIDOGIORGIO"
+        },
+        {
+          "Week": 5,
+          "Day": "Tue",
+          "StartTime": "17:30",
+          "EndTime": "19:00",
+          "Room": "SAL.LG.03",
+          "Teacher": "BODRATO, DR GUIDOGIORGIO"
+        },
+        {
+          "Week": 6,
+          "Day": "Tue",
+          "StartTime": "17:30",
+          "EndTime": "19:00",
+          "Room": "SAL.LG.03",
+          "Teacher": "BODRATO, DR GUIDOGIORGIO"
+        },
+        {
+          "Week": 7,
+          "Day": "Tue",
+          "StartTime": "17:30",
+          "EndTime": "19:00",
+          "Room": "SAL.LG.03",
+          "Teacher": "PELLICIOLI, DR ALBERTO"
+        },
+        {
+          "Week": 8,
+          "Day": "Tue",
+          "StartTime": "17:30",
+          "EndTime": "19:00",
+          "Room": "SAL.LG.03",
+          "Teacher": "BODRATO, DR GUIDOGIORGIO"
+        },
+        {
+          "Week": 9,
+          "Day": "Tue",
+          "StartTime": "17:30",
+          "EndTime": "19:00",
+          "Room": "SAL.LG.03",
+          "Teacher": "BODRATO, DR GUIDOGIORGIO"
+        },
+        {
+          "Week": 10,
+          "Day": "Tue",
+          "StartTime": "17:30",
+          "EndTime": "19:00",
+          "Room": "SAL.LG.03",
+          "Teacher": "PELLICIOLI, DR ALBERTO"
+        },
+        {
+          "Week": 11,
+          "Day": "Tue",
+          "StartTime": "17:30",
+          "EndTime": "19:00",
+          "Room": "SAL.LG.03",
+          "Teacher": "PELLICIOLI, DR ALBERTO"
+        }
+      ]
+    }
   },
   "FM322/SEMINAR/01": {
-    "WT": [
-      {
-        "Week": 1,
-        "Day": "Wed",
-        "StartTime": "09:00",
-        "EndTime": "12:00",
-        "Room": "CLM.4.02"
-      },
-      {
-        "Week": 2,
-        "Day": "Wed",
-        "StartTime": "09:00",
-        "EndTime": "12:00",
-        "Room": "CLM.4.02"
-      },
-      {
-        "Week": 3,
-        "Day": "Wed",
-        "StartTime": "09:00",
-        "EndTime": "12:00",
-        "Room": "CLM.4.02"
-      },
-      {
-        "Week": 4,
-        "Day": "Wed",
-        "StartTime": "09:00",
-        "EndTime": "12:00",
-        "Room": "CLM.4.02"
-      },
-      {
-        "Week": 5,
-        "Day": "Wed",
-        "StartTime": "09:00",
-        "EndTime": "12:00",
-        "Room": "CLM.4.02"
-      },
-      {
-        "Week": 6,
-        "Day": "Wed",
-        "StartTime": "09:00",
-        "EndTime": "12:00",
-        "Room": "CLM.4.02"
-      },
-      {
-        "Week": 7,
-        "Day": "Wed",
-        "StartTime": "09:00",
-        "EndTime": "12:00",
-        "Room": "CLM.4.02"
-      },
-      {
-        "Week": 8,
-        "Day": "Wed",
-        "StartTime": "09:00",
-        "EndTime": "12:00",
-        "Room": "CLM.4.02"
-      },
-      {
-        "Week": 9,
-        "Day": "Wed",
-        "StartTime": "09:00",
-        "EndTime": "12:00",
-        "Room": "CLM.4.02"
-      },
-      {
-        "Week": 10,
-        "Day": "Wed",
-        "StartTime": "09:00",
-        "EndTime": "12:00",
-        "Room": "CLM.4.02"
-      },
-      {
-        "Week": 11,
-        "Day": "Wed",
-        "StartTime": "09:00",
-        "EndTime": "12:00",
-        "Room": "CLM.4.02"
-      }
-    ]
+    "CourseCode": "FM322",
+    "CourseName": "Derivatives",
+    "Type": "SEM",
+    "GroupNumber": 1,
+    "Sessions": {
+      "WT": [
+        {
+          "Week": 1,
+          "Day": "Wed",
+          "StartTime": "09:00",
+          "EndTime": "12:00",
+          "Room": "CLM.4.02",
+          "Teacher": "RAHI, DR ROHIT"
+        },
+        {
+          "Week": 2,
+          "Day": "Wed",
+          "StartTime": "09:00",
+          "EndTime": "12:00",
+          "Room": "CLM.4.02",
+          "Teacher": "RAHI, DR ROHIT"
+        },
+        {
+          "Week": 3,
+          "Day": "Wed",
+          "StartTime": "09:00",
+          "EndTime": "12:00",
+          "Room": "CLM.4.02",
+          "Teacher": "RAHI, DR ROHIT"
+        },
+        {
+          "Week": 4,
+          "Day": "Wed",
+          "StartTime": "09:00",
+          "EndTime": "12:00",
+          "Room": "CLM.4.02",
+          "Teacher": "RAHI, DR ROHIT"
+        },
+        {
+          "Week": 5,
+          "Day": "Wed",
+          "StartTime": "09:00",
+          "EndTime": "12:00",
+          "Room": "CLM.4.02",
+          "Teacher": "RAHI, DR ROHIT"
+        },
+        {
+          "Week": 6,
+          "Day": "Wed",
+          "StartTime": "09:00",
+          "EndTime": "12:00",
+          "Room": "CLM.4.02",
+          "Teacher": "RAHI, DR ROHIT"
+        },
+        {
+          "Week": 7,
+          "Day": "Wed",
+          "StartTime": "09:00",
+          "EndTime": "12:00",
+          "Room": "CLM.4.02",
+          "Teacher": "RAHI, DR ROHIT"
+        },
+        {
+          "Week": 8,
+          "Day": "Wed",
+          "StartTime": "09:00",
+          "EndTime": "12:00",
+          "Room": "CLM.4.02",
+          "Teacher": "RAHI, DR ROHIT"
+        },
+        {
+          "Week": 9,
+          "Day": "Wed",
+          "StartTime": "09:00",
+          "EndTime": "12:00",
+          "Room": "CLM.4.02",
+          "Teacher": "RAHI, DR ROHIT"
+        },
+        {
+          "Week": 10,
+          "Day": "Wed",
+          "StartTime": "09:00",
+          "EndTime": "12:00",
+          "Room": "CLM.4.02",
+          "Teacher": "RAHI, DR ROHIT"
+        },
+        {
+          "Week": 11,
+          "Day": "Wed",
+          "StartTime": "09:00",
+          "EndTime": "12:00",
+          "Room": "CLM.4.02",
+          "Teacher": "RAHI, DR ROHIT"
+        }
+      ]
+    }
   },
   "FM322/SEMINAR/02": {
-    "WT": [
-      {
-        "Week": 1,
-        "Day": "Fri",
-        "StartTime": "14:00",
-        "EndTime": "17:00",
-        "Room": "MAR.2.10"
-      },
-      {
-        "Week": 2,
-        "Day": "Fri",
-        "StartTime": "14:00",
-        "EndTime": "17:00",
-        "Room": "MAR.2.10"
-      },
-      {
-        "Week": 3,
-        "Day": "Fri",
-        "StartTime": "14:00",
-        "EndTime": "17:00",
-        "Room": "MAR.2.10"
-      },
-      {
-        "Week": 4,
-        "Day": "Fri",
-        "StartTime": "14:00",
-        "EndTime": "17:00",
-        "Room": "MAR.2.10"
-      },
-      {
-        "Week": 5,
-        "Day": "Fri",
-        "StartTime": "14:00",
-        "EndTime": "17:00",
-        "Room": "MAR.2.10"
-      },
-      {
-        "Week": 6,
-        "Day": "Fri",
-        "StartTime": "14:00",
-        "EndTime": "17:00",
-        "Room": "MAR.2.10"
-      },
-      {
-        "Week": 7,
-        "Day": "Fri",
-        "StartTime": "14:00",
-        "EndTime": "17:00",
-        "Room": "MAR.2.10"
-      },
-      {
-        "Week": 8,
-        "Day": "Fri",
-        "StartTime": "14:00",
-        "EndTime": "17:00",
-        "Room": "MAR.2.10"
-      },
-      {
-        "Week": 9,
-        "Day": "Fri",
-        "StartTime": "14:00",
-        "EndTime": "17:00",
-        "Room": "MAR.2.10"
-      },
-      {
-        "Week": 10,
-        "Day": "Fri",
-        "StartTime": "14:00",
-        "EndTime": "17:00",
-        "Room": "MAR.2.10"
-      },
-      {
-        "Week": 11,
-        "Day": "Fri",
-        "StartTime": "14:00",
-        "EndTime": "17:00",
-        "Room": "MAR.2.10"
-      }
-    ]
+    "CourseCode": "FM322",
+    "CourseName": "Derivatives",
+    "Type": "SEM",
+    "GroupNumber": 2,
+    "Sessions": {
+      "WT": [
+        {
+          "Week": 1,
+          "Day": "Fri",
+          "StartTime": "14:00",
+          "EndTime": "17:00",
+          "Room": "MAR.2.10",
+          "Teacher": "RAHI, DR ROHIT"
+        },
+        {
+          "Week": 2,
+          "Day": "Fri",
+          "StartTime": "14:00",
+          "EndTime": "17:00",
+          "Room": "MAR.2.10",
+          "Teacher": "RAHI, DR ROHIT"
+        },
+        {
+          "Week": 3,
+          "Day": "Fri",
+          "StartTime": "14:00",
+          "EndTime": "17:00",
+          "Room": "MAR.2.10",
+          "Teacher": "RAHI, DR ROHIT"
+        },
+        {
+          "Week": 4,
+          "Day": "Fri",
+          "StartTime": "14:00",
+          "EndTime": "17:00",
+          "Room": "MAR.2.10",
+          "Teacher": "RAHI, DR ROHIT"
+        },
+        {
+          "Week": 5,
+          "Day": "Fri",
+          "StartTime": "14:00",
+          "EndTime": "17:00",
+          "Room": "MAR.2.10",
+          "Teacher": "RAHI, DR ROHIT"
+        },
+        {
+          "Week": 6,
+          "Day": "Fri",
+          "StartTime": "14:00",
+          "EndTime": "17:00",
+          "Room": "MAR.2.10",
+          "Teacher": "RAHI, DR ROHIT"
+        },
+        {
+          "Week": 7,
+          "Day": "Fri",
+          "StartTime": "14:00",
+          "EndTime": "17:00",
+          "Room": "MAR.2.10",
+          "Teacher": "RAHI, DR ROHIT"
+        },
+        {
+          "Week": 8,
+          "Day": "Fri",
+          "StartTime": "14:00",
+          "EndTime": "17:00",
+          "Room": "MAR.2.10",
+          "Teacher": "RAHI, DR ROHIT"
+        },
+        {
+          "Week": 9,
+          "Day": "Fri",
+          "StartTime": "14:00",
+          "EndTime": "17:00",
+          "Room": "MAR.2.10",
+          "Teacher": "RAHI, DR ROHIT"
+        },
+        {
+          "Week": 10,
+          "Day": "Fri",
+          "StartTime": "14:00",
+          "EndTime": "17:00",
+          "Room": "MAR.2.10",
+          "Teacher": "RAHI, DR ROHIT"
+        },
+        {
+          "Week": 11,
+          "Day": "Fri",
+          "StartTime": "14:00",
+          "EndTime": "17:00",
+          "Room": "MAR.2.10",
+          "Teacher": "RAHI, DR ROHIT"
+        }
+      ]
+    }
   },
   "ST310/LECTURE/01": {
-    "AT": [
-      {
-        "Week": 1,
-        "Day": "Fri",
-        "StartTime": "15:00",
-        "EndTime": "16:30",
-        "Room": "CLM.G.02"
-      },
-      {
-        "Week": 2,
-        "Day": "Fri",
-        "StartTime": "15:00",
-        "EndTime": "16:30",
-        "Room": "CLM.G.02"
-      },
-      {
-        "Week": 3,
-        "Day": "Fri",
-        "StartTime": "15:00",
-        "EndTime": "16:30",
-        "Room": "CLM.G.02"
-      },
-      {
-        "Week": 4,
-        "Day": "Fri",
-        "StartTime": "15:00",
-        "EndTime": "16:30",
-        "Room": "CLM.G.02"
-      },
-      {
-        "Week": 5,
-        "Day": "Fri",
-        "StartTime": "15:00",
-        "EndTime": "16:30",
-        "Room": "CLM.G.02"
-      },
-      {
-        "Week": 7,
-        "Day": "Fri",
-        "StartTime": "15:00",
-        "EndTime": "16:30",
-        "Room": "CLM.G.02"
-      },
-      {
-        "Week": 8,
-        "Day": "Fri",
-        "StartTime": "15:00",
-        "EndTime": "16:30",
-        "Room": "CLM.G.02"
-      },
-      {
-        "Week": 9,
-        "Day": "Fri",
-        "StartTime": "15:00",
-        "EndTime": "16:30",
-        "Room": "CLM.G.02"
-      },
-      {
-        "Week": 10,
-        "Day": "Fri",
-        "StartTime": "15:00",
-        "EndTime": "16:30",
-        "Room": "CLM.G.02"
-      },
-      {
-        "Week": 11,
-        "Day": "Fri",
-        "StartTime": "15:00",
-        "EndTime": "16:30",
-        "Room": "CLM.G.02"
-      }
-    ]
+    "CourseCode": "ST310",
+    "CourseName": "Machine Learning",
+    "Type": "LEC",
+    "GroupNumber": 1,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 1,
+          "Day": "Fri",
+          "StartTime": "15:00",
+          "EndTime": "16:30",
+          "Room": "CLM.G.02",
+          "Teacher": "SZABO, PROF ZOLTAN"
+        },
+        {
+          "Week": 2,
+          "Day": "Fri",
+          "StartTime": "15:00",
+          "EndTime": "16:30",
+          "Room": "CLM.G.02",
+          "Teacher": "SZABO, PROF ZOLTAN"
+        },
+        {
+          "Week": 3,
+          "Day": "Fri",
+          "StartTime": "15:00",
+          "EndTime": "16:30",
+          "Room": "CLM.G.02",
+          "Teacher": "SZABO, PROF ZOLTAN"
+        },
+        {
+          "Week": 4,
+          "Day": "Fri",
+          "StartTime": "15:00",
+          "EndTime": "16:30",
+          "Room": "CLM.G.02",
+          "Teacher": "SZABO, PROF ZOLTAN"
+        },
+        {
+          "Week": 5,
+          "Day": "Fri",
+          "StartTime": "15:00",
+          "EndTime": "16:30",
+          "Room": "CLM.G.02",
+          "Teacher": "SZABO, PROF ZOLTAN"
+        },
+        {
+          "Week": 7,
+          "Day": "Fri",
+          "StartTime": "15:00",
+          "EndTime": "16:30",
+          "Room": "CLM.G.02",
+          "Teacher": "SZABO, PROF ZOLTAN"
+        },
+        {
+          "Week": 8,
+          "Day": "Fri",
+          "StartTime": "15:00",
+          "EndTime": "16:30",
+          "Room": "CLM.G.02",
+          "Teacher": "SZABO, PROF ZOLTAN"
+        },
+        {
+          "Week": 9,
+          "Day": "Fri",
+          "StartTime": "15:00",
+          "EndTime": "16:30",
+          "Room": "CLM.G.02",
+          "Teacher": "SZABO, PROF ZOLTAN"
+        },
+        {
+          "Week": 10,
+          "Day": "Fri",
+          "StartTime": "15:00",
+          "EndTime": "16:30",
+          "Room": "CLM.G.02",
+          "Teacher": "SZABO, PROF ZOLTAN"
+        },
+        {
+          "Week": 11,
+          "Day": "Fri",
+          "StartTime": "15:00",
+          "EndTime": "16:30",
+          "Room": "CLM.G.02",
+          "Teacher": "SZABO, PROF ZOLTAN"
+        }
+      ]
+    }
   },
   "ST310/SEMINAR/01": {
-    "AT": [
-      {
-        "Week": 2,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "SAL.LG.04"
-      },
-      {
-        "Week": 3,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "SAL.LG.04"
-      },
-      {
-        "Week": 4,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "SAL.LG.04"
-      },
-      {
-        "Week": 5,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "SAL.LG.04"
-      },
-      {
-        "Week": 7,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "SAL.LG.04"
-      },
-      {
-        "Week": 8,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "SAL.LG.04"
-      },
-      {
-        "Week": 9,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "SAL.LG.04"
-      },
-      {
-        "Week": 10,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "SAL.LG.04"
-      },
-      {
-        "Week": 11,
-        "Day": "Mon",
-        "StartTime": "16:30",
-        "EndTime": "18:00",
-        "Room": "CBG.2.02"
-      },
-      {
-        "Week": 11,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "SAL.LG.04"
-      }
-    ]
+    "CourseCode": "ST310",
+    "CourseName": "Machine Learning",
+    "Type": "SEM",
+    "GroupNumber": 1,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 2,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "SAL.LG.04",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 3,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "SAL.LG.04",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 4,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "SAL.LG.04",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 5,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "SAL.LG.04",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 7,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "SAL.LG.04",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 8,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "SAL.LG.04",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 9,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "SAL.LG.04",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 10,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "SAL.LG.04",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 11,
+          "Day": "Mon",
+          "StartTime": "16:30",
+          "EndTime": "18:00",
+          "Room": "CBG.2.02",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 11,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "SAL.LG.04",
+          "Teacher": "ROUDAKI, POUYA"
+        }
+      ]
+    }
   },
   "ST310/SEMINAR/02": {
-    "AT": [
-      {
-        "Week": 2,
-        "Day": "Fri",
-        "StartTime": "10:30",
-        "EndTime": "12:00",
-        "Room": "SAL.LG.04"
-      },
-      {
-        "Week": 3,
-        "Day": "Fri",
-        "StartTime": "10:30",
-        "EndTime": "12:00",
-        "Room": "SAL.LG.04"
-      },
-      {
-        "Week": 4,
-        "Day": "Fri",
-        "StartTime": "10:30",
-        "EndTime": "12:00",
-        "Room": "SAL.LG.04"
-      },
-      {
-        "Week": 5,
-        "Day": "Fri",
-        "StartTime": "10:30",
-        "EndTime": "12:00",
-        "Room": "SAL.LG.04"
-      },
-      {
-        "Week": 7,
-        "Day": "Fri",
-        "StartTime": "10:30",
-        "EndTime": "12:00",
-        "Room": "SAL.LG.04"
-      },
-      {
-        "Week": 8,
-        "Day": "Fri",
-        "StartTime": "10:30",
-        "EndTime": "12:00",
-        "Room": "SAL.LG.04"
-      },
-      {
-        "Week": 9,
-        "Day": "Fri",
-        "StartTime": "10:30",
-        "EndTime": "12:00",
-        "Room": "SAL.LG.04"
-      },
-      {
-        "Week": 10,
-        "Day": "Fri",
-        "StartTime": "10:30",
-        "EndTime": "12:00",
-        "Room": "SAL.LG.04"
-      },
-      {
-        "Week": 11,
-        "Day": "Mon",
-        "StartTime": "15:00",
-        "EndTime": "16:30",
-        "Room": "CBG.2.02"
-      },
-      {
-        "Week": 11,
-        "Day": "Fri",
-        "StartTime": "10:30",
-        "EndTime": "12:00",
-        "Room": "SAL.LG.04"
-      }
-    ]
+    "CourseCode": "ST310",
+    "CourseName": "Machine Learning",
+    "Type": "SEM",
+    "GroupNumber": 2,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 2,
+          "Day": "Fri",
+          "StartTime": "10:30",
+          "EndTime": "12:00",
+          "Room": "SAL.LG.04",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 3,
+          "Day": "Fri",
+          "StartTime": "10:30",
+          "EndTime": "12:00",
+          "Room": "SAL.LG.04",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 4,
+          "Day": "Fri",
+          "StartTime": "10:30",
+          "EndTime": "12:00",
+          "Room": "SAL.LG.04",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 5,
+          "Day": "Fri",
+          "StartTime": "10:30",
+          "EndTime": "12:00",
+          "Room": "SAL.LG.04",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 7,
+          "Day": "Fri",
+          "StartTime": "10:30",
+          "EndTime": "12:00",
+          "Room": "SAL.LG.04",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 8,
+          "Day": "Fri",
+          "StartTime": "10:30",
+          "EndTime": "12:00",
+          "Room": "SAL.LG.04",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 9,
+          "Day": "Fri",
+          "StartTime": "10:30",
+          "EndTime": "12:00",
+          "Room": "SAL.LG.04",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 10,
+          "Day": "Fri",
+          "StartTime": "10:30",
+          "EndTime": "12:00",
+          "Room": "SAL.LG.04",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 11,
+          "Day": "Mon",
+          "StartTime": "15:00",
+          "EndTime": "16:30",
+          "Room": "CBG.2.02",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 11,
+          "Day": "Fri",
+          "StartTime": "10:30",
+          "EndTime": "12:00",
+          "Room": "SAL.LG.04",
+          "Teacher": "ROUDAKI, POUYA"
+        }
+      ]
+    }
   },
   "ST310/SEMINAR/03": {
-    "AT": [
-      {
-        "Week": 2,
-        "Day": "Thu",
-        "StartTime": "14:00",
-        "EndTime": "15:30",
-        "Room": "CBG.2.03"
-      },
-      {
-        "Week": 3,
-        "Day": "Thu",
-        "StartTime": "14:00",
-        "EndTime": "15:30",
-        "Room": "CBG.2.03"
-      },
-      {
-        "Week": 4,
-        "Day": "Thu",
-        "StartTime": "14:00",
-        "EndTime": "15:30",
-        "Room": "CBG.2.03"
-      },
-      {
-        "Week": 5,
-        "Day": "Thu",
-        "StartTime": "14:00",
-        "EndTime": "15:30",
-        "Room": "CBG.2.03"
-      },
-      {
-        "Week": 7,
-        "Day": "Thu",
-        "StartTime": "14:00",
-        "EndTime": "15:30",
-        "Room": "CBG.2.03"
-      },
-      {
-        "Week": 8,
-        "Day": "Thu",
-        "StartTime": "14:00",
-        "EndTime": "15:30",
-        "Room": "CBG.2.03"
-      },
-      {
-        "Week": 9,
-        "Day": "Thu",
-        "StartTime": "14:00",
-        "EndTime": "15:30",
-        "Room": "CBG.2.03"
-      },
-      {
-        "Week": 10,
-        "Day": "Thu",
-        "StartTime": "14:00",
-        "EndTime": "15:30",
-        "Room": "CBG.2.03"
-      },
-      {
-        "Week": 11,
-        "Day": "Wed",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "MAR.1.09"
-      },
-      {
-        "Week": 11,
-        "Day": "Thu",
-        "StartTime": "14:00",
-        "EndTime": "15:30",
-        "Room": "CBG.2.03"
-      }
-    ]
+    "CourseCode": "ST310",
+    "CourseName": "Machine Learning",
+    "Type": "SEM",
+    "GroupNumber": 3,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 2,
+          "Day": "Thu",
+          "StartTime": "14:00",
+          "EndTime": "15:30",
+          "Room": "CBG.2.03",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 3,
+          "Day": "Thu",
+          "StartTime": "14:00",
+          "EndTime": "15:30",
+          "Room": "CBG.2.03",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 4,
+          "Day": "Thu",
+          "StartTime": "14:00",
+          "EndTime": "15:30",
+          "Room": "CBG.2.03",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 5,
+          "Day": "Thu",
+          "StartTime": "14:00",
+          "EndTime": "15:30",
+          "Room": "CBG.2.03",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 7,
+          "Day": "Thu",
+          "StartTime": "14:00",
+          "EndTime": "15:30",
+          "Room": "CBG.2.03",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 8,
+          "Day": "Thu",
+          "StartTime": "14:00",
+          "EndTime": "15:30",
+          "Room": "CBG.2.03",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 9,
+          "Day": "Thu",
+          "StartTime": "14:00",
+          "EndTime": "15:30",
+          "Room": "CBG.2.03",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 10,
+          "Day": "Thu",
+          "StartTime": "14:00",
+          "EndTime": "15:30",
+          "Room": "CBG.2.03",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 11,
+          "Day": "Wed",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "MAR.1.09",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 11,
+          "Day": "Thu",
+          "StartTime": "14:00",
+          "EndTime": "15:30",
+          "Room": "CBG.2.03",
+          "Teacher": "CHAN, DR PHILIP"
+        }
+      ]
+    }
   },
   "ST310/SEMINAR/04": {
-    "AT": [
-      {
-        "Week": 2,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.1.06"
-      },
-      {
-        "Week": 3,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.1.06"
-      },
-      {
-        "Week": 4,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.1.06"
-      },
-      {
-        "Week": 5,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.1.06"
-      },
-      {
-        "Week": 7,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.1.06"
-      },
-      {
-        "Week": 8,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.1.06"
-      },
-      {
-        "Week": 9,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.1.06"
-      },
-      {
-        "Week": 10,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.1.06"
-      },
-      {
-        "Week": 11,
-        "Day": "Mon",
-        "StartTime": "11:30",
-        "EndTime": "13:00",
-        "Room": "MAR.2.05"
-      },
-      {
-        "Week": 11,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.1.06"
-      }
-    ]
+    "CourseCode": "ST310",
+    "CourseName": "Machine Learning",
+    "Type": "SEM",
+    "GroupNumber": 4,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 2,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.1.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 3,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.1.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 4,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.1.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 5,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.1.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 7,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.1.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 8,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.1.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 9,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.1.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 10,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.1.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 11,
+          "Day": "Mon",
+          "StartTime": "11:30",
+          "EndTime": "13:00",
+          "Room": "MAR.2.05",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 11,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.1.06",
+          "Teacher": "CHAN, DR PHILIP"
+        }
+      ]
+    }
   },
   "ST310/SEMINAR/05": {
-    "AT": [
-      {
-        "Week": 2,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.2.04"
-      },
-      {
-        "Week": 3,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.2.04"
-      },
-      {
-        "Week": 4,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.2.04"
-      },
-      {
-        "Week": 5,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.2.04"
-      },
-      {
-        "Week": 7,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.2.04"
-      },
-      {
-        "Week": 8,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.2.04"
-      },
-      {
-        "Week": 9,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.2.04"
-      },
-      {
-        "Week": 10,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.2.04"
-      },
-      {
-        "Week": 11,
-        "Day": "Mon",
-        "StartTime": "12:00",
-        "EndTime": "13:30",
-        "Room": "FAW.2.04"
-      },
-      {
-        "Week": 11,
-        "Day": "Fri",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.2.04"
-      }
-    ]
+    "CourseCode": "ST310",
+    "CourseName": "Machine Learning",
+    "Type": "SEM",
+    "GroupNumber": 5,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 2,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.2.04",
+          "Teacher": "XU, ERHAN"
+        },
+        {
+          "Week": 3,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.2.04",
+          "Teacher": "XU, ERHAN"
+        },
+        {
+          "Week": 4,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.2.04",
+          "Teacher": "XU, ERHAN"
+        },
+        {
+          "Week": 5,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.2.04",
+          "Teacher": "XU, ERHAN"
+        },
+        {
+          "Week": 7,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.2.04",
+          "Teacher": "XU, ERHAN"
+        },
+        {
+          "Week": 8,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.2.04",
+          "Teacher": "XU, ERHAN"
+        },
+        {
+          "Week": 9,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.2.04",
+          "Teacher": "XU, ERHAN"
+        },
+        {
+          "Week": 10,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.2.04",
+          "Teacher": "XU, ERHAN"
+        },
+        {
+          "Week": 11,
+          "Day": "Mon",
+          "StartTime": "12:00",
+          "EndTime": "13:30",
+          "Room": "FAW.2.04",
+          "Teacher": "XU, ERHAN"
+        },
+        {
+          "Week": 11,
+          "Day": "Fri",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.2.04",
+          "Teacher": "XU, ERHAN"
+        }
+      ]
+    }
   },
   "ST310/SEMINAR/06": {
-    "AT": [
-      {
-        "Week": 2,
-        "Day": "Fri",
-        "StartTime": "13:30",
-        "EndTime": "15:00",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 3,
-        "Day": "Fri",
-        "StartTime": "13:30",
-        "EndTime": "15:00",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 4,
-        "Day": "Fri",
-        "StartTime": "13:30",
-        "EndTime": "15:00",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 5,
-        "Day": "Fri",
-        "StartTime": "13:30",
-        "EndTime": "15:00",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 7,
-        "Day": "Fri",
-        "StartTime": "13:30",
-        "EndTime": "15:00",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 8,
-        "Day": "Fri",
-        "StartTime": "13:30",
-        "EndTime": "15:00",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 9,
-        "Day": "Fri",
-        "StartTime": "13:30",
-        "EndTime": "15:00",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 10,
-        "Day": "Fri",
-        "StartTime": "13:30",
-        "EndTime": "15:00",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 11,
-        "Day": "Wed",
-        "StartTime": "10:30",
-        "EndTime": "12:00",
-        "Room": "CBG.2.02"
-      },
-      {
-        "Week": 11,
-        "Day": "Fri",
-        "StartTime": "13:30",
-        "EndTime": "15:00",
-        "Room": "CBG.2.06"
-      }
-    ]
+    "CourseCode": "ST310",
+    "CourseName": "Machine Learning",
+    "Type": "SEM",
+    "GroupNumber": 6,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 2,
+          "Day": "Fri",
+          "StartTime": "13:30",
+          "EndTime": "15:00",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 3,
+          "Day": "Fri",
+          "StartTime": "13:30",
+          "EndTime": "15:00",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 4,
+          "Day": "Fri",
+          "StartTime": "13:30",
+          "EndTime": "15:00",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 5,
+          "Day": "Fri",
+          "StartTime": "13:30",
+          "EndTime": "15:00",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 7,
+          "Day": "Fri",
+          "StartTime": "13:30",
+          "EndTime": "15:00",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 8,
+          "Day": "Fri",
+          "StartTime": "13:30",
+          "EndTime": "15:00",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 9,
+          "Day": "Fri",
+          "StartTime": "13:30",
+          "EndTime": "15:00",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 10,
+          "Day": "Fri",
+          "StartTime": "13:30",
+          "EndTime": "15:00",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 11,
+          "Day": "Wed",
+          "StartTime": "10:30",
+          "EndTime": "12:00",
+          "Room": "CBG.2.02",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 11,
+          "Day": "Fri",
+          "StartTime": "13:30",
+          "EndTime": "15:00",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        }
+      ]
+    }
   },
   "ST310/SEMINAR/07": {
-    "AT": [
-      {
-        "Week": 2,
-        "Day": "Thu",
-        "StartTime": "17:00",
-        "EndTime": "18:30",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 3,
-        "Day": "Thu",
-        "StartTime": "17:00",
-        "EndTime": "18:30",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 4,
-        "Day": "Thu",
-        "StartTime": "17:00",
-        "EndTime": "18:30",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 5,
-        "Day": "Thu",
-        "StartTime": "17:00",
-        "EndTime": "18:30",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 7,
-        "Day": "Thu",
-        "StartTime": "17:00",
-        "EndTime": "18:30",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 8,
-        "Day": "Thu",
-        "StartTime": "17:00",
-        "EndTime": "18:30",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 9,
-        "Day": "Thu",
-        "StartTime": "17:00",
-        "EndTime": "18:30",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 10,
-        "Day": "Thu",
-        "StartTime": "17:00",
-        "EndTime": "18:30",
-        "Room": "SAL.LG.03"
-      },
-      {
-        "Week": 11,
-        "Day": "Thu",
-        "StartTime": "16:00",
-        "EndTime": "17:30",
-        "Room": "CBG.1.05"
-      },
-      {
-        "Week": 11,
-        "Day": "Thu",
-        "StartTime": "17:30",
-        "EndTime": "19:00",
-        "Room": "CBG.1.05"
-      }
-    ]
+    "CourseCode": "ST310",
+    "CourseName": "Machine Learning",
+    "Type": "SEM",
+    "GroupNumber": 7,
+    "Sessions": {
+      "AT": [
+        {
+          "Week": 2,
+          "Day": "Thu",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "SAL.LG.03",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 3,
+          "Day": "Thu",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "SAL.LG.03",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 4,
+          "Day": "Thu",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "SAL.LG.03",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 5,
+          "Day": "Thu",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "SAL.LG.03",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 7,
+          "Day": "Thu",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "SAL.LG.03",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 8,
+          "Day": "Thu",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "SAL.LG.03",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 9,
+          "Day": "Thu",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "SAL.LG.03",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 10,
+          "Day": "Thu",
+          "StartTime": "17:00",
+          "EndTime": "18:30",
+          "Room": "SAL.LG.03",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 11,
+          "Day": "Thu",
+          "StartTime": "16:00",
+          "EndTime": "17:30",
+          "Room": "CBG.1.05",
+          "Teacher": "ROUDAKI, POUYA"
+        },
+        {
+          "Week": 11,
+          "Day": "Thu",
+          "StartTime": "17:30",
+          "EndTime": "19:00",
+          "Room": "CBG.1.05",
+          "Teacher": "ROUDAKI, POUYA"
+        }
+      ]
+    }
   },
   "ST311/LECTURE/01": {
-    "WT": [
-      {
-        "Week": 1,
-        "Day": "Tue",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.LG.01"
-      },
-      {
-        "Week": 2,
-        "Day": "Tue",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.LG.01"
-      },
-      {
-        "Week": 3,
-        "Day": "Tue",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.LG.01"
-      },
-      {
-        "Week": 4,
-        "Day": "Tue",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.LG.01"
-      },
-      {
-        "Week": 5,
-        "Day": "Tue",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.LG.01"
-      },
-      {
-        "Week": 6,
-        "Day": "Tue",
-        "StartTime": "13:00",
-        "EndTime": "15:30",
-        "Room": "CKK.LG.01"
-      },
-      {
-        "Week": 7,
-        "Day": "Tue",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.LG.01"
-      },
-      {
-        "Week": 8,
-        "Day": "Tue",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.LG.01"
-      },
-      {
-        "Week": 9,
-        "Day": "Tue",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.LG.01"
-      },
-      {
-        "Week": 10,
-        "Day": "Tue",
-        "StartTime": "13:00",
-        "EndTime": "15:00",
-        "Room": "CKK.LG.01"
-      },
-      {
-        "Week": 11,
-        "Day": "Tue",
-        "StartTime": "13:00",
-        "EndTime": "15:30",
-        "Room": "CLM.3.02"
-      }
-    ]
+    "CourseCode": "ST311",
+    "CourseName": "Artificial Intelligence",
+    "Type": "LEC",
+    "GroupNumber": 1,
+    "Sessions": {
+      "WT": [
+        {
+          "Week": 1,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.LG.01",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 2,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.LG.01",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 3,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.LG.01",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 4,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.LG.01",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 5,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.LG.01",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 6,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "15:30",
+          "Room": "CKK.LG.01",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 7,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.LG.01",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 8,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.LG.01",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 9,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.LG.01",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 10,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "15:00",
+          "Room": "CKK.LG.01",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 11,
+          "Day": "Tue",
+          "StartTime": "13:00",
+          "EndTime": "15:30",
+          "Room": "CLM.3.02",
+          "Teacher": "CHAN, DR PHILIP"
+        }
+      ]
+    }
   },
   "ST311/SEMINAR/01": {
-    "WT": [
-      {
-        "Week": 1,
-        "Day": "Thu",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 2,
-        "Day": "Thu",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 3,
-        "Day": "Thu",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 4,
-        "Day": "Thu",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 5,
-        "Day": "Thu",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 7,
-        "Day": "Thu",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 8,
-        "Day": "Thu",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 9,
-        "Day": "Thu",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 10,
-        "Day": "Thu",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 11,
-        "Day": "Thu",
-        "StartTime": "09:00",
-        "EndTime": "10:30",
-        "Room": "CBG.2.06"
-      }
-    ]
+    "CourseCode": "ST311",
+    "CourseName": "Artificial Intelligence",
+    "Type": "SEM",
+    "GroupNumber": 1,
+    "Sessions": {
+      "WT": [
+        {
+          "Week": 1,
+          "Day": "Thu",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 2,
+          "Day": "Thu",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 3,
+          "Day": "Thu",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 4,
+          "Day": "Thu",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 5,
+          "Day": "Thu",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 7,
+          "Day": "Thu",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 8,
+          "Day": "Thu",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 9,
+          "Day": "Thu",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 10,
+          "Day": "Thu",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 11,
+          "Day": "Thu",
+          "StartTime": "09:00",
+          "EndTime": "10:30",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        }
+      ]
+    }
   },
   "ST311/SEMINAR/02": {
-    "WT": [
-      {
-        "Week": 1,
-        "Day": "Thu",
-        "StartTime": "10:30",
-        "EndTime": "12:00",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 2,
-        "Day": "Thu",
-        "StartTime": "10:30",
-        "EndTime": "12:00",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 3,
-        "Day": "Thu",
-        "StartTime": "10:30",
-        "EndTime": "12:00",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 4,
-        "Day": "Thu",
-        "StartTime": "10:30",
-        "EndTime": "12:00",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 5,
-        "Day": "Thu",
-        "StartTime": "10:30",
-        "EndTime": "12:00",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 7,
-        "Day": "Thu",
-        "StartTime": "10:30",
-        "EndTime": "12:00",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 8,
-        "Day": "Thu",
-        "StartTime": "10:30",
-        "EndTime": "12:00",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 9,
-        "Day": "Thu",
-        "StartTime": "10:30",
-        "EndTime": "12:00",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 10,
-        "Day": "Thu",
-        "StartTime": "10:30",
-        "EndTime": "12:00",
-        "Room": "CBG.2.06"
-      },
-      {
-        "Week": 11,
-        "Day": "Thu",
-        "StartTime": "10:30",
-        "EndTime": "12:00",
-        "Room": "CBG.2.06"
-      }
-    ]
+    "CourseCode": "ST311",
+    "CourseName": "Artificial Intelligence",
+    "Type": "SEM",
+    "GroupNumber": 2,
+    "Sessions": {
+      "WT": [
+        {
+          "Week": 1,
+          "Day": "Thu",
+          "StartTime": "10:30",
+          "EndTime": "12:00",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 2,
+          "Day": "Thu",
+          "StartTime": "10:30",
+          "EndTime": "12:00",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 3,
+          "Day": "Thu",
+          "StartTime": "10:30",
+          "EndTime": "12:00",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 4,
+          "Day": "Thu",
+          "StartTime": "10:30",
+          "EndTime": "12:00",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 5,
+          "Day": "Thu",
+          "StartTime": "10:30",
+          "EndTime": "12:00",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 7,
+          "Day": "Thu",
+          "StartTime": "10:30",
+          "EndTime": "12:00",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 8,
+          "Day": "Thu",
+          "StartTime": "10:30",
+          "EndTime": "12:00",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 9,
+          "Day": "Thu",
+          "StartTime": "10:30",
+          "EndTime": "12:00",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 10,
+          "Day": "Thu",
+          "StartTime": "10:30",
+          "EndTime": "12:00",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 11,
+          "Day": "Thu",
+          "StartTime": "10:30",
+          "EndTime": "12:00",
+          "Room": "CBG.2.06",
+          "Teacher": "CHAN, DR PHILIP"
+        }
+      ]
+    }
   },
   "ST311/SEMINAR/03": {
-    "WT": [
-      {
-        "Week": 1,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "14:30",
-        "Room": "CBG.1.07"
-      },
-      {
-        "Week": 2,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "14:30",
-        "Room": "CBG.1.07"
-      },
-      {
-        "Week": 3,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "14:30",
-        "Room": "CBG.1.07"
-      },
-      {
-        "Week": 4,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "14:30",
-        "Room": "CBG.1.07"
-      },
-      {
-        "Week": 5,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "14:30",
-        "Room": "CBG.1.07"
-      },
-      {
-        "Week": 7,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "14:30",
-        "Room": "CBG.1.07"
-      },
-      {
-        "Week": 8,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "14:30",
-        "Room": "CBG.1.07"
-      },
-      {
-        "Week": 9,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "14:30",
-        "Room": "CBG.1.07"
-      },
-      {
-        "Week": 10,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "14:30",
-        "Room": "CBG.1.07"
-      },
-      {
-        "Week": 11,
-        "Day": "Thu",
-        "StartTime": "13:00",
-        "EndTime": "14:30",
-        "Room": "CBG.1.07"
-      }
-    ]
+    "CourseCode": "ST311",
+    "CourseName": "Artificial Intelligence",
+    "Type": "SEM",
+    "GroupNumber": 3,
+    "Sessions": {
+      "WT": [
+        {
+          "Week": 1,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "14:30",
+          "Room": "CBG.1.07",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 2,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "14:30",
+          "Room": "CBG.1.07",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 3,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "14:30",
+          "Room": "CBG.1.07",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 4,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "14:30",
+          "Room": "CBG.1.07",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 5,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "14:30",
+          "Room": "CBG.1.07",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 7,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "14:30",
+          "Room": "CBG.1.07",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 8,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "14:30",
+          "Room": "CBG.1.07",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 9,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "14:30",
+          "Room": "CBG.1.07",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 10,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "14:30",
+          "Room": "CBG.1.07",
+          "Teacher": "CHAN, DR PHILIP"
+        },
+        {
+          "Week": 11,
+          "Day": "Thu",
+          "StartTime": "13:00",
+          "EndTime": "14:30",
+          "Room": "CBG.1.07",
+          "Teacher": "CHAN, DR PHILIP"
+        }
+      ]
+    }
   },
   "ST311/SEMINAR/04": {
-    "WT": [
-      {
-        "Week": 1,
-        "Day": "Thu",
-        "StartTime": "14:30",
-        "EndTime": "16:00",
-        "Room": "CBG.1.07"
-      },
-      {
-        "Week": 2,
-        "Day": "Thu",
-        "StartTime": "14:30",
-        "EndTime": "16:00",
-        "Room": "CBG.1.07"
-      },
-      {
-        "Week": 3,
-        "Day": "Thu",
-        "StartTime": "14:30",
-        "EndTime": "16:00",
-        "Room": "CBG.1.07"
-      },
-      {
-        "Week": 4,
-        "Day": "Thu",
-        "StartTime": "14:30",
-        "EndTime": "16:00",
-        "Room": "CBG.1.07"
-      },
-      {
-        "Week": 5,
-        "Day": "Thu",
-        "StartTime": "14:30",
-        "EndTime": "16:00",
-        "Room": "CBG.1.07"
-      },
-      {
-        "Week": 7,
-        "Day": "Thu",
-        "StartTime": "14:30",
-        "EndTime": "16:00",
-        "Room": "CBG.1.07"
-      },
-      {
-        "Week": 8,
-        "Day": "Thu",
-        "StartTime": "14:30",
-        "EndTime": "16:00",
-        "Room": "CBG.1.07"
-      },
-      {
-        "Week": 9,
-        "Day": "Thu",
-        "StartTime": "14:30",
-        "EndTime": "16:00",
-        "Room": "CBG.1.07"
-      },
-      {
-        "Week": 10,
-        "Day": "Thu",
-        "StartTime": "14:30",
-        "EndTime": "16:00",
-        "Room": "CBG.1.07"
-      },
-      {
-        "Week": 11,
-        "Day": "Thu",
-        "StartTime": "14:30",
-        "EndTime": "16:00",
-        "Room": "CBG.1.07"
-      }
-    ]
+    "CourseCode": "ST311",
+    "CourseName": "Artificial Intelligence",
+    "Type": "SEM",
+    "GroupNumber": 4,
+    "Sessions": {
+      "WT": [
+        {
+          "Week": 1,
+          "Day": "Thu",
+          "StartTime": "14:30",
+          "EndTime": "16:00",
+          "Room": "CBG.1.07",
+          "Teacher": "YUEN, DR CHRISTINE"
+        },
+        {
+          "Week": 2,
+          "Day": "Thu",
+          "StartTime": "14:30",
+          "EndTime": "16:00",
+          "Room": "CBG.1.07",
+          "Teacher": "YUEN, DR CHRISTINE"
+        },
+        {
+          "Week": 3,
+          "Day": "Thu",
+          "StartTime": "14:30",
+          "EndTime": "16:00",
+          "Room": "CBG.1.07",
+          "Teacher": "YUEN, DR CHRISTINE"
+        },
+        {
+          "Week": 4,
+          "Day": "Thu",
+          "StartTime": "14:30",
+          "EndTime": "16:00",
+          "Room": "CBG.1.07",
+          "Teacher": "YUEN, DR CHRISTINE"
+        },
+        {
+          "Week": 5,
+          "Day": "Thu",
+          "StartTime": "14:30",
+          "EndTime": "16:00",
+          "Room": "CBG.1.07",
+          "Teacher": "YUEN, DR CHRISTINE"
+        },
+        {
+          "Week": 7,
+          "Day": "Thu",
+          "StartTime": "14:30",
+          "EndTime": "16:00",
+          "Room": "CBG.1.07",
+          "Teacher": "YUEN, DR CHRISTINE"
+        },
+        {
+          "Week": 8,
+          "Day": "Thu",
+          "StartTime": "14:30",
+          "EndTime": "16:00",
+          "Room": "CBG.1.07",
+          "Teacher": "YUEN, DR CHRISTINE"
+        },
+        {
+          "Week": 9,
+          "Day": "Thu",
+          "StartTime": "14:30",
+          "EndTime": "16:00",
+          "Room": "CBG.1.07",
+          "Teacher": "YUEN, DR CHRISTINE"
+        },
+        {
+          "Week": 10,
+          "Day": "Thu",
+          "StartTime": "14:30",
+          "EndTime": "16:00",
+          "Room": "CBG.1.07",
+          "Teacher": "YUEN, DR CHRISTINE"
+        },
+        {
+          "Week": 11,
+          "Day": "Thu",
+          "StartTime": "14:30",
+          "EndTime": "16:00",
+          "Room": "CBG.1.07",
+          "Teacher": "YUEN, DR CHRISTINE"
+        }
+      ]
+    }
   },
   "ST311/SEMINAR/05": {
-    "WT": [
-      {
-        "Week": 1,
-        "Day": "Thu",
-        "StartTime": "12:00",
-        "EndTime": "13:30",
-        "Room": "CBG.1.04"
-      },
-      {
-        "Week": 2,
-        "Day": "Thu",
-        "StartTime": "12:00",
-        "EndTime": "13:30",
-        "Room": "CBG.1.04"
-      },
-      {
-        "Week": 3,
-        "Day": "Thu",
-        "StartTime": "12:00",
-        "EndTime": "13:30",
-        "Room": "CBG.1.04"
-      },
-      {
-        "Week": 4,
-        "Day": "Thu",
-        "StartTime": "12:00",
-        "EndTime": "13:30",
-        "Room": "CBG.1.04"
-      },
-      {
-        "Week": 5,
-        "Day": "Thu",
-        "StartTime": "12:00",
-        "EndTime": "13:30",
-        "Room": "CBG.1.04"
-      },
-      {
-        "Week": 7,
-        "Day": "Thu",
-        "StartTime": "12:00",
-        "EndTime": "13:30",
-        "Room": "CBG.1.04"
-      },
-      {
-        "Week": 8,
-        "Day": "Thu",
-        "StartTime": "12:00",
-        "EndTime": "13:30",
-        "Room": "CBG.1.04"
-      },
-      {
-        "Week": 9,
-        "Day": "Thu",
-        "StartTime": "12:00",
-        "EndTime": "13:30",
-        "Room": "CBG.1.04"
-      },
-      {
-        "Week": 10,
-        "Day": "Thu",
-        "StartTime": "12:00",
-        "EndTime": "13:30",
-        "Room": "CBG.1.04"
-      },
-      {
-        "Week": 11,
-        "Day": "Thu",
-        "StartTime": "12:00",
-        "EndTime": "13:30",
-        "Room": "CBG.1.04"
-      }
-    ]
+    "CourseCode": "ST311",
+    "CourseName": "Artificial Intelligence",
+    "Type": "SEM",
+    "GroupNumber": 5,
+    "Sessions": {
+      "WT": [
+        {
+          "Week": 1,
+          "Day": "Thu",
+          "StartTime": "12:00",
+          "EndTime": "13:30",
+          "Room": "CBG.1.04",
+          "Teacher": "WANG, YUTONG"
+        },
+        {
+          "Week": 2,
+          "Day": "Thu",
+          "StartTime": "12:00",
+          "EndTime": "13:30",
+          "Room": "CBG.1.04",
+          "Teacher": "WANG, YUTONG"
+        },
+        {
+          "Week": 3,
+          "Day": "Thu",
+          "StartTime": "12:00",
+          "EndTime": "13:30",
+          "Room": "CBG.1.04",
+          "Teacher": "WANG, YUTONG"
+        },
+        {
+          "Week": 4,
+          "Day": "Thu",
+          "StartTime": "12:00",
+          "EndTime": "13:30",
+          "Room": "CBG.1.04",
+          "Teacher": "WANG, YUTONG"
+        },
+        {
+          "Week": 5,
+          "Day": "Thu",
+          "StartTime": "12:00",
+          "EndTime": "13:30",
+          "Room": "CBG.1.04",
+          "Teacher": "WANG, YUTONG"
+        },
+        {
+          "Week": 7,
+          "Day": "Thu",
+          "StartTime": "12:00",
+          "EndTime": "13:30",
+          "Room": "CBG.1.04",
+          "Teacher": "WANG, YUTONG"
+        },
+        {
+          "Week": 8,
+          "Day": "Thu",
+          "StartTime": "12:00",
+          "EndTime": "13:30",
+          "Room": "CBG.1.04",
+          "Teacher": "WANG, YUTONG"
+        },
+        {
+          "Week": 9,
+          "Day": "Thu",
+          "StartTime": "12:00",
+          "EndTime": "13:30",
+          "Room": "CBG.1.04",
+          "Teacher": "WANG, YUTONG"
+        },
+        {
+          "Week": 10,
+          "Day": "Thu",
+          "StartTime": "12:00",
+          "EndTime": "13:30",
+          "Room": "CBG.1.04",
+          "Teacher": "WANG, YUTONG"
+        },
+        {
+          "Week": 11,
+          "Day": "Thu",
+          "StartTime": "12:00",
+          "EndTime": "13:30",
+          "Room": "CBG.1.04",
+          "Teacher": "WANG, YUTONG"
+        }
+      ]
+    }
   }
 }
