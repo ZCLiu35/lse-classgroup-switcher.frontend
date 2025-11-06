@@ -105,7 +105,7 @@ export class SidebarManager {
                            ${isVisible ? 'checked' : ''}>
                     <div class="course-color-dot ${colorClass}"></div>
                     <div class="course-filter-title">${course.CourseCode}</div>
-                    ${hasChanges ? `<div class="course-filter-change-indicator">${changeText}</div>` : ''}
+                    ${changes.length > 0 ? `<div class="course-filter-change-indicator">${changeText}</div>` : ''}
                 </div>
                 <div class="course-filter-name">${course.CourseName}</div>
                 <div class="course-filter-controls">
