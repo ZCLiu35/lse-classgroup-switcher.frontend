@@ -1,0 +1,52 @@
+/* ======================================
+   Sidebar Styles
+   ====================================== */
+
+/* Sidebar Course Cards */
+.course-card {
+    padding: 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.course-card:hover {
+    border-color: #d1d5db;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.course-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.course-color-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.course-card-title {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #1f2937;
+}
+
+.course-card-name {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-left: 24px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.course-card-detail {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-left: 24px;
+    margin-bottom: 4px;
+}

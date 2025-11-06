@@ -1,0 +1,35 @@
+/* ======================================
+   Base Styles
+   ====================================== */
+
+/* Calendar Container */
+#calendar {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* FullCalendar Customization */
+.fc {
+    height: 100%;
+}
+
+.fc-toolbar-title {
+    font-size: 1.5rem !important;
+    font-weight: 600;
+}
+
+/* Time column styling */
+.fc-timegrid-slot-label {
+    font-size: 1rem;
+    color: #6b7280;
+}
+
+/* Error State */
+.error-message {
+    padding: 16px;
+    background-color: #fee2e2;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+    color: #991b1b;
+    margin: 16px;
+}

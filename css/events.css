@@ -1,0 +1,55 @@
+/* ======================================
+   Calendar Event Styles
+   ====================================== */
+
+/* Event Styling - Viewing Mode */
+.fc-event {
+    border-radius: 4px;
+    padding: 2px 4px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.fc-event:hover {
+    filter: brightness(0.95);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Lecture - Solid with thicker border to distinguish from tutorials */
+.fc-event.lecture {
+    border-width: 3px;
+    opacity: 0.9;
+}
+
+/* Event Content Layout */
+.fc-event-title {
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.fc-event-time {
+    font-size: 0.7rem;
+    opacity: 0.9;
+}
+
+/* Custom Event Content Structure */
+.event-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.event-course {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.event-type-location {
+    font-size: 0.85rem;
+    opacity: 0.95;
+}
+
+/* Note: Course colors are dynamically generated via JavaScript (see app.js injectDynamicStyles)
+   This allows for unlimited courses with a cycling color palette */

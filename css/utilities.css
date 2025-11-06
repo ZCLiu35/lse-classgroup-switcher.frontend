@@ -1,0 +1,17 @@
+/* ======================================
+   Utilities and Responsive Adjustments
+   ====================================== */
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    #sidebar {
+        width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .fc-toolbar {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

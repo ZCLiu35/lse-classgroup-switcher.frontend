@@ -1,0 +1,122 @@
+/* ======================================
+   Event Details Modal
+   ====================================== */
+
+.event-modal {
+    position: fixed;
+    z-index: 1000;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    pointer-events: auto;
+}
+
+.event-modal.fade-in {
+    animation: modalFadeIn 0.2s ease forwards;
+}
+
+.event-modal.fade-out {
+    animation: modalFadeOut 0.2s ease forwards;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes modalFadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+.event-modal.hidden {
+    display: none;
+}
+
+.event-modal-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.event-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 16px 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.event-modal-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0;
+    padding-right: 8px;
+    line-height: 1.4;
+}
+
+.event-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.75rem;
+    color: #9ca3af;
+    cursor: pointer;
+    padding: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.event-modal-close:hover {
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
+.event-modal-body {
+    padding: 16px 20px;
+}
+
+.event-modal-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    gap: 16px;
+}
+
+.event-modal-row:last-child {
+    margin-bottom: 0;
+}
+
+.event-modal-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+    flex-shrink: 0;
+    min-width: 80px;
+}
+
+.event-modal-value {
+    font-size: 0.875rem;
+    color: #1f2937;
+    text-align: right;
+    flex: 1;
+}
