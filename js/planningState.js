@@ -314,7 +314,7 @@ export class PlanningState {
     _addAllSessionsEvents(events, course, groupType, enrolledGroupId, selectedGroupId,
                           termCode, weekNumber, weekStart, colorClass) {
         const allGroups = this.app.groups.filter(g => 
-            g.CourseCode === course.CourseID && g.Type === groupType
+            g.CourseCode === course.CourseCode && g.Type === groupType
         );
         
         allGroups.forEach(group => {

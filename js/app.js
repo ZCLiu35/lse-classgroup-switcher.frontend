@@ -179,7 +179,7 @@ class ClassSwitcherApp {
                 const borderColor = utils.generateBorderColor(color);
                 
                 // Store both background and border colors
-                this.courseColors.set(course.CourseID, {
+                this.courseColors.set(course.CourseCode, {
                     background: color,
                     border: borderColor,
                     index: index
@@ -430,7 +430,7 @@ class ClassSwitcherApp {
         const enrolledCourses = this.getEnrolledCoursesForTerm(termCode);
         
         enrolledCourses.forEach(course => {
-            const enrollment = this.enrollment[course.CourseID];
+            const enrollment = this.enrollment[course.CourseCode];
             if (!enrollment) return;
             
             // Process all enrolled groups for this course
@@ -450,7 +450,7 @@ class ClassSwitcherApp {
                     // Determine event state based on group type
                     const eventState = group.Type === 'LEC' ? 'lecture' : 'enrolled';
                     
-                    const colorData = this.courseColors.get(course.CourseID);
+                    const colorData = this.courseColors.get(course.CourseCode);
                     const colorClass = `course-color-${colorData.index}`;
                     
                     const event = utils.sessionToEvent(
