@@ -1,6 +1,7 @@
 # ClassSwitcher Frontend - Phase 2
 
 **Full-Featured Class Planner** - View enrolled schedule and plan tutorial group changes with conflict detection.
+The backend API (NOT IMPLEMENTED YET) is available [here](https://github.com/ZCLiu35/lse-classgroup-switcher.backend).
 
 ## Quick Start
 
