@@ -386,6 +386,7 @@ class ClassSwitcherApp {
      * Load week data and update calendar
      */
     loadWeek(termCode, weekNumber) {
+        const termChanged = this.currentTerm !== termCode;
         this.currentTerm = termCode;
         this.currentWeek = weekNumber;
         
@@ -409,6 +410,11 @@ class ClassSwitcherApp {
         
         // Update UI
         this.updateNavigationUI(start, end);
+        
+        // Update sidebar if term changed and not in planning mode
+        if (termChanged && !this.planningState.isPlanning()) {
+            this.sidebarManager.renderViewingSidebar();
+        }
     }
 
     /**
