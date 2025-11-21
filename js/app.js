@@ -385,7 +385,7 @@ class ClassSwitcherApp {
     /**
      * Load week data and update calendar
      */
-    loadWeek(termCode, weekNumber) {
+    loadWeek(termCode, weekNumber, forceSidebarUpdate = false) {
         const termChanged = this.currentTerm !== termCode;
         this.currentTerm = termCode;
         this.currentWeek = weekNumber;
@@ -411,9 +411,13 @@ class ClassSwitcherApp {
         // Update UI
         this.updateNavigationUI(start, end);
         
-        // Update sidebar if term changed and not in planning mode
-        if (termChanged && !this.planningState.isPlanning()) {
-            this.sidebarManager.renderViewingSidebar();
+        // Update sidebar if term changed or forceSidebarUpdate is true
+        if (termChanged || forceSidebarUpdate) {
+            if (this.planningState.isPlanning()) {
+                this.sidebarManager.renderPlanningSidebar();
+            } else {
+                this.sidebarManager.renderViewingSidebar();
+            }
         }
     }
 
@@ -520,7 +524,8 @@ class ClassSwitcherApp {
         // Today button
         document.getElementById('todayBtn').addEventListener('click', () => {
             this.detectCurrentWeekAndTerm();
-            this.loadWeek(this.currentTerm, this.currentWeek);
+            // Use forceSidebarUpdate=true to ensure sidebar updates even if term hasn't changed
+            this.loadWeek(this.currentTerm, this.currentWeek, true);
         });
         
         // Planning mode toggle
