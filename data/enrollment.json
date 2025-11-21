@@ -1,25 +1,25 @@
 {
   "EC333": {
-    "LEC": "EC333/LECTURE/01",
-    "CLA": "EC333/CLASS/01"
+    "LEC": 1,
+    "CLA": 1
   },
   "EC313": {
-    "LEC": "EC313/LECTURE/01",
-    "CLA": "EC313/CLASS/04"
+    "LEC": 1,
+    "CLA": 4
   },
   "FM321": {
-    "LEC": "FM321/LECTURE/01",
-    "SEM": "FM321/SEMINAR/02"
+    "LEC": 1,
+    "SEM": 2
   },
   "FM322": {
-    "SEM": "FM322/SEMINAR/02"
+    "SEM": 2
   },
   "ST310": {
-    "LEC": "ST310/LECTURE/01",
-    "SEM": "ST310/SEMINAR/07"
+    "LEC": 1,
+    "SEM": 7
   },
   "ST311": {
-    "LEC": "ST311/LECTURE/01",
-    "SEM": "ST311/SEMINAR/01"
+    "LEC": 1,
+    "SEM": 1
   }
 }

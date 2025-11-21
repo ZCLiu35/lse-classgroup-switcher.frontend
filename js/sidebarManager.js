@@ -33,16 +33,13 @@ export class SidebarManager {
             
             // Build enrolled groups display (exclude lectures)
             let groupsHTML = '';
-            Object.entries(enrollment).forEach(([type, groupId]) => {
+            Object.entries(enrollment).forEach(([type, groupNumber]) => {
                 // Skip lectures in the display
                 if (type === 'LEC') return;
                 
-                const group = this.app.groups.find(g => g.GroupID === groupId);
-                if (group) {
-                    const typeLabel = type === 'CLA' ? 'Class' : 
-                                     type === 'SEM' ? 'Seminar' : type;
-                    groupsHTML += `<div class="course-card-detail">${typeLabel}: Group ${group.GroupNumber}</div>`;
-                }
+                const typeLabel = type === 'CLA' ? 'Class' : 
+                                 type === 'SEM' ? 'Seminar' : type;
+                groupsHTML += `<div class="course-card-detail">${typeLabel}: Group ${groupNumber}</div>`;
             });
             
             courseCard.innerHTML = `
@@ -87,17 +84,19 @@ export class SidebarManager {
             let changeText = '';
             if (changes.length > 0) {
                 const changeDescriptions = changes.map(ch => {
-                    const fromGroup = this.app.groups.find(g => g.GroupID === ch.from);
-                    const toGroup = this.app.groups.find(g => g.GroupID === ch.to);
-                    return `${ch.groupType}${fromGroup?.GroupNumber}→${toGroup?.GroupNumber}`;
+                    return `${ch.groupType}${ch.from}→${ch.to}`;
                 });
                 changeText = ` (${changeDescriptions.join(', ')})`;
             }
             
             // Count available groups (tutorials/seminars only)
-            const availableGroups = this.app.groups.filter(g => 
-                g.CourseCode === course.CourseCode && g.Type !== 'LEC'
-            );
+            const availableGroups = [];
+            ['CLA', 'SEM'].forEach(groupType => {
+                const groups = this.app.sessions[course.CourseCode]?.[groupType];
+                if (groups) {
+                    Object.keys(groups).forEach(num => availableGroups.push({ type: groupType, num }));
+                }
+            });
             
             filterItem.innerHTML = `
                 <div class="course-filter-header">

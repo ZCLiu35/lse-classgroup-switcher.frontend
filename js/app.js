@@ -17,10 +17,8 @@ class ClassSwitcherApp {
         
         // Data storage
         this.courses = [];
-        this.groups = [];  // Will be extracted from sessions
         this.sessions = {};
         this.enrollment = [];
-        this.originalEnrollment = []; // Keep original for reference
         
         // Course color mapping
         this.courseColors = new Map();
@@ -104,23 +102,9 @@ class ClassSwitcherApp {
                 utils.loadJSON(CONFIG.DATA_PATHS.enrollment)
             ]);
             
-            // Extract groups from sessions data
-            this.groups = Object.entries(this.sessions).map(([groupId, data]) => ({
-                GroupID: groupId,
-                CourseCode: data.CourseCode,
-                CourseName: data.CourseName,
-                Type: data.Type,
-                GroupNumber: data.GroupNumber
-            }));
-            
-            // Keep a copy of original enrollment
-            this.originalEnrollment = JSON.parse(JSON.stringify(this.enrollment));
-            
             console.log('Data loaded successfully:', {
                 courses: this.courses.length,
-                groups: this.groups.length,
-                sessions: Object.keys(this.sessions).length,
-                enrollment: this.enrollment.length
+                sessions: Object.keys(this.sessions).length
             });
         } catch (error) {
             console.error('Error loading data:', error);
@@ -149,12 +133,12 @@ class ClassSwitcherApp {
                 return;
             }
             
-            // Apply each group type change
-            Object.entries(groupChanges).forEach(([groupType, newGroupId]) => {
+            // Apply each group type change (now storing group numbers)
+            Object.entries(groupChanges).forEach(([groupType, newGroupNumber]) => {
                 if (enrollmentEntry[groupType] !== undefined) {
-                    const oldGroupId = enrollmentEntry[groupType];
-                    console.log(`Override: ${courseId} ${groupType}: ${oldGroupId} → ${newGroupId}`);
-                    enrollmentEntry[groupType] = newGroupId;
+                    const oldGroupNumber = enrollmentEntry[groupType];
+                    console.log(`Override: ${courseId} ${groupType}: ${oldGroupNumber} → ${newGroupNumber}`);
+                    enrollmentEntry[groupType] = newGroupNumber;
                 }
             });
         });
@@ -432,7 +416,7 @@ class ClassSwitcherApp {
 
     /**
      * Get all enrolled events for a specific week
-     * Uses nested sessions structure: { GroupID: { Term: [sessions] } }
+     * Uses nested sessions structure: { CourseCode: { Type: { Number: { Term: [sessions] } } } }
      * This provides O(1) lookup instead of filtering through all sessions.
      */
     getEventsForWeek(termCode, weekNumber, weekStart) {
@@ -444,12 +428,9 @@ class ClassSwitcherApp {
             if (!enrollment) return;
             
             // Process all enrolled groups for this course
-            Object.entries(enrollment).forEach(([groupType, groupId]) => {
-                const group = this.groups.find(g => g.GroupID === groupId);
-                if (!group) return;
-                
-                // Get sessions for this group and term (direct lookup, no filtering!)
-                const groupSessions = this.sessions[groupId]?.Sessions?.[termCode];
+            Object.entries(enrollment).forEach(([groupType, groupNumber]) => {
+                // Get sessions for this group and term (direct lookup!)
+                const groupSessions = this.sessions[course.CourseCode]?.[groupType]?.[groupNumber]?.[termCode];
                 if (!groupSessions) return;
                 
                 // Filter sessions for this specific week
@@ -458,10 +439,18 @@ class ClassSwitcherApp {
                 // Convert each session to a calendar event
                 weekSessions.forEach(session => {
                     // Determine event state based on group type
-                    const eventState = group.Type === 'LEC' ? 'lecture' : 'enrolled';
+                    const eventState = groupType === 'LEC' ? 'lecture' : 'enrolled';
                     
                     const colorData = this.courseColors.get(course.CourseCode);
                     const colorClass = `course-color-${colorData.index}`;
+                    
+                    // Create group object for sessionToEvent
+                    const group = {
+                        CourseCode: course.CourseCode,
+                        CourseName: course.CourseName,
+                        Type: groupType,
+                        GroupNumber: groupNumber
+                    };
                     
                     const event = utils.sessionToEvent(
                         session, 
@@ -658,13 +647,13 @@ class ClassSwitcherApp {
         changes.forEach((change, key) => {
             const { courseId, groupType, to } = change;
             
-            // Update enrollment in memory
+            // Update enrollment in memory (now storing group numbers)
             const enrollmentEntry = this.enrollment[courseId];
             if (enrollmentEntry) {
                 enrollmentEntry[groupType] = to;
             }
             
-            // Update overrides object (store group IDs for consistency)
+            // Update overrides object (store group numbers)
             if (!overrides[courseId]) {
                 overrides[courseId] = {};
             }
