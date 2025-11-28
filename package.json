@@ -14,5 +14,8 @@
   ],
   "author": "",
   "license": "MIT",
-  "type": "commonjs"
+  "type": "commonjs",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.84.0"
+  }
 }
