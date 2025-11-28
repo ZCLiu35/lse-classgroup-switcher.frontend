@@ -6,7 +6,7 @@ const STORAGE_KEYS = {
     COURSE_COLORS: 'classSwitcher_courseColors',
     MODE: 'classSwitcher_mode',
     PLANNING_STATE: 'classSwitcher_planningState',
-    ENROLLMENT_OVERRIDES: 'classSwitcher_enrollmentOverrides'
+    WEEK_SPECIFIC_OVERRIDES: 'classSwitcher_weekSpecificOverrides'
 };
 
 /**
@@ -117,15 +117,19 @@ export class StorageManager {
     }
 
     // ======================================
-    // Enrollment Overrides
+    // Week-Specific Overrides
     // ======================================
 
-    saveEnrollmentOverrides(overrides) {
-        this._save(STORAGE_KEYS.ENROLLMENT_OVERRIDES, overrides);
+    /**
+     * Save week-specific overrides
+     * Format: { 'courseId_groupType_weekN': groupNumber }
+     */
+    saveWeekSpecificOverrides(overrides) {
+        this._save(STORAGE_KEYS.WEEK_SPECIFIC_OVERRIDES, overrides);
     }
 
-    loadEnrollmentOverrides() {
-        return this._load(STORAGE_KEYS.ENROLLMENT_OVERRIDES, {});
+    loadWeekSpecificOverrides() {
+        return this._load(STORAGE_KEYS.WEEK_SPECIFIC_OVERRIDES, {});
     }
 
     // ======================================

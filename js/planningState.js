@@ -17,8 +17,11 @@ export class PlanningState {
         // Current mode: 'viewing' or 'planning'
         this.mode = 'viewing';
         
-        // Staged changes: { courseId_groupType: { courseId, groupType, from: groupNumber, to: groupNumber } }
+        // Staged changes: { courseId_groupType_weekN: { courseId, groupType, weekNumber, from: groupNumber, to: groupNumber } }
         this.stagedChanges = new Map();
+        
+        // Week-specific overrides (persisted): { 'courseId_groupType_weekN': groupNumber }
+        this.weekSpecificOverrides = {};
         
         // Visible courses in planning mode: Set of courseIds
         this.visibleCourses = new Set();
@@ -28,6 +31,14 @@ export class PlanningState {
         
         // Conflict tracking
         this.conflictingEventIds = new Set();
+    }
+    
+    /**
+     * Load week-specific overrides from storage
+     * @param {Object} overrides - Week-specific overrides from localStorage
+     */
+    loadWeekSpecificOverrides(overrides) {
+        this.weekSpecificOverrides = overrides || {};
     }
 
     /**
@@ -119,9 +130,10 @@ export class PlanningState {
      * @param {string} groupType - 'CLA' or 'SEM'
      * @param {number} fromGroupNumber - Current enrolled group number
      * @param {number} toGroupNumber - Selected group number
+     * @param {number} weekNumber - Week number for this change
      */
-    selectTutorialGroup(courseId, groupType, fromGroupNumber, toGroupNumber) {
-        const key = `${courseId}_${groupType}`;
+    selectTutorialGroup(courseId, groupType, fromGroupNumber, toGroupNumber, weekNumber) {
+        const key = `${courseId}_${groupType}_week${weekNumber}`;
         
         if (fromGroupNumber === toGroupNumber) {
             // If selecting the same as enrolled, remove the staged change
@@ -131,6 +143,7 @@ export class PlanningState {
             this.stagedChanges.set(key, {
                 courseId,
                 groupType,
+                weekNumber,
                 from: fromGroupNumber,
                 to: toGroupNumber
             });
@@ -142,13 +155,58 @@ export class PlanningState {
      * @param {string} courseId
      * @param {string} groupType
      * @param {number} enrolledGroupNumber - Currently enrolled group number
+     * @param {number} weekNumber - Week number to check for changes
      * @returns {number} - The group number (either staged or enrolled)
      */
-    getSelectedGroup(courseId, groupType, enrolledGroupNumber) {
-        const key = `${courseId}_${groupType}`;
-        const stagedChange = this.stagedChanges.get(key);
+    getSelectedGroup(courseId, groupType, enrolledGroupNumber, weekNumber) {
+        const key = `${courseId}_${groupType}_week${weekNumber}`;
         
-        return stagedChange ? stagedChange.to : enrolledGroupNumber;
+        // First check staged changes (uncommitted)
+        const stagedChange = this.stagedChanges.get(key);
+        if (stagedChange) {
+            return stagedChange.to;
+        }
+        
+        // Then check persisted week-specific overrides
+        if (this.weekSpecificOverrides[key] !== undefined) {
+            return this.weekSpecificOverrides[key];
+        }
+        
+        // Finally, fall back to enrolled group
+        return enrolledGroupNumber;
+    }
+
+    /**
+     * Get the effective enrolled group (original enrollment + persisted overrides)
+     * This is the "current" enrollment for a specific week after applying saved changes
+     * @param {string} courseId
+     * @param {string} groupType
+     * @param {number} originalEnrolledGroup - Original enrolled group number
+     * @param {number} weekNumber - Week number
+     * @returns {number} - The effective enrolled group number
+     */
+    getEffectiveEnrolledGroup(courseId, groupType, originalEnrolledGroup, weekNumber) {
+        const key = `${courseId}_${groupType}_week${weekNumber}`;
+        return this.weekSpecificOverrides[key] !== undefined 
+            ? this.weekSpecificOverrides[key] 
+            : originalEnrolledGroup;
+    }
+
+    /**
+     * Determine the event state for a group
+     * @param {number} groupNumber - The group number to check
+     * @param {number} effectiveEnrolledGroup - The effective enrolled group for this week
+     * @param {number} selectedGroup - The currently selected group (staged)
+     * @returns {string} - 'enrolled', 'selected', or 'alternative'
+     */
+    getEventState(groupNumber, effectiveEnrolledGroup, selectedGroup) {
+        if (groupNumber === selectedGroup && groupNumber !== effectiveEnrolledGroup) {
+            return 'selected';
+        } else if (groupNumber === effectiveEnrolledGroup) {
+            return 'enrolled';
+        } else {
+            return 'alternative';
+        }
     }
 
     /**
@@ -172,14 +230,6 @@ export class PlanningState {
      */
     isPlanning() {
         return this.mode === 'planning';
-    }
-
-    /**
-     * Get count of total staged changes
-     * @returns {number}
-     */
-    getChangeCount() {
-        return this.stagedChanges.size;
     }
 
     /**
@@ -216,7 +266,7 @@ export class PlanningState {
             tutorialTypes.forEach(groupType => {
                 const enrolledGroupNumber = enrollment[groupType];
                 const selectedGroupNumber = this.getSelectedGroup(
-                    course.CourseCode, groupType, enrolledGroupNumber
+                    course.CourseCode, groupType, enrolledGroupNumber, weekNumber
                 );
                 
                 if (showMode === 'my') {
@@ -283,7 +333,10 @@ export class PlanningState {
      */
     _addMySessionsEvents(events, course, groupType, enrolledGroupNumber, selectedGroupNumber, 
                          termCode, weekNumber, weekStart, colorClass) {
-        const groupsToShow = new Set([enrolledGroupNumber, selectedGroupNumber]);
+        const effectiveEnrolledGroup = this.getEffectiveEnrolledGroup(
+            course.CourseCode, groupType, enrolledGroupNumber, weekNumber
+        );
+        const groupsToShow = new Set([effectiveEnrolledGroup, selectedGroupNumber]);
         
         groupsToShow.forEach(groupNumber => {
             const groupSessions = this.app.sessions[course.CourseCode]?.[groupType]?.[groupNumber]?.[termCode];
@@ -291,12 +344,7 @@ export class PlanningState {
             
             const weekSessions = groupSessions.filter(s => s.Week === weekNumber);
             weekSessions.forEach(session => {
-                let eventState;
-                if (groupNumber === selectedGroupNumber && groupNumber !== enrolledGroupNumber) {
-                    eventState = 'selected';
-                } else {
-                    eventState = 'enrolled';
-                }
+                const eventState = this.getEventState(groupNumber, effectiveEnrolledGroup, selectedGroupNumber);
                 
                 const group = {
                     CourseCode: course.CourseCode,
@@ -321,7 +369,9 @@ export class PlanningState {
      */
     _addAllSessionsEvents(events, course, groupType, enrolledGroupNumber, selectedGroupNumber,
                           termCode, weekNumber, weekStart, colorClass) {
-        // Get all available group numbers for this course and type
+        const effectiveEnrolledGroup = this.getEffectiveEnrolledGroup(
+            course.CourseCode, groupType, enrolledGroupNumber, weekNumber
+        );
         const availableGroups = Object.keys(this.app.sessions[course.CourseCode]?.[groupType] || {});
         
         availableGroups.forEach(groupNumberStr => {
@@ -331,14 +381,7 @@ export class PlanningState {
             
             const weekSessions = groupSessions.filter(s => s.Week === weekNumber);
             weekSessions.forEach(session => {
-                let eventState;
-                if (groupNumber === selectedGroupNumber && groupNumber !== enrolledGroupNumber) {
-                    eventState = 'selected';
-                } else if (groupNumber === enrolledGroupNumber) {
-                    eventState = 'enrolled';
-                } else {
-                    eventState = 'alternative';
-                }
+                const eventState = this.getEventState(groupNumber, effectiveEnrolledGroup, selectedGroupNumber);
                 
                 const group = {
                     CourseCode: course.CourseCode,
@@ -366,17 +409,14 @@ export class PlanningState {
     handleEventClick(info, showDetailsCallback, reloadCallback) {
         const props = info.event.extendedProps;
         
-        // Only allow clicking on tutorials/seminars, not lectures
-        if (props.groupType === 'LEC') {
-            showDetailsCallback(props, info);
-            return;
-        }
-        
         // Find enrollment for this course
         const enrollment = this.app.enrollment[props.courseId];
         if (!enrollment) return;
         
-        const enrolledGroupNumber = enrollment[props.groupType];
+        const originalEnrolledGroupNumber = enrollment[props.groupType];
+        const enrolledGroupNumber = this.getEffectiveEnrolledGroup(
+            props.courseId, props.groupType, originalEnrolledGroupNumber, props.weekNumber
+        );
         
         // If clicking on selected event, de-select it (revert to enrolled)
         if (props.eventState === 'selected') {
@@ -384,14 +424,15 @@ export class PlanningState {
                 props.courseId,
                 props.groupType,
                 enrolledGroupNumber,
-                enrolledGroupNumber  // Set back to enrolled group
+                enrolledGroupNumber,  // Set back to enrolled group
+                props.weekNumber
             );
             reloadCallback();
             return;
         }
         
-        // If clicking on enrolled event, just show details
-        if (props.eventState === 'enrolled') {
+        // If clicking on enrolled event or lecture, just show details
+        if (props.eventState === 'enrolled' || props.groupType === 'LEC') {
             showDetailsCallback(props, info);
             return;
         }
@@ -402,7 +443,8 @@ export class PlanningState {
                 props.courseId,
                 props.groupType,
                 enrolledGroupNumber,
-                props.groupNumber
+                props.groupNumber,
+                props.weekNumber
             );
             reloadCallback();
             return;

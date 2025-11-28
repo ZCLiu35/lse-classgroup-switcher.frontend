@@ -54,8 +54,8 @@ class ClassSwitcherApp {
             // Load all data
             await this.loadData();
             
-            // Apply enrollment overrides from localStorage
-            this.applyEnrollmentOverrides();
+            // Load week-specific overrides
+            this.loadWeekSpecificOverrides();
             
             // Assign and load colors
             this.loadOrAssignCourseColors();
@@ -113,35 +113,15 @@ class ClassSwitcherApp {
     }
 
     /**
-     * Apply enrollment overrides from localStorage
+     * Load week-specific overrides from localStorage
      */
-    applyEnrollmentOverrides() {
-        const overrides = this.storage.loadEnrollmentOverrides();
+    loadWeekSpecificOverrides() {
+        const overrides = this.storage.loadWeekSpecificOverrides();
+        this.planningState.loadWeekSpecificOverrides(overrides);
         
-        if (Object.keys(overrides).length === 0) {
-            console.log('No enrollment overrides found in localStorage');
-            return;
+        if (Object.keys(overrides).length > 0) {
+            console.log('Loaded week-specific overrides:', overrides);
         }
-        
-        console.log('Applying enrollment overrides:', overrides);
-        
-        // Apply each override
-        Object.entries(overrides).forEach(([courseId, groupChanges]) => {
-            const enrollmentEntry = this.enrollment[courseId];
-            if (!enrollmentEntry) {
-                console.warn(`Course ${courseId} not found in enrollment`);
-                return;
-            }
-            
-            // Apply each group type change (now storing group numbers)
-            Object.entries(groupChanges).forEach(([groupType, newGroupNumber]) => {
-                if (enrollmentEntry[groupType] !== undefined) {
-                    const oldGroupNumber = enrollmentEntry[groupType];
-                    console.log(`Override: ${courseId} ${groupType}: ${oldGroupNumber} → ${newGroupNumber}`);
-                    enrollmentEntry[groupType] = newGroupNumber;
-                }
-            });
-        });
     }
 
     /**
@@ -428,7 +408,14 @@ class ClassSwitcherApp {
             if (!enrollment) return;
             
             // Process all enrolled groups for this course
-            Object.entries(enrollment).forEach(([groupType, groupNumber]) => {
+            Object.entries(enrollment).forEach(([groupType, enrolledGroupNumber]) => {
+                // Check for week-specific override
+                const key = `${course.CourseCode}_${groupType}_week${weekNumber}`;
+                const weekSpecificOverrides = this.planningState.weekSpecificOverrides || {};
+                const groupNumber = weekSpecificOverrides[key] !== undefined 
+                    ? weekSpecificOverrides[key] 
+                    : enrolledGroupNumber;
+                
                 // Get sessions for this group and term (direct lookup!)
                 const groupSessions = this.sessions[course.CourseCode]?.[groupType]?.[groupNumber]?.[termCode];
                 if (!groupSessions) return;
@@ -641,28 +628,24 @@ class ClassSwitcherApp {
      * @param {Map} changes - Map of changes from planning state
      */
     applyChangesToEnrollment(changes) {
-        const overrides = this.storage.loadEnrollmentOverrides();
+        const weekSpecificOverrides = this.storage.loadWeekSpecificOverrides();
         
         // Process each change
         changes.forEach((change, key) => {
-            const { courseId, groupType, to } = change;
+            const { courseId, groupType, weekNumber, to } = change;
             
-            // Update enrollment in memory (now storing group numbers)
-            const enrollmentEntry = this.enrollment[courseId];
-            if (enrollmentEntry) {
-                enrollmentEntry[groupType] = to;
-            }
-            
-            // Update overrides object (store group numbers)
-            if (!overrides[courseId]) {
-                overrides[courseId] = {};
-            }
-            overrides[courseId][groupType] = to;
+            // Store week-specific override
+            // Key format: 'courseId_groupType_weekN'
+            weekSpecificOverrides[key] = to;
         });
         
-        // Save overrides to localStorage
-        this.storage.saveEnrollmentOverrides(overrides);
-        console.log('Enrollment overrides saved:', overrides);
+        // Save week-specific overrides to localStorage
+        this.storage.saveWeekSpecificOverrides(weekSpecificOverrides);
+        
+        // Update planning state with new overrides
+        this.planningState.loadWeekSpecificOverrides(weekSpecificOverrides);
+        
+        console.log('Week-specific overrides saved:', weekSpecificOverrides);
     }
     
     /**
