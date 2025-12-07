@@ -328,17 +328,16 @@ export class PlanningState {
     }
 
     /**
-     * Add "my sessions" events (enrolled + selected)
+     * Add session events for tutorials/seminars
      * @private
      */
-    _addMySessionsEvents(events, course, groupType, enrolledGroupNumber, selectedGroupNumber, 
-                         termCode, weekNumber, weekStart, colorClass) {
+    _addSessionEvents(events, course, groupType, enrolledGroupNumber, selectedGroupNumber, 
+                      termCode, weekNumber, weekStart, colorClass, groupsToUse) {
         const effectiveEnrolledGroup = this.getEffectiveEnrolledGroup(
             course.CourseCode, groupType, enrolledGroupNumber, weekNumber
         );
-        const groupsToShow = new Set([effectiveEnrolledGroup, selectedGroupNumber]);
         
-        groupsToShow.forEach(groupNumber => {
+        groupsToUse.forEach(groupNumber => {
             const groupSessions = this.app.sessions[course.CourseCode]?.[groupType]?.[groupNumber]?.[termCode];
             if (!groupSessions) return;
             
@@ -364,40 +363,31 @@ export class PlanningState {
     }
 
     /**
+     * Add "my sessions" events (enrolled + selected)
+     * @private
+     */
+    _addMySessionsEvents(events, course, groupType, enrolledGroupNumber, selectedGroupNumber, 
+                         termCode, weekNumber, weekStart, colorClass) {
+        const effectiveEnrolledGroup = this.getEffectiveEnrolledGroup(
+            course.CourseCode, groupType, enrolledGroupNumber, weekNumber
+        );
+        const groupsToShow = new Set([effectiveEnrolledGroup, selectedGroupNumber]);
+        
+        this._addSessionEvents(events, course, groupType, enrolledGroupNumber, selectedGroupNumber,
+                              termCode, weekNumber, weekStart, colorClass, groupsToShow);
+    }
+
+    /**
      * Add "all sessions" events (all available groups)
      * @private
      */
     _addAllSessionsEvents(events, course, groupType, enrolledGroupNumber, selectedGroupNumber,
                           termCode, weekNumber, weekStart, colorClass) {
-        const effectiveEnrolledGroup = this.getEffectiveEnrolledGroup(
-            course.CourseCode, groupType, enrolledGroupNumber, weekNumber
-        );
-        const availableGroups = Object.keys(this.app.sessions[course.CourseCode]?.[groupType] || {});
+        const availableGroups = Object.keys(this.app.sessions[course.CourseCode]?.[groupType] || {})
+            .map(str => parseInt(str));
         
-        availableGroups.forEach(groupNumberStr => {
-            const groupNumber = parseInt(groupNumberStr);
-            const groupSessions = this.app.sessions[course.CourseCode]?.[groupType]?.[groupNumber]?.[termCode];
-            if (!groupSessions) return;
-            
-            const weekSessions = groupSessions.filter(s => s.Week === weekNumber);
-            weekSessions.forEach(session => {
-                const eventState = this.getEventState(groupNumber, effectiveEnrolledGroup, selectedGroupNumber);
-                
-                const group = {
-                    CourseCode: course.CourseCode,
-                    CourseName: course.CourseName,
-                    Type: groupType,
-                    GroupNumber: groupNumber
-                };
-                
-                const event = utils.sessionToEvent(
-                    session, course, group, weekStart,
-                    colorClass,
-                    eventState
-                );
-                events.push(event);
-            });
-        });
+        this._addSessionEvents(events, course, groupType, enrolledGroupNumber, selectedGroupNumber,
+                              termCode, weekNumber, weekStart, colorClass, availableGroups);
     }
 
     /**
