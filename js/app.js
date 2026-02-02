@@ -103,7 +103,7 @@ class ClassSwitcherApp {
             ]);
             
             console.log('Data loaded successfully:', {
-                courses: this.courses.length,
+                courses: Object.keys(this.courses).length,
                 sessions: Object.keys(this.sessions).length
             });
         } catch (error) {
@@ -137,13 +137,14 @@ class ClassSwitcherApp {
         } else {
             console.log('Generating new course colors');
             // Assign colors to each course
-            const total = this.courses.length;
-            this.courses.forEach((course, index) => {
+            const courseCodes = Object.keys(this.courses);
+            const total = courseCodes.length;
+            courseCodes.forEach((courseCode, index) => {
                 const color = utils.generateCourseColor(index, total);
                 const borderColor = utils.generateBorderColor(color);
                 
                 // Store both background and border colors
-                this.courseColors.set(course.CourseCode, {
+                this.courseColors.set(courseCode, {
                     background: color,
                     border: borderColor,
                     index: index
@@ -389,9 +390,13 @@ class ClassSwitcherApp {
      * Get enrolled courses for a specific term
      */
     getEnrolledCoursesForTerm(termCode) {
-        return this.courses.filter(course => {
-            return course.Terms.includes(termCode);
-        });
+        return Object.entries(this.courses)
+            .filter(([courseCode, courseData]) => courseData.terms.includes(termCode))
+            .map(([courseCode, courseData]) => ({
+                CourseCode: courseCode,
+                CourseName: courseData.name,
+                Terms: courseData.terms
+            }));
     }
 
     /**

@@ -1,57 +1,42 @@
-[
-  {
-    "CourseCode": "EC313",
-    "CourseName": "Industrial Economics",
-    "Terms": [
+{
+  "EC313": {
+    "name": "Industrial Economics",
+    "terms": [
       "AT",
       "ST",
       "WT"
     ]
   },
-  {
-    "CourseCode": "EC321",
-    "CourseName": "Monetary Economics and Aggregate Fluctuations",
-    "Terms": [
+  "EC333": {
+    "name": "Problems in Applied Econometrics",
+    "terms": [
       "AT",
       "ST",
       "WT"
     ]
   },
-  {
-    "CourseCode": "EC333",
-    "CourseName": "Problems in Applied Econometrics",
-    "Terms": [
-      "AT",
-      "ST",
-      "WT"
-    ]
-  },
-  {
-    "CourseCode": "FM321",
-    "CourseName": "Risk Management and Modelling",
-    "Terms": [
+  "FM321": {
+    "name": "Risk Management and Modelling",
+    "terms": [
       "AT"
     ]
   },
-  {
-    "CourseCode": "FM322",
-    "CourseName": "Derivatives",
-    "Terms": [
+  "FM322": {
+    "name": "Derivatives",
+    "terms": [
       "WT"
     ]
   },
-  {
-    "CourseCode": "ST310",
-    "CourseName": "Machine Learning",
-    "Terms": [
+  "ST310": {
+    "name": "Machine Learning",
+    "terms": [
       "AT"
     ]
   },
-  {
-    "CourseCode": "ST311",
-    "CourseName": "Artificial Intelligence",
-    "Terms": [
+  "ST311": {
+    "name": "Artificial Intelligence",
+    "terms": [
       "WT"
     ]
   }
-]
+}
